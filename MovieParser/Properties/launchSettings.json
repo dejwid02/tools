@@ -1,8 +1,7 @@
 {
   "profiles": {
     "MovieParser": {
-      "commandName": "Project",
-      "commandLineArgs": "https://www.filmweb.pl/program-tv/Canal%2B"
+      "commandName": "Project"
     }
   }
 }
