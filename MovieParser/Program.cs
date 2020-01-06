@@ -39,17 +39,18 @@ namespace MovieParser
             var moviesNodes = doc.DocumentNode.Descendants().Where(node => node.Name == "div" && node.Attributes.Select(a => a.Value).Any(v => v.StartsWith("seance film"))).ToList();
 
             movies = moviesNodes.Select(node=> {
-                var movieData = allSeancesTyped.FirstOrDefault(m => m.Id == node.Attributes["data-sid"].Value);
+                var movieData = allSeancesTyped.FirstOrDefault(m => m.Id == long.Parse(node.Attributes["data-sid"].Value));
                 return new Movie()
                 {
-                    Id = int.Parse(node.Attributes["data-sid"].Value),
-                    Title = node.Descendants().Where(n2 => n2.Name == "a").First().InnerText,
+                    Id = movieData.Id,
+                    Title = node.Descendants().Where(n2 => n2.Name == "a").FirstOrDefault()?.InnerText,
                     EmissionDates = { ParseDate(node.Attributes["data-start"].Value) },
                     Rating = movieData?.Rating,
-                    MovieType = movieData.MovieType,
+                    MovieType = movieData?.MovieType,
+                    Description = movieData?.Description
 
-                    
-                }}
+                };
+            }
             ).ToList();
 
             Console.WriteLine("Hello World!");
