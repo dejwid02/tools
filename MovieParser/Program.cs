@@ -6,7 +6,7 @@ using System.Net;
 using System.IO;
 using System.Collections.Generic;
 using System.Globalization;
-
+using System.Linq;
 namespace MovieParser
 {
     class Program
@@ -25,11 +25,18 @@ namespace MovieParser
             var movies = new List<Movie>();
             var doc = new HtmlDocument();
             doc.LoadHtml(content);
+            var seances = doc.DocumentNode.Descendants().Where(node => node.Name == "div" && node.Attributes.Select(a => a.Value).Any(v => v.StartsWith("seanceInfo"))).ToList();
+            var allSeances = seances.Select(s=> Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(s.InnerText).seances).ToList();
+            //foreach(var s in descr.seances)
+            //{
+            //    var m = s;
+            //}
             var moviesNodes = doc.DocumentNode.Descendants().Where(node => node.Name == "div" && node.Attributes.Select(a => a.Value).Any(v => v.StartsWith("seance film"))).ToList();
 
             movies = moviesNodes.Select(node=>new Movie()
             {
                 Id = int.Parse(node.Attributes["data-sid"].Value),
+                Title = node.Descendants().Where(n2=>n2.Name=="a").First().InnerText,
                 EmissionDates = { ParseDate(node.Attributes["data-start"].Value) }
             }).ToList();
 
