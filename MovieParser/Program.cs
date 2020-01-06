@@ -26,19 +26,31 @@ namespace MovieParser
             var doc = new HtmlDocument();
             doc.LoadHtml(content);
             var seances = doc.DocumentNode.Descendants().Where(node => node.Name == "div" && node.Attributes.Select(a => a.Value).Any(v => v.StartsWith("seanceInfo"))).ToList();
-            var allSeances = seances.Select(s=> Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(s.InnerText).seances).ToList();
-            //foreach(var s in descr.seances)
+            var allSeances = seances.SelectMany(s=> (IEnumerable<dynamic>)Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(s.InnerText).seances).ToList();
+            var allSeancesTyped = allSeances.Select(s => new {
+                Id = long.Parse(s.Name), 
+                Rating = s.First.film_rating?.Value, 
+                Type = s.First.type?.Value, MovieType = s.First.type_descr?.Value,
+                Description = s.First.synopsis?.Value }).ToList();
+            //foreach(var s in descr.seancallSeanceses)
             //{
             //    var m = s;
             //}
             var moviesNodes = doc.DocumentNode.Descendants().Where(node => node.Name == "div" && node.Attributes.Select(a => a.Value).Any(v => v.StartsWith("seance film"))).ToList();
 
-            movies = moviesNodes.Select(node=>new Movie()
-            {
-                Id = int.Parse(node.Attributes["data-sid"].Value),
-                Title = node.Descendants().Where(n2=>n2.Name=="a").First().InnerText,
-                EmissionDates = { ParseDate(node.Attributes["data-start"].Value) }
-            }).ToList();
+            movies = moviesNodes.Select(node=> {
+                var movieData = allSeancesTyped.FirstOrDefault(m => m.Id == node.Attributes["data-sid"].Value);
+                return new Movie()
+                {
+                    Id = int.Parse(node.Attributes["data-sid"].Value),
+                    Title = node.Descendants().Where(n2 => n2.Name == "a").First().InnerText,
+                    EmissionDates = { ParseDate(node.Attributes["data-start"].Value) },
+                    Rating = movieData?.Rating,
+                    MovieType = movieData.MovieType,
+
+                    
+                }}
+            ).ToList();
 
             Console.WriteLine("Hello World!");
         }
