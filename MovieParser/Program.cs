@@ -14,7 +14,12 @@ namespace MovieParser
         static void Main(string[] args)
         {
             var client = new WebClient();
-            var url = "";
+            var providerUrl = Environment.GetEnvironmentVariable("MoviesProviderUrl");
+            var baseUrl = new Uri(providerUrl);
+            
+            var tvScheduleUrl = "program-tv";
+            var channel = "HBO";
+            var url = baseUrl.Append(tvScheduleUrl, channel);
             var content = client.DownloadString(url);
             client.Dispose();
             var movies = new List<Movie>();
