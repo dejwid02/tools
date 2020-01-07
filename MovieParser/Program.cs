@@ -13,53 +13,38 @@ namespace MovieParser
     {
         static void Main(string[] args)
         {
-            var client = new WebClient();
             var providerUrl = Environment.GetEnvironmentVariable("MoviesProviderUrl");
             var baseUrl = new Uri(providerUrl);
-            
-            var tvScheduleUrl = "program-tv";
-            var channel = "HBO";
-            var url = baseUrl.Append(tvScheduleUrl, channel);
-            var content = client.DownloadString(url);
-            client.Dispose();
-            var movies = new List<Movie>();
-            var doc = new HtmlDocument();
-            doc.LoadHtml(content);
-            var seances = doc.DocumentNode.Descendants().Where(node => node.Name == "div" && node.Attributes.Select(a => a.Value).Any(v => v.StartsWith("seanceInfo"))).ToList();
-            var allSeances = seances.SelectMany(s=> (IEnumerable<dynamic>)Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(s.InnerText).seances).ToList();
-            var allSeancesTyped = allSeances.Select(s => new {
-                Id = long.Parse(s.Name), 
-                Rating = s.First.film_rating?.Value, 
-                Type = s.First.type?.Value, MovieType = s.First.type_descr?.Value,
-                Description = s.First.synopsis?.Value }).ToList();
-            //foreach(var s in descr.seancallSeanceses)
-            //{
-            //    var m = s;
-            //}
-            var moviesNodes = doc.DocumentNode.Descendants().Where(node => node.Name == "div" && node.Attributes.Select(a => a.Value).Any(v => v.StartsWith("seance film"))).ToList();
 
-            movies = moviesNodes.Select(node=> {
-                var movieData = allSeancesTyped.FirstOrDefault(m => m.Id == long.Parse(node.Attributes["data-sid"].Value));
-                return new Movie()
-                {
-                    Id = movieData.Id,
-                    Title = node.Descendants().Where(n2 => n2.Name == "a").FirstOrDefault()?.InnerText,
-                    EmissionDates = { ParseDate(node.Attributes["data-start"].Value) },
-                    Rating = movieData?.Rating,
-                    MovieType = movieData?.MovieType,
-                    Description = movieData?.Description
+            var channels = new List<Channel> {
+            CreateChannel(baseUrl, "Canal%2B", "Canal+"),
+            CreateChannel(baseUrl, "Canal%2B+Film", "Canal+ Film"),
+            CreateChannel(baseUrl, "Canal%2B+Family", "Canal+ Family"),
+            CreateChannel(baseUrl, "HBO", "HBO"),
+            CreateChannel(baseUrl, "HBO2", "HBO2"),
+            CreateChannel(baseUrl, "HBO+3", "HBO3")
 
-                };
-            }
-            ).ToList();
+            };
 
-            Console.WriteLine("Hello World!");
+            var scheduleParser = new ScheduleParser();
+            var tvItems = channels.SelectMany(channel=>scheduleParser.ParseTvSchedule(channel));
+            tvItems.Where(item => item.Movie.Rating > 6.5 && item.StartTime > DateTime.Now).OrderBy(item=>item.StartTime).ToList()
+                .ForEach(item => Console.WriteLine(
+                    $"{item.StartTime.ToString("dd MMM hh:mm")} {item.Channel.Name} {item.Movie.Title} {item.Movie.MovieType} {item.Movie.Rating?.ToString("F2") ?? "NA"}"));
         }
-        private static DateTime ParseDate(string date)
+
+        private static Channel CreateChannel(Uri baseUrl, string channelUrl, string channelName)
         {
-            var components = date.Split(',').Select(c=>int.Parse(c)).ToList();
-            return new DateTime(components[0], components[1], components[2], components[3], components[4], 0);
+            var tvScheduleUrl = "program-tv";
+            var url = baseUrl.Append(tvScheduleUrl, channelUrl);
+            var channel = new Channel()
+            {
+                Name = channelName,
+                Url = url
+            };
+            return channel;
         }
+
 
         //parse seancesinfo nodes
     }

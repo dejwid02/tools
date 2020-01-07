@@ -11,7 +11,6 @@ namespace MovieParser
         public string Url { get; set; }
         public double? Rating { get; set; }
         public string MovieType { get; set; }
-        public List<DateTime> EmissionDates { get; set; } = new List<DateTime>();
         public dynamic Description { get; internal set; }
     }
 }
