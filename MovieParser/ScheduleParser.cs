@@ -20,7 +20,7 @@ namespace MovieParser
             var seances = doc.DocumentNode.Descendants().Where(node => node.Name == "div" && node.Attributes.Select(a => a.Value).Any(v => v.StartsWith("seanceInfo"))).ToList();
             var allSeances = seances.SelectMany(s => (IEnumerable<dynamic>)Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(s.InnerText).seances).ToList();
             var allSeancesTyped = allSeances.Select(s => new {
-                Id = long.Parse(s.Name),
+                IdData = long.Parse(s.Name),
                 Rating = s.First.film_rating?.Value,
                 Type = s.First.type?.Value,
                 MovieType = s.First.type_descr?.Value,
@@ -30,12 +30,12 @@ namespace MovieParser
             var scheduleItems = doc.DocumentNode.Descendants().Where(node => node.Name == "div" && node.Attributes.Select(a => a.Value).Any(v => v.StartsWith("seance film"))).ToList();
 
             return scheduleItems.Select(node => {
-                var movieData = allSeancesTyped.FirstOrDefault(m => m.Id == long.Parse(node.Attributes["data-sid"].Value));
+                var movieData = allSeancesTyped.FirstOrDefault(m => m.IdData == long.Parse(node.Attributes["data-sid"].Value));
                 return new TvScheduleItem()
                 {
                     Movie = new Movie()
                     {
-                        Id = movieData.Id,
+                        Id = long.Parse(node.Attributes["data-film"]?.Value),
                         Title = node.Descendants().Where(n2 => n2.Name == "a").FirstOrDefault()?.InnerText,
                         Rating = movieData?.Rating,
                         MovieType = movieData?.MovieType,

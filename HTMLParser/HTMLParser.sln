@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.29403.142
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HTMLParser", "HTMLParser.csproj", "{A84B6F11-91DC-4A29-943A-56597F5E2EB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieParser", "..\MovieParser\MovieParser.csproj", "{47494C28-C5AE-48AB-87B2-223D0F02A4CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieParser", "..\MovieParser\MovieParser.csproj", "{47494C28-C5AE-48AB-87B2-223D0F02A4CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieParser.Entities", "..\MovieParser.Entities\MovieParser.Entities.csproj", "{F116A0CC-B67F-457E-8384-1CB9B6E39680}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieParser.DAL", "..\MovieParser.DAL\MovieParser.DAL.csproj", "{04A4EA9C-C131-4B85-9511-59B0FB59AFCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{47494C28-C5AE-48AB-87B2-223D0F02A4CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47494C28-C5AE-48AB-87B2-223D0F02A4CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47494C28-C5AE-48AB-87B2-223D0F02A4CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F116A0CC-B67F-457E-8384-1CB9B6E39680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F116A0CC-B67F-457E-8384-1CB9B6E39680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F116A0CC-B67F-457E-8384-1CB9B6E39680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F116A0CC-B67F-457E-8384-1CB9B6E39680}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04A4EA9C-C131-4B85-9511-59B0FB59AFCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04A4EA9C-C131-4B85-9511-59B0FB59AFCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04A4EA9C-C131-4B85-9511-59B0FB59AFCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04A4EA9C-C131-4B85-9511-59B0FB59AFCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

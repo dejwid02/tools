@@ -18,11 +18,11 @@ namespace MovieParser
 
             var channels = new List<Channel> {
             CreateChannel(baseUrl, "Canal%2B", "Canal+"),
-            CreateChannel(baseUrl, "Canal%2B+Film", "Canal+ Film"),
+            //CreateChannel(baseUrl, "Canal%2B+Film", "Canal+ Film"),
             CreateChannel(baseUrl, "Canal%2B+Family", "Canal+ Family"),
-            CreateChannel(baseUrl, "HBO", "HBO"),
-            CreateChannel(baseUrl, "HBO2", "HBO2"),
-            CreateChannel(baseUrl, "HBO+3", "HBO3")
+           // CreateChannel(baseUrl, "HBO", "HBO"),
+            //CreateChannel(baseUrl, "HBO2", "HBO2"),
+           // CreateChannel(baseUrl, "HBO+3", "HBO3")
 
             };
 
@@ -30,7 +30,7 @@ namespace MovieParser
             var tvItems = channels.SelectMany(channel=>scheduleParser.ParseTvSchedule(channel));
             tvItems.Where(item => item.Movie.Rating > 6.5 && item.StartTime > DateTime.Now).OrderBy(item=>item.StartTime).ToList()
                 .ForEach(item => Console.WriteLine(
-                    $"{item.StartTime.ToString("dd MMM hh:mm")} {item.Channel.Name} {item.Movie.Title} {item.Movie.MovieType} {item.Movie.Rating?.ToString("F2") ?? "NA"}"));
+                    $"{item.StartTime.ToString("dd MMM hh:mm")} {item.Channel.Name} {item.Movie.Id} {item.Movie.Title} {item.Movie.MovieType} {item.Movie.Rating?.ToString("F2") ?? "NA"}"));
         }
 
         private static Channel CreateChannel(Uri baseUrl, string channelUrl, string channelName)
