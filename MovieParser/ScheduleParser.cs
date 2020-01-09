@@ -35,7 +35,7 @@ namespace MovieParser
                 {
                     Movie = new Movie()
                     {
-                        Id = long.Parse(node.Attributes["data-film"]?.Value),
+                        Id = long.Parse(node.Attributes["data-film"]?.Value ?? "-1"),
                         Title = node.Descendants().Where(n2 => n2.Name == "a").FirstOrDefault()?.InnerText,
                         Rating = movieData?.Rating,
                         MovieType = movieData?.MovieType,

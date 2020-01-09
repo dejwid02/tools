@@ -11,6 +11,9 @@ namespace MovieParser.DAL
             optionsBuilder.UseSqlServer("Server = (localdb)\\MSSQLLocalDB; Database = Movies; Trusted_Connection = True; "); //ToDo load me from configuration
             base.OnConfiguring(optionsBuilder);
         }
-        public DbSet<MovieEntity> Movies { get; set; }
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Channel> Channels { get; set; }
+        public DbSet<TvListingItem> TvListingItems { get; set; }
+        public DbSet<MovieUserData> MoviesUserData { get; set; }
     }
 }
