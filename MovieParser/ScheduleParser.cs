@@ -1,4 +1,5 @@
 ﻿using HtmlAgilityPack;
+using MovieParser.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,12 @@ namespace MovieParser
 {
     public class ScheduleParser
     {
-        public IList<TvScheduleItem> ParseTvSchedule(Channel channel)
+        public IList<TvListingItem> ParseTvSchedule(Channel channel)
         {
             var client = new WebClient();           
             var content = client.DownloadString(channel.Url);
             client.Dispose();
-            var movies = new List<TvScheduleItem>();
+            var movies = new List<TvListingItem>();
             var doc = new HtmlDocument();
             doc.LoadHtml(content);
             var seances = doc.DocumentNode.Descendants().Where(node => node.Name == "div" && node.Attributes.Select(a => a.Value).Any(v => v.StartsWith("seanceInfo"))).ToList();
@@ -31,14 +32,14 @@ namespace MovieParser
 
             return scheduleItems.Select(node => {
                 var movieData = allSeancesTyped.FirstOrDefault(m => m.IdData == long.Parse(node.Attributes["data-sid"].Value));
-                return new TvScheduleItem()
+                return new TvListingItem()
                 {
                     Movie = new Movie()
                     {
                         Id = long.Parse(node.Attributes["data-film"]?.Value ?? "-1"),
                         Title = node.Descendants().Where(n2 => n2.Name == "a").FirstOrDefault()?.InnerText,
-                        Rating = movieData?.Rating,
-                        MovieType = movieData?.MovieType,
+                        Rating = movieData?.Rating ?? -1,
+                        Category = movieData?.MovieType,
                         Description = movieData?.Description
                     },
                     StartTime = ParseDate(node.Attributes["data-start"].Value),
