@@ -6,7 +6,6 @@ using System.Net;
 using System.IO;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using MovieParser.DAL;
 using MovieParser.Entities;
 
@@ -17,25 +16,40 @@ namespace MovieParser
         static void Main(string[] args)
         {
             int status = 0;
+            int noOfMoviesCreated = 0;
             string error = "";
             var startDate = DateTime.Now;
             IEnumerable<TvListingItem> contents = null;
             IMoviesRepository repository = new MoviesRepository(new MoviesDbContext());
+
             try
             {
                 var providerUrl = Environment.GetEnvironmentVariable("MoviesProviderUrl");
-                var baseUrl = new Uri(providerUrl);
-                var filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"Movies_{DateTime.Now.ToString("MM_dd_hh_mm")}.txt");
 
-                
                 var channels = repository.GetAllChannels();
-
-
+                var filterDate = repository.GetLastLog()?.LastSynchronizedDate ?? DateTime.Now;
                 var scheduleParser = new ScheduleParser();
                 var tvItems = channels.SelectMany(channel => scheduleParser.ParseTvSchedule(channel));
-                contents = tvItems.Where(item => item.Movie.Rating > 6.5 && item.StartTime > DateTime.Now).OrderBy(i => i.StartTime);
-                contents.ToList().ForEach(i => repository.Add(i));
-                repository.SaveChanges();              
+
+                contents = tvItems.Where(item => item.Movie.Rating > 4.0 && item.StartTime > filterDate).OrderBy(i => i.StartTime);
+                var existingMovies = repository.GetAllMovies().ToList();
+                foreach (var tvListingItem in contents)
+                {
+                    var existingMovie = existingMovies.FirstOrDefault(m => m.Id == tvListingItem.Movie.Id);
+                    if (existingMovie != null)
+                        tvListingItem.Movie = existingMovie;
+                    else
+                    {
+                        existingMovies.Add(tvListingItem.Movie);
+                        tvListingItem.Movie.Title = tvListingItem.Movie.Title.Replace("&oacute;", "ó");
+                        tvListingItem.Movie.Description = tvListingItem.Movie.Description.Replace("&oacute;", "ó");
+                        noOfMoviesCreated++;
+                    }
+
+                    repository.Add(tvListingItem);
+                }
+
+                repository.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -47,33 +61,15 @@ namespace MovieParser
             {
                 StartDate = startDate,
                 FinishDate = finishDate,
+                Duration = finishDate - startDate,
                 LastSynchronizedDate = contents?.Last()?.StartTime ?? finishDate,
                 ErrorMessage = error,
-                Status = status
+                Status = status,
+                NoOfMoviesCreated = noOfMoviesCreated,
+                NoOfTvListingItemsCreated = contents?.Count() ?? 0
             };
             repository.Add(configurationItem);
             repository.SaveChanges();
-            
-            //.OrderBy(item => item.StartTime).GroupBy(f => f.Movie.Id).ToList()
-            //    .Select(item =>
-            //        $"{item.First().StartTime.ToString("dd MMM hh:mm")} {item.First().Channel.Name} {item.First().Movie.Title} {item.First().Movie.MovieType} {item.First().Movie.Rating?.ToString("F2") ?? "NA"}");
-            
-            //File.WriteAllLines(filePath, contents);
         }
-
-        //private static Entities.Channel CreateChannel(Uri baseUrl, string channelUrl, string channelName)
-        //{
-        //    var tvScheduleUrl = "program-tv";
-        //    var url = baseUrl.Append(tvScheduleUrl, channelUrl);
-        //    var channel = new Entities.Channel()
-        //    {
-        //        Name = channelName,
-        //        Url = url.ToString()
-        //    };
-        //    return channel;
-        //}
-
-
-        //parse seancesinfo nodes
     }
 }

@@ -13,7 +13,9 @@ namespace MovieParser.DAL
         void Delete<T>(T entity) where T : class;
         bool SaveChanges();
         Movie[] GetAllMovies();
+        LogData GetLastLog();
         Channel[] GetAllChannels();
         TvListingItem[] GetAllTvListingItems();
+        Movie GetMovieById(long id);
     }
 }

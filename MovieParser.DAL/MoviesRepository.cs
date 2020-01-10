@@ -27,9 +27,17 @@ namespace MovieParser.DAL
             return _context.SaveChanges() > 0;
         }
 
+        LogData IMoviesRepository.GetLastLog()
+        {
+            return _context.LogsData.OrderByDescending(l=>l.LastSynchronizedDate).FirstOrDefault();
+        }
         Movie[] IMoviesRepository.GetAllMovies()
         {
             return _context.Movies.ToArray();          
+        }
+        Movie IMoviesRepository.GetMovieById(long id)
+        {
+            return _context.Movies.FirstOrDefault(m=>m.Id==id);
         }
 
         Channel[] IMoviesRepository.GetAllChannels()
