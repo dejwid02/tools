@@ -26,10 +26,10 @@ namespace MovieParser
             {
                 var providerUrl = Environment.GetEnvironmentVariable("MoviesProviderUrl");
 
-                var channels = repository.GetAllChannels();
+                var channels = repository.GetAllChannels().Take(1);
                 var filterDate = repository.GetLastLog()?.LastSynchronizedDate ?? DateTime.Now;
                 var scheduleParser = new ScheduleParser();
-                var tvItems = channels.SelectMany(channel => scheduleParser.ParseTvSchedule(channel));
+                var tvItems = channels.SelectMany(channel => scheduleParser.ParseTvSchedule(channel, providerUrl)).ToList();
 
                 contents = tvItems.Where(item => item.Movie.Rating > 4.0 && item.StartTime > filterDate).OrderBy(i => i.StartTime);
                 var existingMovies = repository.GetAllMovies().ToList();
@@ -62,7 +62,7 @@ namespace MovieParser
                 StartDate = startDate,
                 FinishDate = finishDate,
                 Duration = finishDate - startDate,
-                LastSynchronizedDate = contents?.Last()?.StartTime ?? finishDate,
+                LastSynchronizedDate = contents?.LastOrDefault()?.StartTime ?? finishDate,
                 ErrorMessage = error,
                 Status = status,
                 NoOfMoviesCreated = noOfMoviesCreated,
