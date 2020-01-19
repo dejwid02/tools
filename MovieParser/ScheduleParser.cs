@@ -43,7 +43,7 @@ namespace MovieParser
                     {
                         Id = long.Parse(node.Attributes["data-film"]?.Value ?? "-1"),
                         Url = url,
-                        Year = ExtractYearFromString(url),
+                        Year = ExtractYearFromString(url) ?? 0,
                         Title = movieLink?.InnerText,
                         Rating = movieData?.Rating,
                         AgeRating = (int)movieData?.AgeRating,

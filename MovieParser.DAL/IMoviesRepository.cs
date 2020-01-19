@@ -12,10 +12,11 @@ namespace MovieParser.DAL
         void Add<T>(T entity) where T : class;
         void Delete<T>(T entity) where T : class;
         bool SaveChanges();
-        Movie[] GetAllMovies();
+        Movie GetMovieByYearAndTitle(int? year, string title);
+        Actor GetActorsByName(string firstName, string lastName);
+        Director GetDirectorsByName(string firstName, string lastName);
         LogData GetLastLog();
         Channel[] GetAllChannels();
         TvListingItem[] GetAllTvListingItems();
-        Movie GetMovieById(long id);
     }
 }

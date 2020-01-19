@@ -6,18 +6,18 @@ namespace MovieParser.DAL
 {
     public class MoviesRepository : IMoviesRepository
     {
-        MoviesDbContext _context; 
+        MoviesDbContext _context;
 
         public MoviesRepository(MoviesDbContext dbContext)
         {
             _context = dbContext;
         }
-         void IMoviesRepository.Add<T>(T entity)
+        void IMoviesRepository.Add<T>(T entity)
         {
             _context.Add(entity);
         }
 
-         void IMoviesRepository.Delete<T>(T entity)
+        void IMoviesRepository.Delete<T>(T entity)
         {
             _context.Remove(entity);
         }
@@ -29,15 +29,23 @@ namespace MovieParser.DAL
 
         LogData IMoviesRepository.GetLastLog()
         {
-            return _context.LogsData.OrderByDescending(l=>l.LastSynchronizedDate).FirstOrDefault();
+            return _context.LogsData.OrderByDescending(l => l.LastSynchronizedDate).FirstOrDefault();
         }
-        Movie[] IMoviesRepository.GetAllMovies()
+
+        Director IMoviesRepository.GetDirectorsByName(string firstName, string lastName)
         {
-            return _context.Movies.ToArray();          
+            return _context.Directors.FirstOrDefault(d => d.FirstName == firstName && d.LastName == lastName);
         }
-        Movie IMoviesRepository.GetMovieById(long id)
+
+        Actor IMoviesRepository.GetActorsByName(string firstName, string lastName)
         {
-            return _context.Movies.FirstOrDefault(m=>m.Id==id);
+            return _context.Actors.FirstOrDefault(d => d.FirstName == firstName && d.LastName == lastName);
+        }
+
+        Movie IMoviesRepository.GetMovieByYearAndTitle(int? year, string title)
+        {
+                return _context.Movies.FirstOrDefault(m => m.Year == year && m.Title==title);
+
         }
 
         Channel[] IMoviesRepository.GetAllChannels()
@@ -49,7 +57,7 @@ namespace MovieParser.DAL
         {
             return _context.TvListingItems
                 .Include(c => c.Movie)
-                .Include(c=>c.Channel)
+                .Include(c => c.Channel)
                 .ToArray();
         }
     }

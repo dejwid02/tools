@@ -10,7 +10,7 @@ namespace MovieParser
 {
     public class EpgParser
     {
-        public IList<TvListingItem> ParseTvSchedule(IList<Channel> channels, string content, string providerUrl)
+        public IList<TvListingItem> ParseTvSchedule(IEnumerable<Channel> channels, string content)
         {
 
             var movies = new List<TvListingItem>();
@@ -25,6 +25,7 @@ namespace MovieParser
                 var creditsNodes = movieNode.Descendants("credits").Single();
                 double rating;
                 int ageRating;
+                int year;
                 return new TvListingItem()
                 {
                     Channel = channels.Single(c=>c.Name == channelName),
@@ -35,12 +36,12 @@ namespace MovieParser
                         Actors = creditsNodes.Descendants("actor").Take(4).Select(node=>CreateActor(node.Value)).ToList(),
                         Director = CreateDirector(creditsNodes.Descendants("director").First().Value),
                         Description = movieNode.Descendants("desc").Single().Value,
-                        Category = $"{movieNode.Descendants("category").First().Value} {movieNode.Descendants("category").Skip(1).First().Value}",
-                        Year = int.Parse(movieNode.Descendants("date").Single().Value),
+                        Category = $"{movieNode.Descendants("category").First().Value} {movieNode.Descendants("category").Skip(1)?.FirstOrDefault()?.Value ?? ""}",
+                        Year = int.TryParse(movieNode.Descendants("date").FirstOrDefault()?.Value, out year) ? (int?)year : null,
                         Rating = double.TryParse(movieNode.Descendants("star-rating").FirstOrDefault()?.Descendants()?.FirstOrDefault()?.Value, out rating) ? (double?)rating : null,
                         Duration = (int)(stopDate - startDate).TotalMinutes,
                         AgeRating = int.TryParse(movieNode.Descendants("rating").FirstOrDefault()?.Descendants()?.FirstOrDefault()?.Value, out ageRating) ? ageRating : 0,
-                        Country = movieNode.Descendants("country").Single().Value,
+                        Country = movieNode.Descendants("country").SingleOrDefault()?.Value ?? "",
                     }
                 };
             }
@@ -53,7 +54,7 @@ namespace MovieParser
             return new Actor
             {
                 FirstName = array[0],
-                LastName = array[1]
+                LastName = array.ElementAtOrDefault(1) ?? ""
             };
         }
 

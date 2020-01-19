@@ -11,7 +11,7 @@ namespace MovieParser.Tests
         public void ParseSingleMovieShouldReturnOneItem()
         {
             var channel = new Channel() { Name = "CanalPlusDiscovery.pl" };
-            var movies = sut.ParseTvSchedule(new[] { channel }, epgMovie, "");
+            var movies = sut.ParseTvSchedule(new[] { channel }, epgMovie);
             Assert.AreEqual(1, movies.Count);
         }
 
