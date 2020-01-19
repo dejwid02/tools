@@ -22,6 +22,7 @@ namespace MovieParser
                 var channelName = movieNode.Attributes("channel").Single().Value;
                 var startDate = ParseDate(movieNode.Attributes("start").Single().Value);
                 var stopDate = ParseDate(movieNode.Attributes("stop").Single().Value);
+                var creditsNodes = movieNode.Descendants("credits").Single();
                 double rating;
                 int ageRating;
                 return new TvListingItem()
@@ -31,6 +32,8 @@ namespace MovieParser
                     Movie = new Movie()
                     {
                         Title = movieNode.Descendants("title").Single().Value,
+                        Actors = creditsNodes.Descendants("actor").Take(4).Select(node=>CreateActor(node.Value)).ToList(),
+                        Director = CreateDirector(creditsNodes.Descendants("director").First().Value),
                         Description = movieNode.Descendants("desc").Single().Value,
                         Category = $"{movieNode.Descendants("category").First().Value} {movieNode.Descendants("category").Skip(1).First().Value}",
                         Year = int.Parse(movieNode.Descendants("date").Single().Value),
@@ -42,6 +45,26 @@ namespace MovieParser
                 };
             }
             ).ToList();
+        }
+
+        private Actor CreateActor(string fullName)
+        {
+            var array = fullName.Split(" ");
+            return new Actor
+            {
+                FirstName = array[0],
+                LastName = array[1]
+            };
+        }
+
+        private Director CreateDirector(string fullName)
+        {
+            var array = fullName.Split(" ");
+            return new Director
+            {
+                FirstName = array[0],
+                LastName = array[1]
+            };
         }
 
         private DateTime ParseDate(string date)

@@ -1,9 +1,12 @@
-﻿namespace MovieParser.Entities
+﻿using System.Collections.Generic;
+
+namespace MovieParser.Entities
 {
     public class Movie
     {
         public long Id { get; set; }
         public Director Director { get; set; }
+        public IList<Actor> Actors { get; set; }
         public string Title { get; set; }
         public double? Rating { get; set; }
         public string Category { get; set; }
