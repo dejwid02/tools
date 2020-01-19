@@ -29,7 +29,11 @@ namespace MovieParser
                 var channels = repository.GetAllChannels();
                 var filterDate = repository.GetLastLog()?.LastSynchronizedDate ?? DateTime.Now;
                 var scheduleParser = new EpgParser();
-                var content = File.ReadAllText(@"C:\Users\dawid_000\Documents\guide.xml");
+                Console.WriteLine("Downloading data...");
+                var webClient = new WebClient();
+                var content = webClient.DownloadString(providerUrl);
+                webClient.Dispose();
+                Console.WriteLine("Parsing...");
                 var tvItems = scheduleParser.ParseTvSchedule(channels, content).ToList();
 
                 contents = tvItems.Where(item => item.Movie.Rating > 2.0 && item.StartTime > filterDate).OrderBy(i => i.StartTime);
@@ -78,8 +82,9 @@ namespace MovieParser
 
                     repository.Add(tvListingItem);
                 }
-
+                Console.WriteLine("Saving data to database...");
                 repository.SaveChanges();
+                Console.WriteLine($"Created {noOfMoviesCreated} movies...");
             }
             catch (Exception ex)
             {

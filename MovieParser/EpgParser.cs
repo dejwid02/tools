@@ -16,7 +16,7 @@ namespace MovieParser
             var movies = new List<TvListingItem>();
             var elemnt = XElement.Parse(content);
             var selectedChannels = channels.Select(c => c.Name).ToList();
-            var filteredMovies = elemnt.Descendants("programme").Where(node => selectedChannels.Contains(node.Attributes("channel").Single().Value) && node.Descendants("star-rating").Count() > 0);
+            var filteredMovies = elemnt.Descendants("programme").Where(node => selectedChannels.Contains(node.Attributes("channel").Single().Value) && node.Descendants("star-rating").Count() > 0 && node.Descendants("category").First().Value!="Serial");
             return filteredMovies.Select(movieNode =>
             {
                 var channelName = movieNode.Attributes("channel").Single().Value;
