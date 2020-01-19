@@ -19,6 +19,7 @@ namespace MovieParser
             int noOfMoviesCreated = 0;
             string error = "";
             var startDate = DateTime.Now;
+            var movie = new ScheduleParser().ParseMovie("");
             IEnumerable<TvListingItem> contents = null;
             IMoviesRepository repository = new MoviesRepository(new MoviesDbContext());
 

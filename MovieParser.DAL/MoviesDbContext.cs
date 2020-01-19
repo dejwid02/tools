@@ -15,6 +15,8 @@ namespace MovieParser.DAL
         public DbSet<Channel> Channels { get; set; }
         public DbSet<TvListingItem> TvListingItems { get; set; }
         public DbSet<MovieUserData> MoviesUserData { get; set; }
+        public DbSet<Actor> Actors { get; set; }
+        public DbSet<Director> Directors { get; set; }
         public DbSet<LogData> LogsData { get; set; }
     }
 }

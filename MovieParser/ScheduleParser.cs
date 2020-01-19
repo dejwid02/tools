@@ -14,7 +14,7 @@ namespace MovieParser
         public IList<TvListingItem> ParseTvSchedule(Channel channel, string providerUrl)
         {
             var client = new WebClient();           
-            var content = client.DownloadString(channel.Url);
+            var content = client.DownloadString(channel.Name);
             client.Dispose();
             var movies = new List<TvListingItem>();
             var doc = new HtmlDocument();
@@ -57,6 +57,30 @@ namespace MovieParser
             }).ToList();
         }
 
+        public Movie ParseMovie(string movieUrl)
+        {
+            movieUrl = "https://www.filmweb.pl/film/Kler-2018-810402";
+            var client = new WebClient();
+            var content = client.DownloadString(movieUrl);
+            client.Dispose();
+            var movies = new List<TvListingItem>();
+            var doc = new HtmlDocument();
+            doc.LoadHtml(content);
+            var scripts = doc.DocumentNode.Descendants().Where(node => node.Name == "script").Where(n=>n.Attributes.Count()==1 && n.Attributes[0].Value=="setfilm");
+            var links = doc.DocumentNode.Descendants().Where(node => node.Name == "a");
+            var text = scripts.First().InnerText;
+            var rating = text.IndexOf("ratingCount:");
+            var startIndex = text.LastIndexOf('{');
+            var endindex = text.IndexOf('}');
+            var jsonText = text.Substring(startIndex, endindex - startIndex + 1).Replace("!", "");
+            var jsonObject = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(jsonText);
+            return new Movie()
+            {
+                Year = jsonObject?.year,
+                AgeRating = jsonObject?.ratingCount
+            };
+
+        }
         private int ExtractDurationFromString(string value)
         {
             var numberStrings = Regex.Split(value, @"\D+");
