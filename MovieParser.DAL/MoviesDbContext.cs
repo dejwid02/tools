@@ -12,6 +12,11 @@ namespace MovieParser.DAL
             optionsBuilder.EnableSensitiveDataLogging();
             base.OnConfiguring(optionsBuilder);
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<MovieActor>().HasKey(x => new { x.ActorId, x.MovieId });
+        }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Channel> Channels { get; set; }
         public DbSet<TvListingItem> TvListingItems { get; set; }
