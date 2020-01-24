@@ -49,15 +49,14 @@ namespace MovieParser
                     else
                     {
                         existingMovies.Add(tvListingItem.Movie);
-                        foreach (var actor in tvListingItem.Movie.Actors)
+                        for (int i =0; i< tvListingItem.Movie.Actors.Count; i++)
                         {
+                            var actor = tvListingItem.Movie.Actors[i];
                             var existingActor = existingActors.FirstOrDefault(a => a.FirstName == actor.FirstName && a.LastName == actor.LastName)
                                 ?? repository.GetActorsByName(actor.FirstName, actor.LastName);
                             if (existingActor!= null)
                             {
-                                actor.Id = existingActor.Id;
-                                actor.FirstName = existingActor.FirstName;
-                                actor.LastName = existingActor.LastName;
+                                tvListingItem.Movie.Actors[i] = existingActor;
                             }
                             else
                             {
@@ -69,9 +68,7 @@ namespace MovieParser
                                ?? repository.GetDirectorsByName(director.FirstName, director.LastName);
                         if (existingDirector != null)
                         {
-                            director.Id = existingDirector.Id;
-                            director.FirstName = existingDirector.FirstName;
-                            director.LastName = existingDirector.LastName;
+                            tvListingItem.Movie.Director = existingDirector;
                         }
                         else
                         {

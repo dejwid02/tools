@@ -9,6 +9,7 @@ namespace MovieParser.DAL
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server = (localdb)\\MSSQLLocalDB; Database = Movies; Trusted_Connection = True; "); //ToDo load me from configuration
+            optionsBuilder.EnableSensitiveDataLogging();
             base.OnConfiguring(optionsBuilder);
         }
         public DbSet<Movie> Movies { get; set; }
