@@ -14,11 +14,6 @@ namespace Movies.API.Controllers
     [Route("[controller]")]
     public class MoviesController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<MoviesController> _logger;
         private readonly IMoviesRepository repository;
         private readonly IMapper mapper;
@@ -31,7 +26,7 @@ namespace Movies.API.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Movie>> GetAll()
+        public ActionResult<IEnumerable<Movie>> Get()
         {
             var tvItems = repository.GetAllTvListingItems().Where(t => t.StartTime > DateTime.Now) ;
             return Ok(tvItems.Select(i=>mapper.Map<Data.TvListingItem>(i)));

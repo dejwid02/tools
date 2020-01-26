@@ -60,5 +60,11 @@ namespace MovieParser.DAL
                 .Include(c => c.Channel)
                 .ToArray();
         }
+
+        public Recording[] GetAllRecordings()
+        {
+            return _context.Recordings
+                .Include(c=>c.Movie).ToArray();
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace MovieParser.DAL
         Director GetDirectorsByName(string firstName, string lastName);
         LogData GetLastLog();
         Channel[] GetAllChannels();
+        Recording[] GetAllRecordings();
         TvListingItem[] GetAllTvListingItems();
     }
 }

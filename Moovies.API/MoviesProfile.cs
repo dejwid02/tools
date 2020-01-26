@@ -14,6 +14,7 @@ namespace Movies.API
             CreateMap<Movie, Data.Movie>().ReverseMap();
             CreateMap<Actor, Data.Actor>().ReverseMap();
             CreateMap<Director, Data.Director>().ReverseMap();
+            CreateMap<Recording, Data.Recording>().ReverseMap();
             CreateMap<TvListingItem, Data.TvListingItem>().ReverseMap();
         }
     }

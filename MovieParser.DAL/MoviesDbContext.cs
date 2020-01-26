@@ -24,5 +24,7 @@ namespace MovieParser.DAL
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Director> Directors { get; set; }
         public DbSet<LogData> LogsData { get; set; }
+        public DbSet<Recording> Recordings { get; set; }
+        public DbSet<MovieActor> MovieActors { get; set; }
     }
 }

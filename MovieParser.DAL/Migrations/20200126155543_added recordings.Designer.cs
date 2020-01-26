@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MovieParser.DAL;
 
 namespace MovieParser.DAL.Migrations
 {
     [DbContext(typeof(MoviesDbContext))]
-    partial class MoviesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200126155543_added recordings")]
+    partial class addedrecordings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
