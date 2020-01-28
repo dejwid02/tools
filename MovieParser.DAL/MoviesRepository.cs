@@ -66,5 +66,15 @@ namespace MovieParser.DAL
             return _context.Recordings
                 .Include(c=>c.Movie).ToArray();
         }
+
+        public Recording GetRecording(int id)
+        {
+            return _context.Recordings.SingleOrDefault(r => r.Id == id);
+        }
+
+        public TvListingItem GetTvListingItem(int id)
+        {
+            return _context.TvListingItems.SingleOrDefault(tv => tv.Id == id);
+        }
     }
 }

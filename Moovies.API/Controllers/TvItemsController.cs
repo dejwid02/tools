@@ -11,14 +11,14 @@ using Movies.Data;
 namespace Movies.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class MoviesController : ControllerBase
+    [Route("api/[controller]")]
+    public class TvItemsController : ControllerBase
     {
-        private readonly ILogger<MoviesController> _logger;
+        private readonly ILogger<TvItemsController> _logger;
         private readonly IMoviesRepository repository;
         private readonly IMapper mapper;
 
-        public MoviesController(ILogger<MoviesController> logger, IMoviesRepository repository, IMapper mapper)
+        public TvItemsController(ILogger<TvItemsController> logger, IMoviesRepository repository, IMapper mapper)
         {
             _logger = logger;
             this.repository = repository;
@@ -26,9 +26,9 @@ namespace Movies.API.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Movie>> Get()
+        public ActionResult<IEnumerable<TvListingItem>> Get(bool hidePast = true)
         {
-            var tvItems = repository.GetAllTvListingItems().Where(t => t.StartTime > DateTime.Now) ;
+            var tvItems = hidePast ? repository.GetAllTvListingItems().Where(t => t.StartTime > DateTime.Now) : repository.GetAllTvListingItems() ;
             return Ok(tvItems.Select(i=>mapper.Map<Data.TvListingItem>(i)));
         }
     }

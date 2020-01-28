@@ -18,6 +18,8 @@ namespace MovieParser.DAL
         LogData GetLastLog();
         Channel[] GetAllChannels();
         Recording[] GetAllRecordings();
+        Recording GetRecording(int id);
         TvListingItem[] GetAllTvListingItems();
+        TvListingItem GetTvListingItem(int id);
     }
 }
