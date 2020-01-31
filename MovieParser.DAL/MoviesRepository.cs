@@ -76,5 +76,25 @@ namespace MovieParser.DAL
         {
             return _context.TvListingItems.SingleOrDefault(tv => tv.Id == id);
         }
+
+        public Movie GetMovie(long id)
+        {
+            return _context.Movies.SingleOrDefault(m => m.Id == id);
+        }
+
+        public MovieUserData[] GetAllMovieUserData()
+        {
+            return _context.MoviesUserData.ToArray();
+        }
+
+        public MovieUserData GetMovieUserData(int id)
+        {
+            return _context.MoviesUserData.SingleOrDefault(m => m.Id == id);
+        }
+
+        public Movie[] GetAllMovies()
+        {
+            return _context.Movies.ToArray();
+        }
     }
 }

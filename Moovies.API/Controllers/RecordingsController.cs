@@ -61,6 +61,17 @@ namespace Movies.API.Controllers
             try
             {
                 var mappedRecording = mapper.Map<MovieParser.Entities.Recording>(recording);
+                if (recording.Movie == null)
+                {
+                    return BadRequest("Movie not specified");
+                }
+                var movie = repository.GetMovie(recording.Movie.Id);
+                if (movie == null)
+                {
+                    return BadRequest("Movie can not be found");
+                }
+
+                mappedRecording.Movie = movie;
                 repository.Add(mappedRecording);
                 repository.SaveChanges();
                 var uri = linkGenerator.GetPathByAction("Get", "Recordings", new { id = mappedRecording.Id });
@@ -80,12 +91,21 @@ namespace Movies.API.Controllers
         [HttpPut("{id:int}")]
         public ActionResult Put(int id, Recording recording)
         {
-            var oldRecording = repository.GetRecording(id);
+            try
+            {
+                var oldRecording = repository.GetRecording(id);
             if (oldRecording == null) return NotFound($"Could not get recording with id {id}");
 
             mapper.Map(recording, oldRecording);
-            try
+            if (recording.Movie!=null)
             {
+                    var movie = repository.GetMovie(recording.Movie.Id);
+                    if(movie!=null)
+                    {
+                        oldRecording.Movie = movie;
+                    }
+                
+            }
                 repository.SaveChanges();
                 return Ok(mapper.Map<Data.Recording>(oldRecording));
             }

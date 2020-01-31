@@ -13,6 +13,8 @@ namespace MovieParser.DAL
         void Delete<T>(T entity) where T : class;
         bool SaveChanges();
         Movie GetMovieByYearAndTitle(int? year, string title);
+        Movie GetMovie(long id);
+        Movie[] GetAllMovies();
         Actor GetActorsByName(string firstName, string lastName);
         Director GetDirectorsByName(string firstName, string lastName);
         LogData GetLastLog();
@@ -21,5 +23,7 @@ namespace MovieParser.DAL
         Recording GetRecording(int id);
         TvListingItem[] GetAllTvListingItems();
         TvListingItem GetTvListingItem(int id);
+        MovieUserData[] GetAllMovieUserData();
+        MovieUserData GetMovieUserData(int id);
     }
 }
