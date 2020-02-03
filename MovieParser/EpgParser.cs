@@ -64,7 +64,7 @@ namespace MovieParser
             return new Director
             {
                 FirstName = array[0],
-                LastName = array[1]
+                LastName = array.ElementAtOrDefault(1)
             };
         }
 

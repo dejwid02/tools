@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using MovieParser.DAL;
 using MovieParser.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace MovieParser
 {
@@ -20,7 +21,7 @@ namespace MovieParser
             string error = "";
             var startDate = DateTime.Now;
             IEnumerable<TvListingItem> contents = null;
-            IMoviesRepository repository = new MoviesRepository(new MoviesDbContext());
+            IMoviesRepository repository = new MoviesRepository(new MoviesDbContext(SQLS.UseSqlServer(""));
 
             try
             {
