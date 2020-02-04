@@ -9,7 +9,8 @@ using System.Globalization;
 using MovieParser.DAL;
 using MovieParser.Entities;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.FileExtensions;
 namespace MovieParser
 {
     class Program
@@ -21,7 +22,15 @@ namespace MovieParser
             string error = "";
             var startDate = DateTime.Now;
             IEnumerable<TvListingItem> contents = null;
-            IMoviesRepository repository = new MoviesRepository(new MoviesDbContext(SQLS.UseSqlServer(""));
+
+           
+            var configurationBuilder = new ConfigurationBuilder()
+                                           .SetBasePath(Directory.GetCurrentDirectory())
+                                           .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            var configuration = configurationBuilder.Build();
+            var optionsBuilder = new DbContextOptionsBuilder<MoviesDbContext>()
+                .UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            IMoviesRepository repository = new MoviesRepository(new MoviesDbContext(optionsBuilder.Options));
 
             try
             {
