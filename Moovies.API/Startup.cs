@@ -30,7 +30,7 @@ namespace Movies.API
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<MoviesDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddSingleton<IMoviesRepository, MoviesRepository>();
+            services.AddScoped<IMoviesRepository, MoviesRepository>();
 
         }
 

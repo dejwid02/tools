@@ -59,6 +59,28 @@ namespace Movies.API.Controllers
             }
         }
 
+        [HttpPut("{id}")]
+        public ActionResult<Data.Movie> Update(long id, Data.Movie movie)
+        {
+            try
+            {
+                var existing = repository.GetMovie(id);
+                if(existing==null)
+                {
+                    return BadRequest($"Can not find movie with id {id}");
+                }
+                mapper.Map(movie, existing);
+
+                return Ok(mapper.Map<Data.Movie>(existing));
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error while updating data in db");
+            }
+           
+        }
+
 
     }
 }
