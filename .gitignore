@@ -220,6 +220,19 @@ project.lock.json
 *.feature.xlsx.*
 *.Specs_*.html
 
+typings
+**/app/**/*.js
+**/app/**/*.map
+node_modules
+jspm_packages
+bower_components
+
+.vs
+**/*.sou
+**/*.user
+bin
+obj
+packages
 #####
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
