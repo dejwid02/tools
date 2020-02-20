@@ -1,1 +1,9 @@
 <p>home works!</p>
+<table>
+    <tr>
+        <th>Title</th>
+    </tr>
+    <tr *ngFor="let item of tvItems">
+        <td>{{item.movie.title}}</td>
+    </tr>
+</table>
