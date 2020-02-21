@@ -6,8 +6,9 @@ namespace Movies.Data
 {
     public class TvListingItem
     {
-        public string MovieTitle { get; set; }
-        public string ChannelName { get; set; }
+        public int Id { get; set; }
+        public Movie Movie { get; set; }
+        public Channel Channel { get; set; }
         public DateTime StartTime { get; set; }
     }
 }

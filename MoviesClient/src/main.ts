@@ -7,7 +7,7 @@ import { environment } from './environments/environment';
 export function getBaseUrl() {
   const url = document.getElementsByTagName('base')[0].href;
   const endIndex = url.lastIndexOf(':') + 1;
-  const baseUrl = url.substring(0, endIndex) + '53736/';
+  const baseUrl = url.substring(0, endIndex) + '5100';
   return baseUrl;
 }
 

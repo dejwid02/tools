@@ -31,6 +31,7 @@ namespace Movies.API
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<MoviesDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IMoviesRepository, MoviesRepository>();
+            services.AddCors();
 
         }
 
@@ -38,10 +39,10 @@ namespace Movies.API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
-            {  
+            {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             app.UseRouting();
 
             app.UseAuthorization();

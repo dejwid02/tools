@@ -29,7 +29,7 @@ namespace Movies.API.Controllers
         public ActionResult<IEnumerable<TvListingItem>> Get(bool hidePast = true)
         {
             var tvItems = hidePast ? repository.GetAllTvListingItems().Where(t => t.StartTime > DateTime.Now) : repository.GetAllTvListingItems() ;
-            return Ok(tvItems.Select(i=>mapper.Map<Data.TvListingItem>(i)));
+            return Ok(tvItems.OrderBy(t=>t.StartTime).Select(i=>mapper.Map<Data.TvListingItem>(i)));
         }
     }
 }
