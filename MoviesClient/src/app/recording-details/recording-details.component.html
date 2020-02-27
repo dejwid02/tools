@@ -1,6 +1,14 @@
 <div class="container">
     <div class="form-group">
-        <label class="form-col-label">Movie title</label>
-        <input class="form-control" />
+        <label class="col-form-label">Movie title</label>
+        <input class="form-control"  [(ngModel)]="recording.movie.title"/>
     </div>
+
+    <div class="form-group">
+        <label class="col-form-label">Recording date</label>
+        <input class="form-control"  [(ngModel)]="recording.recordedAtTime"/>
+    </div>
+
+    <button class="btn btn-primary" (click)="save()">Save</button>
+    <button class="btn btn-primary" style="margin-left: 10px;">Cancel</button>
 </div>

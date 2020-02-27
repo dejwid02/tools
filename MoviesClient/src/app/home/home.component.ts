@@ -15,8 +15,4 @@ export class HomeComponent implements OnInit {
     this.apiWrapper.getTvListingItems().subscribe(i => this.tvItems = i);
   }
 
-  public record(item: TvListingItem) {
-    this.apiWrapper.createRecording(item);
-  }
-
 }

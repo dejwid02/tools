@@ -126,6 +126,7 @@ namespace Movies.API.Controllers
             try
             {
                 repository.Delete(oldRecording);
+                repository.SaveChanges();
                 return Ok();
             }
             catch (Exception)

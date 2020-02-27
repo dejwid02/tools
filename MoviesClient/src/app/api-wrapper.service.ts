@@ -16,7 +16,7 @@ export class ApiWrapperService {
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.tvListingUrl = baseUrl + '/api/tvitems?hidePast=false';
     this.recordingsUrl = baseUrl + '/api/recordings';
-    this.recordingsUrl = baseUrl + '/api/movies';
+    this.moviesUrl = baseUrl + '/api/movies';
   }
 
   public getTvListingItems(): Observable<TvListingItem[]> {
@@ -26,20 +26,25 @@ export class ApiWrapperService {
   public getRecordings(): Observable<Recording[]> {
     return this.http.get<Recording[]>(this.recordingsUrl);
   }
-  public getMovie(id: number): Observable<Movie> {
-    const params = new HttpParams().set('id', id.toString());
-    const headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json')
-    return this.http.get<Movie>(this.moviesUrl, { headers, params } );
+
+  public getMovies(): Observable<Movie[]> {
+
+    return this.http.get<Movie[]>(this.moviesUrl);
   }
 
-  public createRecording(tvItem: TvListingItem): void {
-    const recording: Recording =  {
-      id:  0,
-      movie: tvItem.movie,
-      recordedAtTime: tvItem.startTime
-    };
+  public getMovie(id: number): Observable<Movie> {
+
+    return this.http.get<Movie>(this.moviesUrl + '/' + id);
+  }
+
+  public createRecording(recording: Recording ): void {
+
     this.http.post(this.recordingsUrl, recording).subscribe();
+  }
+
+  public deleteRecording(id: number) {
+
+     this.http.delete(this.recordingsUrl + '/' + id).subscribe();
   }
 
 }

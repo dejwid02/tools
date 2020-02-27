@@ -12,6 +12,6 @@
         <td>{{item.channel?.name}}</td>
         <td>{{item.movie.title}}</td>
         <td>{{item.movie.category}}</td>
-        <td><button class="btn btn-primary"  [routerLink]="['/recordings', -1, item.movie.id, item.startTime]">Rec</button></td>
+        <td><button class="btn btn-primary"  [routerLink]="['/recordings', 0, item.movie.id, item.startTime]">Rec</button></td>
     </tr>
 </table>
