@@ -26,7 +26,7 @@ namespace MovieParser
             var startDate = DateTime.Now;
             IEnumerable<TvListingItem> contents = null;
 
-           
+
             var configurationBuilder = new ConfigurationBuilder()
                                            .SetBasePath(Directory.GetCurrentDirectory())
                                            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
@@ -41,10 +41,7 @@ namespace MovieParser
 
                 var channels = repository.GetAllChannels();
                 var filterDate = repository.GetLastLog()?.LastSynchronizedDate ?? DateTime.Now;
-                EpgParser scheduleParser = new EpgParser();
-                string content= GetTeleContent(providerUrl).Result;
-                Console.WriteLine("Parsing...");
-                var tvItems = scheduleParser.ParseTvSchedule(channels, content).ToList();
+                List<TvListingItem> tvItems = GetTeleTvItems(providerUrl, channels);
 
                 contents = tvItems.Where(item => item.Movie.Rating > 2.0 && item.StartTime > filterDate).OrderBy(i => i.StartTime);
                 var existingMovies = new List<Movie>();
@@ -113,11 +110,30 @@ namespace MovieParser
             repository.Add(configurationItem);
             repository.SaveChanges();
         }
-        private async static Task<string> GetTeleContent(string url)
+
+        private static List<TvListingItem> GetTvItems(string providerUrl, Channel[] channels)
+        {
+            EpgParser scheduleParser = new EpgParser();
+            string content = GetContent(providerUrl);
+            Console.WriteLine("Parsing...");
+            var tvItems = scheduleParser.ParseTvSchedule(channels, content).ToList();
+            return tvItems;
+        }
+
+        private static List<TvListingItem> GetTeleTvItems(string providerUrl, Channel[] channels)
+        {
+            var scheduleParser = new TeleParser();
+            string content = GetTeleContent(providerUrl).Result.First();
+            Console.WriteLine("Parsing...");
+            var tvItems = scheduleParser.ParseTvSchedule(channels, content).ToList();
+            return tvItems;
+        }
+
+        private async static Task<string> GetTeleContentPage(string url, int pageNr)
         {
             using (var httpClient = new HttpClient())
             {
-                using (var request = new HttpRequestMessage(new HttpMethod("GET"), url + "filmy"))
+                using (var request = new HttpRequestMessage(new HttpMethod("GET"), url + $"filmy?page={pageNr}"))
                 {
                     request.Headers.TryAddWithoutValidation("authority", url);
                     request.Headers.TryAddWithoutValidation("cache-control", "max-age=0");
@@ -134,9 +150,31 @@ namespace MovieParser
 
                     var response = await httpClient.SendAsync(request);
                     var result = await response.Content.ReadAsStringAsync();
+
+
                     return result;
                 }
             }
+        }
+
+        private async static Task<IEnumerable<string>> GetTeleContent(string url)
+        {
+            int page = 1;
+            int totalPages = 1;
+            var result = new List<string>();
+            do
+            {
+                var pageContent = await GetTeleContentPage(url, page);
+                var index = pageContent.IndexOf("<div>Strona");
+                var pageString = new string(pageContent.Substring(index + 11).TakeWhile(c => c != '<').ToArray());
+                totalPages = int.Parse(pageString.Split("/")[1]);
+                result.Add(pageContent);
+                System.Threading.Thread.Sleep(1000);
+            }
+            while (page++ < totalPages);
+
+            return result;
+
         }
         private static string GetContent(string providerUrl)
         {
