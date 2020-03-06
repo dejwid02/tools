@@ -1,6 +1,9 @@
-﻿using MovieParser.Entities;
+﻿using HtmlAgilityPack;
+using MovieParser.Entities;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
@@ -15,9 +18,84 @@ namespace MovieParser
 
         public IList<TvListingItem> ParseTvSchedule(IEnumerable<Channel> channels, string content)
         {
-            var elemnt = XElement.Parse(content);
+            var doc = new HtmlDocument();
+            doc.LoadHtml(content);
+            var allNodes = doc.DocumentNode.Descendants().Where(n=>n.Name=="a" && n.Attributes["class"]?.Value== "movie-search-item").ToList();
 
-            return new List<TvListingItem>();
+            var result = allNodes.Select(n =>
+                new TvListingItem
+                {
+                    Channel = channels.First(c => c.Name == getNameFromString(n.Descendants().Single(n2 => n2.Name == "figure").InnerText)),
+                    StartTime = ParseDate(n.ChildNodes.Last().ChildNodes.Last().PreviousSibling.InnerText, n.ChildNodes.Last().ChildNodes.Last().InnerText),
+                    Movie = new Movie()
+                    {
+                        Title = n.Descendants().Single(n2 => n2.Name == "h3").InnerText,
+                        Rating = ParseRating(n.Descendants().SingleOrDefault(n => n.Name == "div" && n.Attributes["class"]?.Value == "imdb")?.InnerText),
+                        Category = n.Descendants().SingleOrDefault(n => n.Name == "div" && n.Attributes["class"]?.Value == "info").FirstChild.InnerText,
+                        Year = ParseYear(n.Descendants().SingleOrDefault(n => n.Name == "div" && n.Attributes["class"]?.Value == "info").LastChild.InnerText),
+                        Country = ParseCountry(n.Descendants().SingleOrDefault(n => n.Name == "div" && n.Attributes["class"]?.Value == "info").LastChild.InnerText),
+                        Url = n.Attributes["href"].Value,
+                        ImageUrl = n.ChildNodes.First()?.Attributes["src"]?.Value
+                    }
+                }).ToList(); 
+            return result;
+        }
+
+        private string ParseCountry(string innerText)
+        {
+            return innerText.Split(" ").Last();
+        }
+
+        private int? ParseYear(string innerText)
+        {
+            return int.Parse(innerText.Split(" ").First());
+        }
+
+        private double? ParseRating(string innerText)
+        {
+            if (innerText == null) return null;
+            var score = innerText.Replace(",", ".");
+            return double.Parse(score, CultureInfo.InvariantCulture);
+        }
+
+        private DateTime ParseDate(string daymonth, string hourminute)
+        {
+            var dayMonth = daymonth.Split(" ").Last();
+            int day = int.Parse(dayMonth.Split(".").First());
+            int month = int.Parse(dayMonth.Split(".").Last());
+
+            int hour = int.Parse(hourminute.Split(":").First());
+            int minute = int.Parse(hourminute.Split(":").Last());
+            int year = DateTime.Now.Year;
+            if (month == 1 && DateTime.Now.Month == 12)
+                year++;
+            return new DateTime(year, month, day, hour, minute, 0);
+        }
+
+        internal void FillMovieDetails(Movie movie, string content)
+        {
+            var doc = new HtmlDocument();
+            doc.LoadHtml(content);
+            var descriptionNode = doc.DocumentNode.Descendants().FirstOrDefault(n => n.Name == "meta" && n.Attributes["name"]?.Value == "description");
+            double? rank = ParseRank(doc.DocumentNode.Descendants().FirstOrDefault(n => n.Name == "a" && n.Attributes["class"]?.Value == "movieRank filmwebRank")?.FirstChild?.InnerText);
+            movie.Description = descriptionNode?.Attributes["content"].Value;
+            if (movie.Rating == null)
+                movie.Rating = rank;
+            else
+                movie.Rating = Math.Max(movie.Rating.Value, rank ?? 0);
+        }
+
+        private double? ParseRank(string innerText)
+        {
+            if (innerText == null) return null;
+            return double.Parse(innerText, CultureInfo.InvariantCulture);
+        }
+
+        private string getNameFromString(string v)
+        {
+        if (v.Contains("16.png"))
+            return "CanalPlus.pl";
+        return "HBO.pl";
         }
     }
 }
