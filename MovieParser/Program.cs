@@ -43,7 +43,7 @@ namespace MovieParser
                 var filterDate = repository.GetLastLog()?.LastSynchronizedDate ?? DateTime.Now;
                 List<TvListingItem> tvItems = GetTeleTvItems(providerUrl, channels);
 
-                contents = tvItems.Where(item => (item.Movie.Rating > 6.0  || item.Movie.Rating==null) && item.StartTime > filterDate).OrderBy(i => i.StartTime);
+                contents = tvItems.Where(item => (item.Movie.Rating > 6.0 || item.Movie.Rating == null) && item.StartTime > filterDate).OrderBy(i => i.StartTime);
                 var existingMovies = new List<Movie>();
                 var existingActors = new List<Actor>();
                 var existingDirectors = new List<Director>();
@@ -53,10 +53,15 @@ namespace MovieParser
                         ?? repository.GetMovieByYearAndTitle(tvListingItem.Movie.Year, tvListingItem.Movie.Title);
                     if (existingMovie != null)
                     {
-                        if (existingMovie.ImageUrl==null)
+                        if (existingMovie.ImageUrl == null)
                         {
-                            existingMovie.ImageUrl = "/images/" + GetFileName(tvListingItem.Movie.ImageUrl);
-                            SaveImage(tvListingItem.Movie.ImageUrl, @"C:\inetpub\wwwroot\Movies\images");
+                            if (tvListingItem.Movie.ImageUrl != null)
+                            {
+                                existingMovie.ImageUrl = "/images/" + GetFileName(tvListingItem.Movie.ImageUrl);
+                                Console.WriteLine($"Downloading image {tvListingItem.Movie.ImageUrl}");
+                                SaveImage(tvListingItem.Movie.ImageUrl, @"C:\inetpub\wwwroot\Movies\images");
+                                System.Threading.Thread.Sleep(1000);
+                            }
                             System.Threading.Thread.Sleep(1000);
                         }
                         existingMovie.Rating = tvListingItem.Movie.Rating;
@@ -69,6 +74,13 @@ namespace MovieParser
                         client.Dispose();
                         new TeleParser().FillMovieDetails(tvListingItem.Movie, content);
                         System.Threading.Thread.Sleep(1000);
+
+                        if (tvListingItem.Movie.ImageUrl != null)
+                        {
+                            Console.WriteLine($"Downloading image {tvListingItem.Movie.ImageUrl}");
+                            SaveImage(tvListingItem.Movie.ImageUrl, @"C:\inetpub\wwwroot\Movies\images");
+                            System.Threading.Thread.Sleep(1000);
+                        }
                         existingMovies.Add(tvListingItem.Movie);
                         for (int i = 0; i < tvListingItem.Movie.Actors.Count; i++)
                         {
@@ -139,7 +151,7 @@ namespace MovieParser
             var scheduleParser = new TeleParser();
             string[] contents = GetTeleContent(providerUrl).Result.ToArray();
             Console.WriteLine("Parsing...");
-            var tvItems = contents.SelectMany(content=>scheduleParser.ParseTvSchedule(channels, content)).ToList();
+            var tvItems = contents.SelectMany(content => scheduleParser.ParseTvSchedule(channels, content)).ToList();
             return tvItems;
         }
 
@@ -201,15 +213,16 @@ namespace MovieParser
 
         public static void SaveImage(string url, string directoryPath)
         {
-           
+
             var filePath = System.IO.Path.Combine(directoryPath, GetFileName(url));
-            if (!System.IO.File.Exists(filePath)) {
+            if (!System.IO.File.Exists(filePath))
+            {
                 using (WebClient client = new WebClient())
                 {
-                    client.DownloadFile(new Uri($"https:{url}"), filePath );
+                    client.DownloadFile(new Uri($"https:{url}"), filePath);
                 }
             }
-              
+
         }
 
         private static string GetFileName(string path)
