@@ -20,7 +20,7 @@ namespace MovieParser
         {
             var doc = new HtmlDocument();
             doc.LoadHtml(content);
-            var allNodes = doc.DocumentNode.Descendants().Where(n=>n.Name=="a" && n.Attributes["class"]?.Value== "movie-search-item").ToList();
+            var allNodes = doc.DocumentNode.Descendants().Where(n => n.Name == "a" && n.Attributes["class"]?.Value == "movie-search-item").ToList();
 
             var result = allNodes.Select(n =>
                 new TvListingItem
@@ -37,7 +37,7 @@ namespace MovieParser
                         Url = n.Attributes["href"].Value,
                         ImageUrl = n.ChildNodes.First()?.Attributes["src"]?.Value
                     }
-                }).ToList(); 
+                }).ToList();
             return result;
         }
 
@@ -72,7 +72,7 @@ namespace MovieParser
             return new DateTime(year, month, day, hour, minute, 0);
         }
 
-        internal void FillMovieDetails(Movie movie, string content)
+        public void FillMovieDetails(Movie movie, string content)
         {
             var doc = new HtmlDocument();
             doc.LoadHtml(content);
@@ -83,7 +83,33 @@ namespace MovieParser
                 movie.Rating = rank;
             else
                 movie.Rating = Math.Max(movie.Rating.Value, rank ?? 0);
+
+            var tag = doc.DocumentNode.Descendants().FirstOrDefault(n => n.Name == "a" && n.Attributes["itemprop"]?.Value == "director");
+            if (tag != null)
+            {
+                var names = tag.InnerText.Split(" ");
+                movie.Director.FirstName = names.ElementAtOrDefault(0);
+                movie.Director.LastName = names.ElementAtOrDefault(1);
+            }
+
+            var tags = doc.DocumentNode.Descendants().Where(n => n.Name == "a" && n.Attributes["itemprop"]?.Value == "actor");
+            if (tags.Any() && !movie.Actors.Any())
+            {
+                movie.Actors = tags.Take(3).Select(t =>
+                {
+                    var names = t.InnerText.Split(" "); ;
+                    return new Actor
+                    {
+                        FirstName = names.ElementAtOrDefault(0),
+                        LastName = names.ElementAtOrDefault(1)
+                    };
+
+                }).ToList();
+
+            }
         }
+
+
 
         private double? ParseRank(string innerText)
         {
@@ -93,9 +119,9 @@ namespace MovieParser
 
         private string getNameFromString(string v)
         {
-        if (v.Contains("16.png"))
-            return "CanalPlus.pl";
-        return "HBO.pl";
+            if (v.Contains("16.png"))
+                return "CanalPlus.pl";
+            return "HBO.pl";
         }
     }
 }

@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<title>Iron Sky. Inwazja - film SF</title>
+<meta name="description" content="Iron Sky. Inwazja - opis, recenzje, zdjęcia, zwiastuny i terminy emisji w TV. Ocalali z wojny atomowej ukrywają się w bazie nazistów na Księżycu. Śmiałkowie ruszają do wnętrza globu. Trafiają do siedziby jaszczuropodobnych Reptilian. Parodia kina SF." />
+<meta name="robots" content="NOODP" />
+<meta property="fb:app_id" content="196985250356550" />
+<meta property="fb:admins" content="100000013642551" />
+<link rel="stylesheet" href="/static/css/base.css?v=1574263534" type="text/css" media="all" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" />
+<link rel="apple-touch-icon" href="//static.movieprovider.pl/images/apple-touch-icon.png" sizes="114x114" />
+
+<script src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" async="async"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+var googletag = googletag || {cmd:[]};
+</script>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-3119024-2', 'auto');
+ga('require', 'linkid');
+ga('send', 'pageview');
+</script>
+<link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.movieprovider.pl/show/1977769" /><meta property="og:image" content="//media.movieprovider.pl/photos/470x265/Iron-Sky-Inwazja2019.jpeg" /><meta property="og:title" content="Iron Sky. Inwazja" /><meta property="og:url" content="//www.movieprovider.pl/tv/Iron-Sky-Inwazja-1977769" /><meta property="og:description" content="Iron Sky. Inwazja - opis, recenzje, zdjęcia, zwiastuny i terminy emisji w TV. Ocalali z wojny atomowej ukrywają się w bazie nazistów na Księżycu. Śmiałkowie ruszają do wnętrza globu. Trafiają do siedziby jaszczuropodobnych Reptilian. Parodia kina SF." /><meta property="og:type" content="tv_show" /><script>
+googletag.cmd.push(function() {
+  googletag.defineSlot('/11952858/movieprovider.pl_Program_Leaderboards_Top', [[728,90],[750,100],[970,90],[950,90],'fluid'], 'div-gpt-ad-8827496-1').addService(googletag.pubads());
+  googletag.defineSlot('/11952858/movieprovider.pl_Program_Leaderboards_Bot', [[728,90],[750,100],[750,200],[970,90],[950,90],[970,250],[300,250],'fluid'], 'div-gpt-ad-8827496-2').addService(googletag.pubads());
+  googletag.pubads().enableSingleRequest();
+  googletag.pubads().collapseEmptyDivs();
+  googletag.pubads().setCentering(true);
+  googletag.enableServices();
+});
+</script>
+</head>
+<body class="show ">
+    
+    <div id="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a id="site-logo" href="/" class="navbar-item" title="movieprovider.pl - 14-dniowy Program TV dla 130 stacji">movieprovider</a>
+                
+
+<div id="clock" class="navbar-item">20:55</div>
+<script>
+(function() {
+	var clock = $('#clock');   
+	(function update_time() {
+		var t = new Date();
+		var h = '' + t.getHours();		
+		var m = '' + t.getMinutes();
+		if (h.length < 2) {
+			h = '0' + h;
+		}
+		if (m.length < 2) {
+			m = '0' + m;
+		}
+		clock.html(h+'<span>:</span>'+m);
+		setTimeout(update_time, 1000);
+	})();
+	(function toggle_colon() {
+		clock.toggleClass('colon');
+		setTimeout(toggle_colon, 1000);
+	})();
+})();
+</script>
+            </div>
+			
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="/">Program TV</a>
+                    <a id="main-menu-stations" class="navbar-item" href="/program-tv/stacje">Stacje</a>
+                    <a class="navbar-item" href="/teraz">Teraz w TV</a>
+                    <a class="navbar-item new" href="/filmy">Filmy</a>
+                    <a class="navbar-item" href="/sport">Sport</a>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <form id="search-form" action="/search">
+                            <div class="control has-icons-left">
+                                <input id="search-input" class="input nav-search" type="text" name="q" placeholder="Szukaj..." autocomplete="off" />
+                                <span class="icon is-left"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></span>
+                            </div>
+                            <div id="search-suggestions" class="popup"></div>
+                        </form>
+                        <a href="/moje-stacje" class="button"><span class="icon icon-gear"></span><span>Ustawienia</span></a>
+                        
+                        <a href="/login" class="button"><span class="icon icon-login"></span><span>Zaloguj</span></a>
+                        
+                    </div>
+                </div>
+            </div>
+			
+        </div>
+	</div>
+
+	<div id="subheader">
+		<div class="container">
+			<div class="overflowHidden"><div id="stations-index"><div>0-9</div><a href="/program-tv/stacje/13-Ulica">13 Ulica</a><div>A</div><a href="/program-tv/stacje/Ale-Kino">ale kino+</a><a href="/program-tv/stacje/AMC">AMC</a><a href="/program-tv/stacje/Animal-Planet-HD">Animal Planet</a><a href="/program-tv/stacje/ATM-Rozrywka">ATM Rozrywka</a><a href="/program-tv/stacje/AXN">AXN</a><a href="/program-tv/stacje/AXN-Black">AXN Black</a><a href="/program-tv/stacje/AXN-Spin">AXN Spin</a><a href="/program-tv/stacje/AXN-White">AXN White</a><div>B</div><a href="/program-tv/stacje/BBC-Brit">BBC Brit</a><a href="/program-tv/stacje/BBC-Earth">BBC Earth</a><a href="/program-tv/stacje/BBC-First">BBC First</a><a href="/program-tv/stacje/BBC-Lifestyle">BBC Lifestyle</a><a href="/program-tv/stacje/Boomerang">Boomerang</a><div>C</div><a href="/program-tv/stacje/CanalPlus">CANAL+</a><a href="/program-tv/stacje/CanalPlus-1">CANAL+ 1</a><a href="/program-tv/stacje/CanalPlus-4K" class="new">CANAL+ 4K</a><a href="/program-tv/stacje/CanalPlus-Dokument">CANAL+ Dokument</a><a href="/program-tv/stacje/CanalPlus-Family">CANAL+ Family</a><a href="/program-tv/stacje/CanalPlus-Film">CANAL+ Film</a><a href="/program-tv/stacje/CanalPlus-Seriale">CANAL+ Seriale</a><a href="/program-tv/stacje/CanalPlus-Sport">CANAL+ Sport</a><a href="/program-tv/stacje/CanalPlus-Sport-2">CANAL+ Sport 2</a><a href="/program-tv/stacje/CanalPlus-Sport-3">CANAL+ Sport 3</a><a href="/program-tv/stacje/CanalPlus-Sport-4">CANAL+ Sport 4</a><a href="/program-tv/stacje/Cartoon-Network">Cartoon Network</a><a href="/program-tv/stacje/CBS-Europa">CBS Europa</a><a href="/program-tv/stacje/CBS-Reality">CBS Reality</a><a href="/program-tv/stacje/Crime-Investigation-Network">CI Polsat</a><a href="/program-tv/stacje/Cinemax">Cinemax</a><a href="/program-tv/stacje/Cinemax2">Cinemax 2</a><a href="/program-tv/stacje/Comedy-Central">Comedy Central</a><div>D</div><a href="/program-tv/stacje/Discovery-Channel">Discovery Channel</a><a href="/program-tv/stacje/Discovery-Historia">Discovery Historia</a><a href="/program-tv/stacje/Discovery-Life">Discovery Life</a><a href="/program-tv/stacje/Discovery-Science">Discovery Science</a><a href="/program-tv/stacje/Disney-Channel">Disney Channel</a><a href="/program-tv/stacje/Disney-Junior">Disney Junior</a><a href="/program-tv/stacje/Disney-XD">Disney XD</a><a href="/program-tv/stacje/Domo">Domo+</a><a href="/program-tv/stacje/DTX">DTX</a><div>E</div><a href="/program-tv/stacje/Eleven-Sports-1">Eleven Sports 1</a><a href="/program-tv/stacje/Eleven-Sports-2">Eleven Sports 2</a><a href="/program-tv/stacje/Eleven-Sports-3">Eleven Sports 3</a><a href="/program-tv/stacje/Eleven-4">Eleven Sports 4</a><a href="/program-tv/stacje/Epic-Drama">Epic Drama</a><a href="/program-tv/stacje/Eurosport">Eurosport 1</a><a href="/program-tv/stacje/Eurosport-2">Eurosport 2</a><a href="/program-tv/stacje/Extreme">Extreme</a><div>F</div><a href="/program-tv/stacje/Filmbox-Action">Filmbox Action</a><a href="/program-tv/stacje/FilmBox-Arthouse">FilmBox Arthouse</a><a href="/program-tv/stacje/Filmbox-Extra-HD">FilmBox Extra HD</a><a href="/program-tv/stacje/Filmbox-Family">FilmBox Family</a><a href="/program-tv/stacje/Filmbox-Premium">FilmBox Premium HD</a><a href="/program-tv/stacje/Fokus-TV">Fokus TV</a><a href="/program-tv/stacje/Food-Network">Food Network</a><a href="/program-tv/stacje/FOX">FOX</a><a href="/program-tv/stacje/FOX-Comedy">FOX Comedy</a><div>H</div><a href="/program-tv/stacje/HBO">HBO</a><a href="/program-tv/stacje/HBO2">HBO 2</a><a href="/program-tv/stacje/HBO3">HBO 3</a><a href="/program-tv/stacje/HGTV">HGTV</a><a href="/program-tv/stacje/History">HISTORY</a><a href="/program-tv/stacje/H2">HISTORY 2</a><div>I</div><a href="/program-tv/stacje/ID">ID</a><div>K</div><a href="/program-tv/stacje/Kino-Polska">Kino Polska</a><a href="/program-tv/stacje/Kino%20TV">Kino TV</a><a href="/program-tv/stacje/Kuchnia-TV">Kuchnia+</a><div>M</div><a href="/program-tv/stacje/Metro-TV">Metro TV</a><a href="/program-tv/stacje/Mezzo">Mezzo</a><a href="/program-tv/stacje/MiniMini">MiniMini+</a><a href="/program-tv/stacje/MTV-Polska">MTV Polska</a><div>N</div><a href="/program-tv/stacje/Nat-Geo-People">Nat Geo People</a><a href="/program-tv/stacje/National-Geographic">National Geo.</a><a href="/program-tv/stacje/Nat-Geo-Wild">Nat. Geo. Wild</a><a href="/program-tv/stacje/Nickelodeon">Nickelodeon</a><a href="/program-tv/stacje/Nicktoons">Nicktoons</a><a href="/program-tv/stacje/Nowa-TV">Nowa TV</a><a href="/program-tv/stacje/nSport">nSport+</a><div>P</div><a href="/program-tv/stacje/Paramount-Channel">Paramount Channel</a><a href="/program-tv/stacje/Planete">PLANETE+</a><a href="/program-tv/stacje/Polonia-1">Polonia 1</a><a href="/program-tv/stacje/Polsat">Polsat</a><a href="/program-tv/stacje/Polsat-2">Polsat 2</a><a href="/program-tv/stacje/Polsat-Cafe">Polsat Cafe</a><a href="/program-tv/stacje/Comedy-Central-Family">Polsat Comedy C. E.</a><a href="/program-tv/stacje/Polsat-Doku">Polsat Doku</a><a href="/program-tv/stacje/Polsat-Film">Polsat Film</a><a href="/program-tv/stacje/Polsat-Games">Polsat Games</a><a href="/program-tv/stacje/Polsat-News">Polsat News</a><a href="/program-tv/stacje/Polsat-Play">Polsat Play</a><a href="/program-tv/stacje/Polsat-Rodzina">Polsat Rodzina</a><a href="/program-tv/stacje/Polsat-Romans">Polsat Romans</a><a href="/program-tv/stacje/Polsat-Sport">Polsat Sport</a><a href="/program-tv/stacje/Polsat-Sport-Extra">Polsat Sport Extra</a><a href="/program-tv/stacje/Polsat-Sport-Fight">Polsat Sport Fight</a><a href="/program-tv/stacje/Polsat-Sport-News">Polsat Sport News</a><a href="/program-tv/stacje/Polsat-Sport-Premium-1">Polsat Sport Premium 1</a><a href="/program-tv/stacje/Polsat-Sport-Premium-2">Polsat Sport Premium 2</a><a href="/program-tv/stacje/Viasat-Explorer">Polsat Viasat Expl.</a><a href="/program-tv/stacje/Viasat-History">Polsat Viasat Hist.</a><a href="/program-tv/stacje/Viasat-Nature">Polsat Viasat Nature</a><div>R</div><a href="/program-tv/stacje/Romance-TV">Romance TV</a><div>S</div><a href="/program-tv/stacje/SCI-FI">SCI FI</a><a href="/program-tv/stacje/SportKlub">SportKlub</a><a href="/program-tv/stacje/Stopklatka-TV">Stopklatka</a><a href="/program-tv/stacje/Sundance-Channel-HD">Sundance TV</a><a href="/program-tv/stacje/Super-Polsat">Super Polsat</a><a href="/program-tv/stacje/Superstacja">Superstacja</a><div>T</div><a href="/program-tv/stacje/Tele-5">Tele 5</a><a href="/program-tv/stacje/TLC">TLC</a><a href="/program-tv/stacje/TNT">TNT</a><a href="/program-tv/stacje/Travel-Channel">Travel</a><a href="/program-tv/stacje/TTV">TTV</a><a href="/program-tv/stacje/TV4">TV 4</a><a href="/program-tv/stacje/TV6">TV 6</a><a href="/program-tv/stacje/Puls">TV Puls</a><a href="/program-tv/stacje/Puls-2">TV Puls 2</a><a href="/program-tv/stacje/TV-Republika">TV Republika</a><a href="/program-tv/stacje/TV-Trwam">TV Trwam</a><a href="/program-tv/stacje/TVN">TVN</a><a href="/program-tv/stacje/TVN-Siedem">TVN 7</a><a href="/program-tv/stacje/TVN-Fabula">TVN Fabuła</a><a href="/program-tv/stacje/TVN-Style">TVN Style</a><a href="/program-tv/stacje/TVN-Turbo">TVN Turbo</a><a href="/program-tv/stacje/TVN24">TVN24</a><a href="/program-tv/stacje/TVN-24-Biznes-i-Swiat">TVN24 BiS</a><a href="/program-tv/stacje/TVP-1">TVP 1</a><a href="/program-tv/stacje/TVP-2">TVP 2</a><a href="/program-tv/stacje/TVP-ABC">TVP ABC</a><a href="/program-tv/stacje/TVP-HD">TVP HD</a><a href="/program-tv/stacje/TVP-Historia">TVP Historia</a><a href="/program-tv/stacje/TVP-Info">TVP Info</a><a href="/program-tv/stacje/TVP-Kultura">TVP Kultura</a><a href="/program-tv/stacje/TVP-Polonia">TVP Polonia</a><a href="/program-tv/stacje/TVP-Rozrywka">TVP Rozrywka</a><a href="/program-tv/stacje/TVP-Seriale">TVP Seriale</a><a href="/program-tv/stacje/TVP-Sport">TVP Sport</a><a href="/program-tv/stacje/TVS">TVS</a><div>W</div><a href="/program-tv/stacje/WP">WP</a><div>Z</div><a href="/program-tv/stacje/Zoom-TV">Zoom TV</a><div id="stations-index-close" title="Zamknij" onclick="$('#main-menu-stations').click()"></div></div></div>
+			
+
+<div style="display:table;width:100%"><div id="div-gpt-ad-8827496-1" style="margin:20px auto;min-height:90px">
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-8827496-1'); });
+</script>
+</div></div>
+
+
+		</div>
+	</div>
+
+	
+
+	<div id="content" class="container">
+
+
+
+<div id="fb-root"></div>
+
+<div id="showOverview" itemscope itemtype="http://schema.org/Movie">
+  
+  <div id="showPhoto">
+    <a href="//media.movieprovider.pl/photos/Iron-Sky-Inwazja2019.jpeg"><img src="//media.movieprovider.pl/photos/470x265/Iron-Sky-Inwazja2019.jpeg" width="470" height="264" alt="Iron Sky. Inwazja" itemprop="image" /></a>
+    
+  </div>
+  
+
+  <div>
+    
+    <h1 class="title" itemprop="name">Iron Sky. Inwazja</h1>
+    
+
+    
+
+
+
+
+    <a class="movieRank filmwebRank" href="http://www.filmweb.pl/film/Iron+Sky.+Inwazja-2019-727178" title="zobacz stronę tego filmu w serwisie Filmweb.pl" target="_blank"><strong>5.1</strong>/10</a>
+    <a class="movieRank imdbRank" href="http://www.imdb.com/title/tt3038708/" title="zobacz stronę tego filmu w bazie IMDb (ang.)" rel="nofollow" target="_blank"><strong>5.0</strong>/10</a>
+    <script>
+(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.5&appId=196985250356550";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+<div class="fb-like" data-href="https://www.movieprovider.pl/tv/Iron-Sky-Inwazja-1977769" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial" data-action="recommend"></div>
+
+    <h2 class="orig-title">(Iron Sky: The Coming Race)</h2>
+
+    <div id="showInfo">
+      <div id="showMainInfo">
+        <span>FILM SF</span> <span class="sep"></span> <span>Finlandia/Niemcy/Belgia</span> <span class="sep"></span> <span>2019</span>
+        &nbsp; <span class="age-rating age-rating-po12" title="kategoria wiekowa — od 12 lat">od 12 lat</span>
+      </div>
+
+      
+      <table id="showMoreInfo" cellspacing="0">
+        <tr><th>Występują:</th><td><a href="/osoby/Lara-Rossi-271991">Lara Rossi</a>, <a href="/osoby/Vladimir-Burlakov-173675">Vladimir Burlakov</a>, <a href="/osoby/Kit-Dale-282195">Kit Dale</a>, <a href="/osoby/Julia-Dietze-99539">Julia Dietze</a></td></tr>
+        <tr><th>Reżyseria:</th><td><a href="/osoby/Timo-Vuorensola-171255" itemprop="director">Timo Vuorensola</a></td></tr>
+        <tr><th>W skrócie:</th><td>Ocalali z wojny atomowej ukrywają się w bazie nazistów na Księżycu. Śmiałkowie ruszają do wnętrza globu. Trafiają do siedziby jaszczuropodobnych Reptilian. Parodia kina SF.</td></tr>
+      </table>
+      
+      
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</div>
+
+
+
+
+<div id="sectionShowSched" class="section">
+    <h2>Oglądaj w telewizji</h2>
+    <div id="show-sched">
+        <table>
+            <thead>
+                <tr>
+                    <td>Data</td>
+                    <td>Godzina</td>
+                    <td>Stacja</td>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td><span>piątek, 6 marca</span><div>dziś</div></td>
+                    <td><span>21:00</span> </td>
+                    <td>
+                        <a href="/program-tv/stacje/CanalPlus#prog17624260">CANAL+</a>
+                        
+                        
+                        <span class="attr" title="z napisami">(z napisami)</span>
+                        
+                        
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td><span>piątek, 6 marca</span><div>dziś</div></td>
+                    <td><span>22:00</span> </td>
+                    <td>
+                        <a href="/program-tv/stacje/CanalPlus-1#prog17624283">CANAL+ 1</a>
+                        
+                        
+                        <span class="attr" title="z napisami">(z napisami)</span>
+                        
+                        
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td><span>niedziela, 8 marca</span><div>pojutrze</div></td>
+                    <td><span>18:15</span> </td>
+                    <td>
+                        <a href="/program-tv/stacje/CanalPlus-Film?date=2020-03-08#prog17632521">CANAL+ Film</a>
+                        
+                        
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                <tr class="hide">
+                    <td><span>poniedziałek, 9 marca</span><div>za 3 dni</div></td>
+                    <td><span>20:00</span> </td>
+                    <td>
+                        <a href="/program-tv/stacje/CanalPlus?date=2020-03-09#prog17636526">CANAL+</a>
+                        
+                        
+                        <span class="attr" title="z napisami">(z napisami)</span>
+                        
+                        
+                    </td>
+                </tr>
+                
+                <tr class="hide">
+                    <td><span>poniedziałek, 9 marca</span><div>za 3 dni</div></td>
+                    <td><span>21:00</span> </td>
+                    <td>
+                        <a href="/program-tv/stacje/CanalPlus-1?date=2020-03-09#prog17636549">CANAL+ 1</a>
+                        
+                        
+                        <span class="attr" title="z napisami">(z napisami)</span>
+                        
+                        
+                    </td>
+                </tr>
+                
+                <tr class="hide">
+                    <td><span>sobota, 14 marca</span><div>za 8 dni</div></td>
+                    <td><span>16:45</span> </td>
+                    <td>
+                        <a href="/program-tv/stacje/CanalPlus?date=2020-03-14#prog17659538">CANAL+</a>
+                        
+                        
+                        <span class="attr" title="z napisami">(z napisami)</span>
+                        
+                        
+                    </td>
+                </tr>
+                
+                <tr class="hide">
+                    <td><span>sobota, 14 marca</span><div>za 8 dni</div></td>
+                    <td><span>17:45</span> </td>
+                    <td>
+                        <a href="/program-tv/stacje/CanalPlus-1?date=2020-03-14#prog17659560">CANAL+ 1</a>
+                        
+                        
+                        <span class="attr" title="z napisami">(z napisami)</span>
+                        
+                        
+                    </td>
+                </tr>
+                
+                <tr class="hide">
+                    <td><span>sobota, 14 marca</span><div>za 8 dni</div></td>
+                    <td><span>17:55</span> </td>
+                    <td>
+                        <a href="/program-tv/stacje/CanalPlus-4K?date=2020-03-14#prog17659581">CANAL+ 4K Ultra HD</a>
+                        
+                        
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                <tr class="hide">
+                    <td><span>wtorek, 17 marca</span><div>za 11 dni</div></td>
+                    <td><span>18:25</span> </td>
+                    <td>
+                        <a href="/program-tv/stacje/CanalPlus-Film?date=2020-03-17#prog17672548">CANAL+ Film</a>
+                        
+                        
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                
+            </tbody>
+        </table>
+        
+        <div id="moreSched"><a href="#" onclick="event.preventDefault();$('#show-sched').addClass('all')">pokaż wszystkie emisje</a></div>
+        
+    </div>
+</div>
+
+
+<div class="section">
+  <h2>Opis</h2>
+  <p itemprop="description">Wskutek wojny atomowej sprzed dwudziestu lat Ziemia została skażona. Zaledwie dwa tysiące ocalałych osób musiało opuścić planetę. Przenieśli się na Księżyc, gdzie zamieszkali w dawnej bazie nazistów, mającej kształt swastyki. Obi (<a href="/osoby/Lara-Rossi-271991">Lara Rossi</a>), córka Renaty Richter (<a href="/osoby/Julia-Dietze-99539">Julia Dietze</a>) i zmarłego Jamesa Washingtona, razem z kilkoma innymi śmiałkami, Sashą (<a href="/osoby/Vladimir-Burlakov-173675">Vladimir Burlakov</a>), Donaldem (<a href="/osoby/Tom-Green-72545">Tom Green</a>) i Malcolmem (<a href="/osoby/Kit-Dale-282195">Kit Dale</a>), rusza w podróż do wnętrza Ziemi, gdzie podobno znajduje się ratunek dla ludzkości. Okazuje się, że najbardziej zasłużone osoby w historii rasy ludzkiej to Vrilowie, czyli Reptilianie, jaszczuropodobne istoty. Dowodzi nimi sam Adolf Hitler (<a href="/osoby/Udo-Kier-21750">Udo Kier</a>) dosiadający tyranozaura. Druga część parodystycznej serii filmów science fiction. Za reżyserię ponownie odpowiada <a href="/osoby/Timo-Vuorensola-171255">Timo Vuorensola</a>. Fundusze na realizację komedii zostały wyłożone przez fanów przez platformę Indiegogo.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="section section-credits" id="section-credits-cast">
+  <h2>Występują <a href="javascript:show_more_credits('section-credits-cast')" class="hide">(pokaż wszystkich)</a></h2>
+  <ul class="credits">
+    
+    <li class="credits-item">
+      <a href="/osoby/Lara-Rossi-271991" class="photo"><img src="//media.movieprovider.pl/faces/crop-32x44/271991.jpg" width="32" height="44" alt="Lara Rossi" /></a>
+      <a href="/osoby/Lara-Rossi-271991" itemprop="actor">Lara Rossi</a>
+      <div class="ellipsis">jako Obianaju &#39;Obi&#39; Washington</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Vladimir-Burlakov-173675" class="photo"><img src="//media.movieprovider.pl/photos/crop-32x44/Vladimir-Burlakov.jpg" width="32" height="44" alt="Vladimir Burlakov" /></a>
+      <a href="/osoby/Vladimir-Burlakov-173675" itemprop="actor">Vladimir Burlakov</a>
+      <div class="ellipsis">jako Sasha</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Kit-Dale-282195" class="photo"><img src="//media.movieprovider.pl/faces/crop-32x44/282195.jpg" width="32" height="44" alt="Kit Dale" /></a>
+      <a href="/osoby/Kit-Dale-282195" itemprop="actor">Kit Dale</a>
+      <div class="ellipsis">jako Malcom</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Julia-Dietze-99539" class="photo"><img src="//media.movieprovider.pl/faces/crop-32x44/99539.jpg" width="32" height="44" alt="Julia Dietze" /></a>
+      <a href="/osoby/Julia-Dietze-99539" itemprop="actor">Julia Dietze</a>
+      <div class="ellipsis">jako Renate Richter</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Stephanie-Paul-148134" class="photo"><img src="//media.movieprovider.pl/faces/crop-32x44/148134.jpg" width="32" height="44" alt="Stephanie Paul" /></a>
+      <a href="/osoby/Stephanie-Paul-148134" itemprop="actor">Stephanie Paul</a>
+      <div class="ellipsis">jako Vril President</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Tom-Green-72545" class="photo"><img src="//media.movieprovider.pl/faces/crop-32x44/72545.jpg" width="32" height="44" alt="Tom Green" /></a>
+      <a href="/osoby/Tom-Green-72545" itemprop="actor">Tom Green</a>
+      <div class="ellipsis">jako Donald</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Udo-Kier-21750" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/faces/crop-32x44/21750.jpg" width="32" height="44" alt="Udo Kier" /></a>
+      <a href="/osoby/Udo-Kier-21750" itemprop="actor">Udo Kier</a>
+      <div class="ellipsis">jako Vril Wolfgang Kortzfleisch</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/John-Flanders-107284" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/photos/crop-32x44/John-Flanders.jpg" width="32" height="44" alt="John Flanders" /></a>
+      <a href="/osoby/John-Flanders-107284" itemprop="actor">John Flanders</a>
+      <div class="ellipsis">jako Gary the Base Commander</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/James-Quinn-57873" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/faces/crop-32x44/57873.jpg" width="32" height="44" alt="James Quinn" /></a>
+      <a href="/osoby/James-Quinn-57873" itemprop="actor">James Quinn</a>
+      <div class="ellipsis">jako Deputy Commander Johan</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Emily-Atack-217233" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/faces/crop-32x44/217233.jpg" width="32" height="44" alt="Emily Atack" /></a>
+      <a href="/osoby/Emily-Atack-217233" itemprop="actor">Emily Atack</a>
+      <div class="ellipsis">jako Tyler</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Martin-Swabey-152896" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/photos/crop-32x44/Martin-Swabey.jpg" width="32" height="44" alt="Martin Swabey" /></a>
+      <a href="/osoby/Martin-Swabey-152896" itemprop="actor">Martin Swabey</a>
+      <div class="ellipsis">jako Ryan</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Pierce-Nathan-Calvin-Baechler-282196" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/faces/crop-32x44/282196.jpg" width="32" height="44" alt="Pierce Nathan-Calvin Baechler" /></a>
+      <a href="/osoby/Pierce-Nathan-Calvin-Baechler-282196" itemprop="actor">Pierce Nathan-Calvin Baechler</a>
+      <div class="ellipsis">jako Altar Boy</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Christoph-Drobig-282197" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/faces/crop-32x44/282197.jpg" width="32" height="44" alt="Christoph Drobig" /></a>
+      <a href="/osoby/Christoph-Drobig-282197" itemprop="actor">Christoph Drobig</a>
+      <div class="ellipsis">jako Guilty Jobsist</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Edward-Judge-282198" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Edward Judge" /></a>
+      <a href="/osoby/Edward-Judge-282198" itemprop="actor">Edward Judge</a>
+      <div class="ellipsis">jako Fat Tyler</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Kari-Berg-282199" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Kari Berg" /></a>
+      <a href="/osoby/Kari-Berg-282199" itemprop="actor">Kari Berg</a>
+      <div class="ellipsis">jako Lena the Jobsist</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Victor-Au-282200" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Victor Au" /></a>
+      <a href="/osoby/Victor-Au-282200" itemprop="actor">Victor Au</a>
+      <div class="ellipsis">jako Vril Officer</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Vasco-De-Beukelaer-282201" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Vasco De Beukelaer" /></a>
+      <a href="/osoby/Vasco-De-Beukelaer-282201" itemprop="actor">Vasco De Beukelaer</a>
+      <div class="ellipsis">jako Vril Chairman</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Muya-Lubambu-Tshinioka-282202" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Muya Lubambu Tshinioka" /></a>
+      <a href="/osoby/Muya-Lubambu-Tshinioka-282202" itemprop="actor">Muya Lubambu Tshinioka</a>
+      <div class="ellipsis">jako Vril Idi Amin</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Antoine-Plaisant-282203" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Antoine Plaisant" /></a>
+      <a href="/osoby/Antoine-Plaisant-282203" itemprop="actor">Antoine Plaisant</a>
+      <div class="ellipsis">jako Vril Mark Zuckerberg</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Amanda-Wolzak-273884" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Amanda Wolzak" /></a>
+      <a href="/osoby/Amanda-Wolzak-273884" itemprop="actor">Amanda Wolzak</a>
+      <div class="ellipsis">jako Vril Margaret Thatcher</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Francesco-Italiano-226217" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/faces/crop-32x44/226217.jpg" width="32" height="44" alt="Francesco Italiano" /></a>
+      <a href="/osoby/Francesco-Italiano-226217" itemprop="actor">Francesco Italiano</a>
+      <div class="ellipsis">jako Vril Caligula</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Duta-Skhirtladze-33756" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/faces/crop-32x44/33756.jpg" width="32" height="44" alt="Duta Skhirtladze" /></a>
+      <a href="/osoby/Duta-Skhirtladze-33756" itemprop="actor">Duta Skhirtladze</a>
+      <div class="ellipsis">jako Vril Joseph Stalin</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Jukka-Hilden-167134" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/photos/crop-32x44/Jukka-Hilden.jpg" width="32" height="44" alt="Jukka Hilden" /></a>
+      <a href="/osoby/Jukka-Hilden-167134" itemprop="actor">Jukka Hilden</a>
+      <div class="ellipsis">jako Vril Pope Urban II</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Abbas-Shirafkan-271660" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/faces/crop-32x44/271660.jpg" width="32" height="44" alt="Abbas Shirafkan" /></a>
+      <a href="/osoby/Abbas-Shirafkan-271660" itemprop="actor">Abbas Shirafkan</a>
+      <div class="ellipsis">jako Vril Osama bin Laden</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Kari-Ketonen-42820" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/faces/crop-32x44/42820.jpg" width="32" height="44" alt="Kari Ketonen" /></a>
+      <a href="/osoby/Kari-Ketonen-42820" itemprop="actor">Kari Ketonen</a>
+      <div class="ellipsis">jako Vril Vladimir Putin</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Hon-Ping-Tang-63038" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/photos/crop-32x44/Hon-Ping-Tang.jpg" width="32" height="44" alt="Hon Ping Tang" /></a>
+      <a href="/osoby/Hon-Ping-Tang-63038" itemprop="actor">Hon Ping Tang</a>
+      <div class="ellipsis">jako Vril Genghis Khan</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Lloyd-Li-282204" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Lloyd Li" /></a>
+      <a href="/osoby/Lloyd-Li-282204" itemprop="actor">Lloyd Li</a>
+      <div class="ellipsis">jako Vril Kim Jong-Un</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Tero-Kaukomaa-171258" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Tero Kaukomaa" /></a>
+      <a href="/osoby/Tero-Kaukomaa-171258" itemprop="actor">Tero Kaukomaa</a>
+      <div class="ellipsis">jako Vril Urho Kekkonen</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Gaetan-Wenders-87903" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/faces/crop-32x44/87903.jpg" width="32" height="44" alt="Gaëtan Wenders" /></a>
+      <a href="/osoby/Gaetan-Wenders-87903" itemprop="actor">Gaëtan Wenders</a>
+      <div class="ellipsis">jako Vril Steve Jobs</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Alexander-Moens-282205" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Alexander Moens" /></a>
+      <a href="/osoby/Alexander-Moens-282205" itemprop="actor">Alexander Moens</a>
+      <div class="ellipsis">jako Vril Temple Guard</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Carson-I-Cross-282206" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Carson I. Cross" /></a>
+      <a href="/osoby/Carson-I-Cross-282206" itemprop="actor">Carson I. Cross</a>
+      <div class="ellipsis">jako Moon Trooper</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Jussi-Koiranen-282207" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Jussi Koiranen" /></a>
+      <a href="/osoby/Jussi-Koiranen-282207" itemprop="actor">Jussi Koiranen</a>
+      <div class="ellipsis">jako Moonbase Citizen</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Dennis-Matthias-282208" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Dennis Matthias" /></a>
+      <a href="/osoby/Dennis-Matthias-282208" itemprop="actor">Dennis Matthias</a>
+      <div class="ellipsis">jako Evil Reptilian</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Graham-Tyson-282209" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Graham Tyson" /></a>
+      <a href="/osoby/Graham-Tyson-282209" itemprop="actor">Graham Tyson</a>
+      <div class="ellipsis">jako Fan Producer</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Ricky-Watson-282210" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Ricky Watson" /></a>
+      <a href="/osoby/Ricky-Watson-282210" itemprop="actor">Ricky Watson</a>
+      <div class="ellipsis">jako Steve Petersen</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Erik-Augustin-282211" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Erik Augustin" /></a>
+      <a href="/osoby/Erik-Augustin-282211" itemprop="actor">Erik Augustin</a>
+      <div class="ellipsis">jako Moonbase Citizen</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Guido-Baechler-282212" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/faces/crop-32x44/282212.jpg" width="32" height="44" alt="Guido Baechler" /></a>
+      <a href="/osoby/Guido-Baechler-282212" itemprop="actor">Guido Baechler</a>
+      <div class="ellipsis">jako Moonbase Trooper</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Julian-Cordes-282213" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Julian Cordes" /></a>
+      <a href="/osoby/Julian-Cordes-282213" itemprop="actor">Julian Cordes</a>
+      <div class="ellipsis">jako Moonbase Trooper</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Jan-Debski-13323" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Jan Dębski" /></a>
+      <a href="/osoby/Jan-Debski-13323" itemprop="actor">Jan Dębski</a>
+      <div class="ellipsis">jako Comptroller</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Michel-Den-Hartog-282214" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Michel den Hartog" /></a>
+      <a href="/osoby/Michel-Den-Hartog-282214" itemprop="actor">Michel den Hartog</a>
+      <div class="ellipsis">jako Jobsist</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Vincent-Eaton-199030" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Vincent Eaton" /></a>
+      <a href="/osoby/Vincent-Eaton-199030" itemprop="actor">Vincent Eaton</a>
+      <div class="ellipsis">jako Moonbase Citizen</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Nick-Ford-282215" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Nick Ford" /></a>
+      <a href="/osoby/Nick-Ford-282215" itemprop="actor">Nick Ford</a>
+      <div class="ellipsis">jako Reptilian Hunting Party</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Allard-Geerlings-237639" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Allard Geerlings" /></a>
+      <a href="/osoby/Allard-Geerlings-237639" itemprop="actor">Allard Geerlings</a>
+      <div class="ellipsis">jako Moonbase Trooper</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Jussi-Pekka-Kasurinen-282216" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Jussi Pekka Kasurinen" /></a>
+      <a href="/osoby/Jussi-Pekka-Kasurinen-282216" itemprop="actor">Jussi Pekka Kasurinen</a>
+      <div class="ellipsis">jako Moonbase Citizen</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Martin-Kesper-282217" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Martin Kesper" /></a>
+      <a href="/osoby/Martin-Kesper-282217" itemprop="actor">Martin Kesper</a>
+      <div class="ellipsis">jako Moonbase Citizen</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Andreas-Koundourakis-282218" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Andreas Koundourakis" /></a>
+      <a href="/osoby/Andreas-Koundourakis-282218" itemprop="actor">Andreas Koundourakis</a>
+      <div class="ellipsis">jako Jobsist</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Andreas-Kyriacou-282219" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Andreas Kyriacou" /></a>
+      <a href="/osoby/Andreas-Kyriacou-282219" itemprop="actor">Andreas Kyriacou</a>
+      <div class="ellipsis">jako Moonbase Citizen</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Anabel-Lopez-194443" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/faces/crop-32x44/194443.jpg" width="32" height="44" alt="Anabel Lopez" /></a>
+      <a href="/osoby/Anabel-Lopez-194443" itemprop="actor">Anabel Lopez</a>
+      <div class="ellipsis">jako Director of Paperwork</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Tom-Magnus-282220" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Tom Magnus" /></a>
+      <a href="/osoby/Tom-Magnus-282220" itemprop="actor">Tom Magnus</a>
+      <div class="ellipsis">jako Moonbase Trooper</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Andrew-Morgado-239508" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//media.movieprovider.pl/faces/crop-32x44/239508.jpg" width="32" height="44" alt="Andrew Morgado" /></a>
+      <a href="/osoby/Andrew-Morgado-239508" itemprop="actor">Andrew Morgado</a>
+      <div class="ellipsis">jako Creatures</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Dalan-Musson-282193" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Dalan Musson" /></a>
+      <a href="/osoby/Dalan-Musson-282193" itemprop="actor">Dalan Musson</a>
+      <div class="ellipsis">jako Ginger</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Olivier-282221" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Olivier" /></a>
+      <a href="/osoby/Olivier-282221" itemprop="actor">Olivier</a>
+      <div class="ellipsis">jako Moonbase Trooper</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Mendaly-Ries-64988" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Mendaly Ries" /></a>
+      <a href="/osoby/Mendaly-Ries-64988" itemprop="actor">Mendaly Ries</a>
+      <div class="ellipsis">jako Moonbase Citizen</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Zana-Salobir-282222" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Zana Salobir" /></a>
+      <a href="/osoby/Zana-Salobir-282222" itemprop="actor">Zana Salobir</a>
+      <div class="ellipsis">jako VP of Aquistion</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Yves-Robert-Schaaf-228712" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Yves Robert Schaaf" /></a>
+      <a href="/osoby/Yves-Robert-Schaaf-228712" itemprop="actor">Yves Robert Schaaf</a>
+      <div class="ellipsis">jako Moonbase Citizen</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Christoph-Schauz-282223" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Christoph Schauz" /></a>
+      <a href="/osoby/Christoph-Schauz-282223" itemprop="actor">Christoph Schauz</a>
+      <div class="ellipsis">jako Jobsist</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Marten-Schulz-282224" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Marten Schulz" /></a>
+      <a href="/osoby/Marten-Schulz-282224" itemprop="actor">Marten Schulz</a>
+      <div class="ellipsis">jako Moonbase Trooper</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Adrien-Smorodinsky-266630" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Adrien Smorodinsky" /></a>
+      <a href="/osoby/Adrien-Smorodinsky-266630" itemprop="actor">Adrien Smorodinsky</a>
+      <div class="ellipsis">jako Moonbase Citizen</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Gabriel-Soler-266631" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Gabriel Soler" /></a>
+      <a href="/osoby/Gabriel-Soler-266631" itemprop="actor">Gabriel Soler</a>
+      <div class="ellipsis">jako Jobsist</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Klemens-Niklaus-Trenkle-282225" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Klemens Niklaus Trenkle" /></a>
+      <a href="/osoby/Klemens-Niklaus-Trenkle-282225" itemprop="actor">Klemens Niklaus Trenkle</a>
+      <div class="ellipsis">jako Moonbase Trooper</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Yakup-Uzun-273940" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Yakup Uzun" /></a>
+      <a href="/osoby/Yakup-Uzun-273940" itemprop="actor">Yakup Uzun</a>
+      <div class="ellipsis">jako Moonbase Trooper</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Igor-Valeri-266632" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Igor Valeri" /></a>
+      <a href="/osoby/Igor-Valeri-266632" itemprop="actor">Igor Valeri</a>
+      <div class="ellipsis">jako Jobsist</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Ann-Sophie-Vanlommel-282226" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Ann-Sophie Vanlommel" /></a>
+      <a href="/osoby/Ann-Sophie-Vanlommel-282226" itemprop="actor">Ann-Sophie Vanlommel</a>
+      <div class="ellipsis">jako Jobsist</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Timo-Vuorensola-171255" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Timo Vuorensola" /></a>
+      <a href="/osoby/Timo-Vuorensola-171255" itemprop="actor">Timo Vuorensola</a>
+      <div class="ellipsis">jako Tall Finn</div>
+    </li>
+    
+    <li class="credits-item">
+      <a href="/osoby/Francois-Zachary-274415" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" data-src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="François Zachary" /></a>
+      <a href="/osoby/Francois-Zachary-274415" itemprop="actor">François Zachary</a>
+      <div class="ellipsis">jako Jobsist</div>
+    </li>
+    
+  </ul>
+</div>
+
+
+
+<div class="section section-credits" id="section-credits-crew">
+  <h2>Twórcy <a href="javascript:show_more_credits('section-credits-crew')" class="hide">(pokaż wszystkich)</a></h2>
+  <ul class="credits">
+    
+    <li class="credits-item">
+        <a href="/osoby/Dalan-Musson-282193" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Dalan Musson" /></a>
+        <a href="/osoby/Dalan-Musson-282193">Dalan Musson</a>
+        scenariusz
+    </li>
+    
+    <li class="credits-item">
+        <a href="/osoby/Jarmo-Puskala-171254" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Jarmo Puskala" /></a>
+        <a href="/osoby/Jarmo-Puskala-171254">Jarmo Puskala</a>
+        scenariusz
+    </li>
+    
+    <li class="credits-item">
+        <a href="/osoby/Johanna-Sinisalo-171253" class="photo"><img src="//media.movieprovider.pl/photos/crop-32x44/Johanna-Sinisalo.jpg" width="32" height="44" alt="Johanna Sinisalo" /></a>
+        <a href="/osoby/Johanna-Sinisalo-171253">Johanna Sinisalo</a>
+        scenariusz
+    </li>
+    
+    <li class="credits-item">
+        <a href="/osoby/Samuli-Torssonen-282194" class="photo"><img src="//media.movieprovider.pl/faces/crop-32x44/282194.jpg" width="32" height="44" alt="Samuli Torssonen" /></a>
+        <a href="/osoby/Samuli-Torssonen-282194">Samuli Torssonen</a>
+        scenariusz
+    </li>
+    
+    <li class="credits-item">
+        <a href="/osoby/Timo-Vuorensola-171255" class="photo"><img src="//static.movieprovider.pl/images/nophoto.png?v=1" width="32" height="44" alt="Timo Vuorensola" /></a>
+        <a href="/osoby/Timo-Vuorensola-171255">Timo Vuorensola</a>
+        scenariusz, reżyseria
+    </li>
+    
+  </ul>
+</div>
+
+
+
+<script>
+$(document).ready(function() {
+  $('div.section-credits').each(function() {
+    var $this = $(this);
+    var width = 0;
+    var containerWidth = $this.width();
+    $this.find('.credits-item').each(function() {
+      width += $(this).width();
+      if (width > containerWidth) {
+        $this.find('h2 a').css('display', 'inline-block');
+        return false;
+      }
+    });
+  });
+});
+
+function show_more_credits(id) {
+  var el = $(document.getElementById(id));
+  el.find('.credits').css('height', 'auto');
+  $(".credits img[data-src]").each(function() {
+    var el = $(this);
+    el.attr('src', el.attr('data-src'));
+  });
+  el.find('h2 a').hide();
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<div id="div-gpt-ad-8827496-2" style="margin-left:0;margin-top:30px">
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-8827496-2'); });
+</script>
+</div>
+
+<img src="//static.movieprovider.pl/images/pixel.gif?show,1977769,20200306" alt="" width="0" height="0" />
+</div>
+	<div id="end" class="clear"></div>
+
+	<div id="footer"><ul><li><a href="/redakcja">Redakcja</a></li><li><a href="/reklama">Reklama</a></li><li><a href="/archiwum">Archiwum</a></li><li><a href="/sugestia">Prześlij opinię</a></li></ul><div>&copy; 2007-2020 movieprovider.pl / Traffiqua s.j.<br>
+		movieprovider.pl to internetowy przewodnik po programie TV. Znajdziesz tu m.in. program TVP, TVN, Polsat oraz ponad 120 innych stacji TV.<br>
+		Dzięki plikom cookie nasz serwis może działać lepiej. Korzystając z niego zgadzasz się na ich użycie. <a href="/privacy">Zobacz szczegóły</a><br>
+		Dane o programie TV dostarcza AKPA Polska Press.
+	</div>
+
+<script>
+$('.popup').click(function(e) {
+	e.stopPropagation();
+});
+
+$(document).click(function() {
+	$('.popup').hide();
+});
+
+$('#main-menu-stations').click(function() {
+	$('#stations-index').toggle();
+	$('#main-menu-stations').toggleClass('open');
+	$('#suggestions').toggle();
+	return false;
+});
+</script>
+<script src="//static.movieprovider.pl/scripts/autosuggest.js?v3"></script>
+
+</body>
+</html>
