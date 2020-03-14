@@ -3,4 +3,5 @@ export interface Movie {
     title: string;
     category: string;
     description: string;
+    imageUrl: string;
 }

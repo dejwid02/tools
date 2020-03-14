@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class RecordingDetailsComponent implements OnInit {
 
   constructor(private apiWrapper: ApiWrapperService, private router: Router, private route: ActivatedRoute) { }
-  public recording: Recording = {id: 0, movie: {id: 0, category: '', description: '', title: ''}, recordedAtTime: new Date()};
+  public recording: Recording = {id: 0, movie: {id: 0, category: '', description: '', title: '', imageUrl: ''}, recordedAtTime: new Date()};
   id: number;
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');

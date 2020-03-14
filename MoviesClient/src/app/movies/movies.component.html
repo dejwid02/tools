@@ -1,5 +1,4 @@
-<p>Tv programme</p>
-<table class="table">
+<!-- <table class="table">
     <tr>
         <th>Title</th>
         <th>Category</th>
@@ -10,4 +9,16 @@
         <td>{{item.category}}</td>
         <td><button class="btn btn-primary"  [routerLink]="['/recordings', -1, item.id]">Rec</button></td>
     </tr>
-</table>
+</table> -->
+<div class="container">
+    <div class="row">
+        <div class="card col-lg-4 text-center" *ngFor="let item of movies">
+            <h6 class="card-title">{{item.title}}</h6>
+            <div class="card-body">
+                <div class="card-img">
+                    <img src = "{{'http://localhost:80/Movies/' + item.imageUrl}}" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

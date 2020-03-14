@@ -53,12 +53,12 @@ namespace MovieParser
                         ?? repository.GetMovieByYearAndTitle(tvListingItem.Movie.Year, tvListingItem.Movie.Title);
                     if (existingMovie != null)
                     {
-                        if (existingMovie.ImageUrl == null)
+
+                        if (existingMovie.ImageUrl == null || existingMovie.ImageUrl.Contains("teleman"))
                         {
                             if (tvListingItem.Movie.ImageUrl != null)
                             {
                                 existingMovie.ImageUrl = "/images/" + GetFileName(tvListingItem.Movie.ImageUrl);
-                                Console.WriteLine($"Downloading image {tvListingItem.Movie.ImageUrl}");
                                 SaveImage(tvListingItem.Movie.ImageUrl, @"C:\inetpub\wwwroot\Movies\images");
                                 System.Threading.Thread.Sleep(1000);
                             }
@@ -81,6 +81,7 @@ namespace MovieParser
                             SaveImage(tvListingItem.Movie.ImageUrl, @"C:\inetpub\wwwroot\Movies\images");
                             System.Threading.Thread.Sleep(1000);
                         }
+                        tvListingItem.Movie.ImageUrl = "/images/" + GetFileName(tvListingItem.Movie.ImageUrl);
                         existingMovies.Add(tvListingItem.Movie);
                         for (int i = 0; i < tvListingItem.Movie.Actors.Count; i++)
                         {
@@ -217,6 +218,7 @@ namespace MovieParser
             var filePath = System.IO.Path.Combine(directoryPath, GetFileName(url));
             if (!System.IO.File.Exists(filePath))
             {
+                Console.WriteLine($"Downloading image {url}");
                 using (WebClient client = new WebClient())
                 {
                     client.DownloadFile(new Uri($"https:{url}"), filePath);
