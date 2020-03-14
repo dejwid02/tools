@@ -19,15 +19,22 @@
 <div class="container">
     <div class="row">
         <div class="card col-lg-4 text-center" *ngFor="let item of tvItems">
-            <h6 class="card-title">{{item.movie.title}} {{item.movie.rating}}</h6>
+            <h5 class="card-title">{{item.movie.title}} {{item.movie.rating}}</h5>
             <div class="card-body">
                 <div class="card-img">
                     <img src = "{{'http://localhost:80/Movies/' + item.movie.imageUrl}}" />
                 </div>
-                <div class="row no-gutters">
-                    <p>{{item.channel.name}} {{item.startTime | date: 'dd.MM HH:mm'}} {{item.movie.category}} {{item.movie.country}}'{{item.movie.year}}</p>
-                    <button class="btn btn-primary"  [routerLink]="['/recordings', 0, item.movie.id, item.startTime]">Rec</button>
-                </div>
+                    <p class="card-text text-center">{{item.movie.category}} {{item.movie.country}}'{{item.movie.year}}</p>
+                    
+                <div class="table">
+                    <tr>
+                        <td><p>{{item.channel.name}}</p></td>
+                        <td>{{item.startTime | date: 'dd.MMMM HH:mm'}}</td>
+                        <td>
+                            <button class="btn btn-primary"  [routerLink]="['/recordings', 0, item.movie.id, item.startTime]">Rec</button>
+                        </td>
+                    </tr>
+            </div>
             </div>
         </div>
     </div>
