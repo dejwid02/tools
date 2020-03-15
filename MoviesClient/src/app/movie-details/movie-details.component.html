@@ -1,0 +1,16 @@
+
+<div class="container" *ngIf="movie">
+    <table>
+        <div class="row>">
+            <img class="col"  src="{{'http://localhost:80/Movies/' + movie.imageUrl}}"/>
+            <h2 class="col">{{movie.title}}</h2>
+            <p class="col">{{movie.category}} {{movie.country}}'{{movie.year}} rating: {{movie.rating}}</p>
+        </div>
+        <div class="row>">
+            <p class="col">{{movie.description}}</p>
+        </div>
+    </table>
+    
+    
+</div>
+

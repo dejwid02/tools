@@ -34,7 +34,8 @@
                             <button class="btn btn-primary"  [routerLink]="['/recordings', 0, item.movie.id, item.startTime]">Rec</button>
                         </td>
                     </tr>
-            </div>
+                </div>
+                <a class="stretched-link" [routerLink]="['/movies', item.movie.id]"></a>
             </div>
         </div>
     </div>
