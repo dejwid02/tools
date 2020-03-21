@@ -65,6 +65,7 @@ namespace MovieParser
                             System.Threading.Thread.Sleep(1000);
                         }
                         existingMovie.Rating = tvListingItem.Movie.Rating;
+                        existingMovie.Category = existingMovie.Category?.ToLower();
                         tvListingItem.Movie = existingMovie;
                     }
                     else
@@ -79,9 +80,10 @@ namespace MovieParser
                         {
                             Console.WriteLine($"Downloading image {tvListingItem.Movie.ImageUrl}");
                             SaveImage(tvListingItem.Movie.ImageUrl, @"C:\inetpub\wwwroot\Movies\images");
+                            tvListingItem.Movie.ImageUrl = "/images/" + GetFileName(tvListingItem.Movie.ImageUrl);
                             System.Threading.Thread.Sleep(1000);
                         }
-                        tvListingItem.Movie.ImageUrl = "/images/" + GetFileName(tvListingItem.Movie.ImageUrl);
+
                         existingMovies.Add(tvListingItem.Movie);
                         for (int i = 0; i < tvListingItem.Movie.Actors.Count; i++)
                         {

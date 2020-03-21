@@ -20,6 +20,25 @@ namespace MovieParser.Tests
 
             Assert.AreEqual("Timo Vuorensola", $"{newMovie.Director.FirstName} {newMovie.Director.LastName}");
         }
+        [TestMethod]
+        public void ShouldParseRank()
+        {
+            var newMovie = new Entities.Movie();
+            var content = GetMovieContent();
+            sut.FillMovieDetails(newMovie, content);
+
+            Assert.AreEqual(5.1, newMovie.Rating);
+        }
+
+        [TestMethod]
+        public void ShouldParseUrl()
+        {
+            var newMovie = new Entities.Movie();
+            var content = GetMovieContent();
+            sut.FillMovieDetails(newMovie, content);
+
+            Assert.AreEqual("http://www.filmweb.pl/film/Iron+Sky.+Inwazja-2019-727178", newMovie.Url);
+        }
 
         [TestMethod]
         public void ShouldParseActors()

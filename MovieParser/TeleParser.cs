@@ -25,13 +25,13 @@ namespace MovieParser
             var result = allNodes.Select(n =>
                 new TvListingItem
                 {
-                    Channel = channels.First(c => c.Name == getNameFromString(n.Descendants().Single(n2 => n2.Name == "figure").InnerText)),
+                    Channel = channels.First(c => c.Name == getNameFromString(n.Descendants().Single(n2 => n2.Name == "figure").OuterHtml)),
                     StartTime = ParseDate(n.ChildNodes.Last().ChildNodes.Last().PreviousSibling.InnerText, n.ChildNodes.Last().ChildNodes.Last().InnerText),
                     Movie = new Movie()
                     {
                         Title = n.Descendants().Single(n2 => n2.Name == "h3").InnerText,
                         Rating = ParseRating(n.Descendants().SingleOrDefault(n => n.Name == "div" && n.Attributes["class"]?.Value == "imdb")?.InnerText),
-                        Category = n.Descendants().SingleOrDefault(n => n.Name == "div" && n.Attributes["class"]?.Value == "info").FirstChild.InnerText,
+                        Category = n.Descendants().SingleOrDefault(n => n.Name == "div" && n.Attributes["class"]?.Value == "info").FirstChild.InnerText.ToLower(),
                         Year = ParseYear(n.Descendants().SingleOrDefault(n => n.Name == "div" && n.Attributes["class"]?.Value == "info").LastChild.InnerText),
                         Country = ParseCountry(n.Descendants().SingleOrDefault(n => n.Name == "div" && n.Attributes["class"]?.Value == "info").LastChild.InnerText),
                         Url = n.Attributes["href"].Value,
@@ -77,7 +77,10 @@ namespace MovieParser
             var doc = new HtmlDocument();
             doc.LoadHtml(content);
             var descriptionNode = doc.DocumentNode.Descendants().FirstOrDefault(n => n.Name == "meta" && n.Attributes["name"]?.Value == "description");
-            double? rank = ParseRank(doc.DocumentNode.Descendants().FirstOrDefault(n => n.Name == "a" && n.Attributes["class"]?.Value == "movieRank filmwebRank")?.FirstChild?.InnerText);
+            var rankNode = doc.DocumentNode.Descendants().FirstOrDefault(n => n.Name == "a" && n.Attributes["class"]?.Value == "movieRank filmwebRank");
+            double? rank = ParseRank(rankNode?.FirstChild?.InnerText);
+            var rankUrl = rankNode?.Attributes["href"]?.Value;
+            movie.Url = rankUrl;
             movie.Description = descriptionNode?.Attributes["content"].Value;
             if (movie.Rating == null)
                 movie.Rating = rank;
@@ -107,6 +110,8 @@ namespace MovieParser
                 }).ToList();
 
             }
+
+         
         }
 
 
