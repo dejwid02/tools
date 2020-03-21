@@ -19,7 +19,7 @@
 <div class="container">
     <div class="row">
         <div class="card col-lg-4 text-center" *ngFor="let item of tvItems">
-            <h5 class="card-title">{{item.movie.title}} {{item.movie.rating}}</h5>
+            <a class="card-title" [routerLink]="['/movies', item.movie.id]"><h5>{{item.movie.title}} {{item.movie.rating}}</h5></a>
             <div class="card-body">
                 <div class="card-img">
                     <img src = "{{'http://localhost:80/Movies/' + item.movie.imageUrl}}" />
@@ -35,7 +35,6 @@
                         </td>
                     </tr>
                 </div>
-                <a class="stretched-link" [routerLink]="['/movies', item.movie.id]"></a>
             </div>
         </div>
     </div>

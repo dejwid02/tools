@@ -10,13 +10,35 @@
         <td><button class="btn btn-primary"  [routerLink]="['/recordings', -1, item.id]">Rec</button></td>
     </tr>
 </table> -->
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="card col-lg-4 text-center" *ngFor="let item of movies">
             <h6 class="card-title">{{item.title}}</h6>
             <div class="card-body">
                 <div class="card-img">
                     <img src = "{{'http://localhost:80/Movies/' + item.imageUrl}}" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div class="card col-lg-4 text-center" *ngFor="let item of movies">
+            <a class="card-title" [routerLink]="['/movies', item.id]"><h5>{{item.title}} {{item.rating}}</h5></a>
+            <div class="card-body">
+                <div class="card-img">
+                    <img src = "{{'http://localhost:80/Movies/' + item.imageUrl}}" />
+                </div>
+                    <p class="card-text text-center">{{item.category}} {{item.country}}'{{item.year}}</p>
+                    
+                <div class="table">
+                    <tr>
+                        <td>
+                            <button class="btn btn-primary"  [routerLink]="['/recordings', 0, item.id, 0]">Rec</button>
+                        </td>
+                    </tr>
                 </div>
             </div>
         </div>

@@ -18,8 +18,15 @@ export class RecordingDetailsComponent implements OnInit {
     if (this.id === 0) {
       const movieId = +this.route.snapshot.paramMap.get('movieId');
       this.apiWrapper.getMovie(movieId).subscribe(m => this.recording.movie = m);
-      const date = new Date(this.route.snapshot.paramMap.get('startTime'));
-      this.recording.recordedAtTime = date;
+      const argDate = this.route.snapshot.paramMap.get('startTime');
+      if(+argDate===0) {
+        const date = new Date();
+        this.recording.recordedAtTime = date;
+      } else {
+        const date = new Date(argDate);
+        this.recording.recordedAtTime = date;
+      }
+     
     }
   }
 
@@ -27,5 +34,26 @@ export class RecordingDetailsComponent implements OnInit {
     this.apiWrapper.createRecording(this.recording);
     this.router.navigateByUrl('/recordings');
   }
+
+ get year(): number {
+  return this.recording.recordedAtTime.getFullYear();
+ }
+ set year(newYear: number)  {
+   this.recording.recordedAtTime.setFullYear(newYear);
+ }
+
+ get month(): number {
+  return this.recording.recordedAtTime.getMonth() + 1;
+ }
+ set month(newMonth: number)  {
+   this.recording.recordedAtTime.setMonth(newMonth - 1);
+ }
+
+ get day(): number {
+  return this.recording.recordedAtTime.getDate();
+ }
+ set day(newDay: number)  {
+   this.recording.recordedAtTime.setDate(newDay);
+ }
 
 }
