@@ -14,7 +14,7 @@ export class ApiWrapperService {
   recordingsUrl: string;
   moviesUrl: string;
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    this.tvListingUrl = baseUrl + '/api/tvitems?hidePast=false';
+    this.tvListingUrl = baseUrl + '/api/tvitems?hidePast=true';
     this.recordingsUrl = baseUrl + '/api/recordings';
     this.moviesUrl = baseUrl + '/api/movies';
   }

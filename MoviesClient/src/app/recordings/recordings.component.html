@@ -8,8 +8,8 @@
         <th>Function</th>
     </tr>
     <tr *ngFor="let item of recordings">
-        <td>{{item.recordedAtTime}}</td>
-        <td>{{item.movie.title}}</td>
+        <td>{{item.recordedAtTime | date: 'yyyy-MM-dd HH:mm'}}</td>
+        <td><a [routerLink]="['/movies', item.movie.id]">{{item.movie.title}}</a></td>
         <td>{{item.movie.category}}</td>
         <td><button class="btn btn-primary" (click)="delete(item.id)">Delete</button></td>
     </tr>
