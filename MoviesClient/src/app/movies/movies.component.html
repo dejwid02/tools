@@ -1,31 +1,6 @@
-<!-- <table class="table">
-    <tr>
-        <th>Title</th>
-        <th>Category</th>
-        <th>Functions</th>
-    </tr>
-    <tr *ngFor="let item of movies">
-        <td>{{item.title}}</td>
-        <td>{{item.category}}</td>
-        <td><button class="btn btn-primary"  [routerLink]="['/recordings', -1, item.id]">Rec</button></td>
-    </tr>
-</table> -->
-<!-- <div class="container">
-    <div class="row">
-        <div class="card col-lg-4 text-center" *ngFor="let item of movies">
-            <h6 class="card-title">{{item.title}}</h6>
-            <div class="card-body">
-                <div class="card-img">
-                    <img src = "{{'http://localhost:80/Movies/' + item.imageUrl}}" />
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <div class="container">
     <div class="row">
-        <div class="card col-lg-4 text-center" *ngFor="let item of movies">
+        <div class="card col-lg-4 text-center" *ngFor="let item of movies$ | async">
             <a class="card-title" [routerLink]="['/movies', item.id]"><h5>{{item.title}} {{item.rating}}</h5></a>
             <div class="card-body">
                 <div class="card-img">

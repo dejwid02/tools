@@ -13,23 +13,17 @@ export class ApiWrapperService {
   tvListingUrl: string;
   recordingsUrl: string;
   moviesUrl: string;
+  tvListingItems$ : Observable<TvListingItem[]>;
+  recordings$ : Observable<Recording[]>;
+  movies$ : Observable<Movie[]>;
+
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    this.tvListingUrl = baseUrl + '/api/tvitems?hidePast=true';
+    this.tvListingUrl = baseUrl + '/api/tvitems?hidePast=false';
     this.recordingsUrl = baseUrl + '/api/recordings';
     this.moviesUrl = baseUrl + '/api/movies';
-  }
-
-  public getTvListingItems(): Observable<TvListingItem[]> {
-    return this.http.get<TvListingItem[]>(this.tvListingUrl);
-  }
-
-  public getRecordings(): Observable<Recording[]> {
-    return this.http.get<Recording[]>(this.recordingsUrl);
-  }
-
-  public getMovies(): Observable<Movie[]> {
-
-    return this.http.get<Movie[]>(this.moviesUrl);
+    this.tvListingItems$ =  this.http.get<TvListingItem[]>(this.tvListingUrl);
+    this.recordings$ = this.http.get<Recording[]>(this.recordingsUrl);
+    this.movies$ = this.http.get<Movie[]>(this.moviesUrl);
   }
 
   public getMovie(id: number): Observable<Movie> {

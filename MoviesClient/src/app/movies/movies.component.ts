@@ -7,12 +7,7 @@ import { Movie } from '../model/Movie';
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css']
 })
-export class MoviesComponent implements OnInit {
-  public movies: Movie[];
+export class MoviesComponent {
+  public movies$ = this.apiWrapper.movies$;
   constructor(private apiWrapper: ApiWrapperService) { }
-
-  ngOnInit() {
-    this.apiWrapper.getMovies().subscribe(i => this.movies = i);
-  }
-
 }

@@ -1,18 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ApiWrapperService } from '../api-wrapper.service';
 import { TvListingItem } from '../model/TvListingItem';
+import {Observable,Subject, Subscription} from 'rxjs';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-  tvItems: TvListingItem[];
-  constructor(private apiWrapper: ApiWrapperService) { }
+export class HomeComponent {
 
-  ngOnInit() {
-    this.apiWrapper.getTvListingItems().subscribe(i => this.tvItems = i);
-  }
+  constructor(private apiWrapper: ApiWrapperService) { }
+  public tvItems$ = this.apiWrapper.tvListingItems$;
 
 }

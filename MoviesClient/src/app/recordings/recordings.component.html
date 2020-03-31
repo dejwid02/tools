@@ -1,5 +1,5 @@
 <p>Recordings</p>
-<table class="table">
+<table class="table" *ngIf = "recordings$ | async as recordings">
     <tr>
         <th>Time</th>
         <th>Channel name</th>
