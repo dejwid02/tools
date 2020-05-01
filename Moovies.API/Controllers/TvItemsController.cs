@@ -26,9 +26,14 @@ namespace Movies.API.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<TvListingItem>> Get(bool hidePast = true)
+        public ActionResult<IEnumerable<TvListingItem>> Get(bool hidePast = true, bool hideRecorded=false)
         {
             var tvItems = hidePast ? repository.GetAllTvListingItems().Where(t => t.StartTime > DateTime.Now) : repository.GetAllTvListingItems() ;
+            if (hideRecorded)
+            {
+                var recordedIds=repository.GetAllRecordings().Select(r=>r.Movie.Id);
+                tvItems = tvItems.Where(tv => !recordedIds.Contains(tv.Movie.Id) || tv.StartTime>DateTime.Now);
+            }
             return Ok(tvItems.OrderBy(t=>t.StartTime).Select(i=>mapper.Map<Data.TvListingItem>(i)));
         }
     }
