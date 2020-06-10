@@ -48,7 +48,11 @@ namespace MovieParser
 
         private int? ParseYear(string innerText)
         {
-            return int.Parse(innerText.Split(" ").First());
+            var year = innerText.Split(" ").First();
+            int result = 0;
+            if (int.TryParse(year, out result))
+                return result;
+            return null;
         }
 
         private double? ParseRating(string innerText)
