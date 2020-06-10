@@ -10,7 +10,10 @@ import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { RecordingsComponent } from './recordings/recordings.component';
 import { RecordingDetailsComponent } from './recording-details/recording-details.component';
 import { MoviesComponent } from './movies/movies.component';
-import { MovieDetailsComponent } from './movie-details/movie-details.component'; 
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,11 +24,14 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     MoviesComponent,
     MovieDetailsComponent
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

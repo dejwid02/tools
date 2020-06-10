@@ -1,7 +1,8 @@
 <div class="container" *ngIf = "tvItems$ | async as tvItems">
     <div class="row">
         <div class="card col-lg-4 text-center" *ngFor="let item of tvItems">
-            <a class="card-title" [routerLink]="['/movies', item.movie.id]"><h5>{{item.movie.title}} {{item.movie.rating}}</h5></a>
+            <a class="card-title" [routerLink]="['/movies', item.movie.id]"><span>{{item.movie.title}}</span></a>
+            <p *ngIf="item.movie.rating"><mat-icon color="primary">star</mat-icon> {{item.movie.rating}}</p>
             <div class="card-body align-items-center">
                 <div class="card-img">
                     <img src = "{{'http://localhost:80/Movies/' + item.movie.imageUrl}}" />
@@ -14,7 +15,7 @@
                         <td><p>{{time.channel.name}}</p></td>
                         <td>{{time.startTime | date: 'dd.MMMM HH:mm'}}</td>
                         <td>
-                            <button class="btn btn-primary"  [routerLink]="['/recordings', 0, item.movie.id, time.startTime]">Rec</button>
+                            <button mat-raised-button color="primary"  [routerLink]="['/recordings', 0, item.movie.id, time.startTime]">Rec</button>
                         </td>
                     </tr>
                 </table>
