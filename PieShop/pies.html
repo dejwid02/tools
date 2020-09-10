@@ -56,6 +56,15 @@
             </ul>
         </nav>
     </footer>
+    <script>
+        window.addEventListener("DOMContentLoaded", (e) => {
+            let orderButtons = document.querySelectorAll("button[data-order]");
+            orderButtons.forEach(element => {
+                element.addEventListener("click", (e) => {
+                    console.log("button clicked");})
+            });
+        })
+    </script>
 </body>
 
 </html>
