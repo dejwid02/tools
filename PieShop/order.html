@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bethany's Pie Shop</title>
+    <link rel="stylesheet" href="site.css" type="text/css" />
+    <style>
+        .item-group {
+        margin-bottom: 20px;
+    }
+    .item-group textarea,
+    .item-group input,
+    .item-group select {
+        padding: 10px;
+        border: solid 1px  #999;
+        width: 100%;
+        border-radius: 2px;
+    }
+    .item-group label {
+        font-weight: bold
+    }
+
+    form input[type="reset"] {
+        background: transparent;
+        cursor: pointer;
+        text-decoration: underline;
+        border: none;
+    }
+    input[type="submit"] {
+        border: 1px solid #999;
+        border-radius: 3px;
+        padding: 10px;
+    }
+    @media only screen and (min-width: 768px) {
+        article {
+            width: 350px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="pies.html">Pies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <aside><img src="images/logo.png" alt="Bethany's Pie Shop" /></aside>
+        <article>
+            <h1>Order</h1>
+            <div class="pie">
+                <img src="" alt="">
+                <div class="columns">
+                    <div class="title"></div>
+                    <div class="price"></div>
+                </div>
+                <p class="desc"></p>
+            </div>
+            <form action="http:/localhost:5500" method="POST">
+                <div class="item-group">
+                    <div><label for="firstName">First name</label></div>
+                    <div><input type="text" name="firstName" id="firstName"></input></div>
+                </div>
+                <div class="item-group">
+                    <div><label for="lastName">Last name</label></div>
+                    <div><input type="text" name="lastName" id="lastName"></div>
+                </div>
+
+                <div class="item-group">
+                    <div><label for="address">Last name</label></div>
+                    <div><input type="text" name="address" id="address"></div>
+                </div>
+
+                <div class="item-group">
+                    <div><label for="state">State</label></div>
+                    <div><select name="state" id="state">
+                            <option value="" selected>[SELECT ONE]</option>
+                            <option value="New York">New York</option>
+                            <option value="Washington">Washington</option>
+                            <option value="Florida">Florida</option>
+                            <option value="Lodz">Lodz</option>
+                            <option value="Warsaw">Warsaw</option>
+                        </select></div>
+                    <div class="input-group">
+                        <div><label for="postalCode">Post code</label></div>
+                        <div><input type="text" id="postalCode" name="postalCode"></div>
+                    </div>
+
+                    <div class="item-group">
+                        <div><label for="comments">Comments</label></div>
+                        <div><textarea name="comments" id="comments" cols="30" rows="10"></textarea></div>
+                    </div>
+                </div>
+                <input type="reset" value="Reset">
+                <input type="submit" value="Submit">
+
+            </form>
+        </article>
+    </main>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="pies.html">Pies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+<script>
+    addEventListener("DOMContentLoaded", (e) => {
+        const stringOrder = localStorage.getItem("order");
+        const order = JSON.parse(stringOrder);
+        if (order) {
+            const img = document.querySelector(".pie img");
+            img.setAttribute("src", `images/${order.id}.png`);
+            img.setAttribute("alt", "Pie");
+
+            const price = document.querySelector(".pie .price");
+            price.innerText = order.price;
+
+            const title = document.querySelector(".pie .title");
+            title.innerText = order.title;
+
+            const desc = document.querySelector(".pie .desc");
+            desc.inneText = order.desc;
+        }
+    })
+</script>
+
+</html>
