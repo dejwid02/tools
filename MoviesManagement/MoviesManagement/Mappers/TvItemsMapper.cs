@@ -10,11 +10,11 @@ namespace MoviesManagement.Mappers
     {
         public IList<TvItemViewModel> Map(IList<TvListingItem> tvItems)
         {
-           var groups= tvItems.GroupBy(t => t.Movie);
+           var groups= tvItems.GroupBy(t => t.Movie.Id).ToList();
             return groups.Select(t => new TvItemViewModel
             {
-                Movie = MapMovie(t.Key),
-                Emissions = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(t.Select(t2 => $"{t2.Channel.Name} | {t2.StartTime.ToString("mmm-dd")}"))
+                Movie = MapMovie(tvItems.FirstOrDefault(m=>m.Movie.Id==t.Key).Movie),
+                Emissions = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(t.AsEnumerable().Select(t2 => $"{t2.Channel.Name} | {t2.StartTime.ToString("MMM-dd hh:mm")}"))
             }).ToList();
         }
 
