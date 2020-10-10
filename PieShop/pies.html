@@ -32,7 +32,7 @@
                         <div class="price">$1.99</div>
                     </div>
                     <p class="desc">Our famous apple pie</p>
-                    <button data-order="Apple pie">Order</button>
+                    <button data-order="apple-pie">Order</button>
                 </div>
 
                 <div class="pie">
@@ -42,7 +42,7 @@
                         <div class="price">$13.99</div>
                     </div>
                     <p class="desc">Our famous cherry pie</p>
-                    <button data-order="Cherry pie">Order</button>
+                    <button data-order="cherry-pie">Order</button>
                 </div>
             </section>
         </article>
@@ -73,7 +73,7 @@
                     };
                     
                     localStorage.setItem("order", JSON.stringify(order));
-                    const url = window.location.href.replace("pies.html, order.html");
+                    const url = window.location.href.replace("pies.html", "order.html");
                     window.location.href = url;
                 });
         })
