@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model TvItemsViewModel
+    <div class="text-center">
+
+        @foreach (var item in @Model.TvItems)
+        {
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src=@item.Movie.ImageUrl alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Movie.Title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Record</a>
+                </div>
+            </div>
+        }
+    </div>
