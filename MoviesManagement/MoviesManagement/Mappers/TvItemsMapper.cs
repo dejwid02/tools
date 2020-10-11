@@ -25,7 +25,8 @@ namespace MoviesManagement.Mappers
                 Category = movie.Category,
                 Description = movie.Description,
                 Title = movie.Title,
-                ImageUrl = movie.ImageUrl
+                ImageUrl = movie.ImageUrl,
+                Rating = movie.Rating
             };
         }
     }

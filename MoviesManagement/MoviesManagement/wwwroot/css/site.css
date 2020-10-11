@@ -78,3 +78,18 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-gap: .5rem;
 }
+
+.rating i {
+    color: gold;
+    opacity: 0.9;
+
+}
+
+.rating p {
+    position: absolute;
+    color: darkslategray;
+    top: 7px;
+    left: 9px;
+    font-size: .75rem;
+    font-weight: bold;
+}
