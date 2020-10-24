@@ -74,7 +74,9 @@ namespace MovieParser.DAL
 
         public TvListingItem GetTvListingItem(int id)
         {
-            return _context.TvListingItems.SingleOrDefault(tv => tv.Id == id);
+            return _context.TvListingItems.Where(tv => tv.Id == id)
+                .Include(c=>c.Movie)
+                .Include(c=>c.Channel).SingleOrDefault();
         }
 
         public Movie GetMovie(long id)

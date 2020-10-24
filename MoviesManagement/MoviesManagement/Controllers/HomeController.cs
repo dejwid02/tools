@@ -30,9 +30,14 @@ namespace MoviesManagement.Controllers
         public async Task<IActionResult> Index()
         {
 
-           var items = await apiClient.Get<IList<TvListingItem>>("api/tvitems?hidePast=false");
+           var items = await apiClient.Get<IList<TvListingItem>>("api/tvitems");
             var vm = mapper.Map(items);
             return View(new TvItemsViewModel { TvItems = vm });
+        }
+        [HttpPost]
+        public async Task<IActionResult> Record(TvItemsViewModel vm)
+        {
+            return View();
         }
 
         public IActionResult Privacy()

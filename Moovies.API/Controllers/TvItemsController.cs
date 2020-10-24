@@ -26,15 +26,24 @@ namespace Movies.API.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<TvListingItem>> Get(bool hidePast = true, bool hideRecorded=false)
+        public ActionResult<IEnumerable<TvListingItem>> Get(bool hidePast = true, bool hideRecorded = false)
         {
-            var tvItems = hidePast ? repository.GetAllTvListingItems().Where(t => t.StartTime > DateTime.Now) : repository.GetAllTvListingItems() ;
+            var tvItems = hidePast ? repository.GetAllTvListingItems().Where(t => t.StartTime > DateTime.Now) : repository.GetAllTvListingItems();
             if (hideRecorded)
             {
-                var recordedIds=repository.GetAllRecordings().Where(r=>r.RecordedAtTime<= DateTime.Now).Select(r=>r.Movie.Id);
+                var recordedIds = repository.GetAllRecordings().Where(r => r.RecordedAtTime <= DateTime.Now).Select(r => r.Movie.Id);
                 tvItems = tvItems.Where(tv => !recordedIds.Contains(tv.Movie.Id));
             }
-            return Ok(tvItems.OrderBy(t=>t.StartTime).Select(i=>mapper.Map<Data.TvListingItem>(i)));
+            return Ok(tvItems.OrderBy(t => t.StartTime).Select(i => mapper.Map<Data.TvListingItem>(i)));
+        }
+
+        [HttpGet("{id:int}")]
+        public ActionResult Get(int id)
+        {
+            var tviItem = repository.GetTvListingItem(id);
+            if (tviItem == null)
+                BadRequest($"Could not find item with id {id}");
+            return Ok(mapper.Map<Data.TvListingItem>(tviItem));
         }
     }
 }

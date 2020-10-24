@@ -30,6 +30,20 @@ namespace Services
             return null;
         }
 
+        public async Task<TOut> PostAsync<TOut>(string path, HttpContent content)
+        {
+            var result = await client.PostAsync(path, content);
+            int status = (int)(result.StatusCode);
+
+            var resultString = await (result.Content?.ReadAsStringAsync() ?? Task.FromResult(default(string)));
+            if(result.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<TOut>(resultString);
+            }
+            HandleError(status)
+                return null
+        }
+
         public static void HandleError(int statusCode)
         {
             throw new InvalidOperationException($"Connection with api failed with code{statusCode}");
