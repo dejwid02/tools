@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Services
@@ -36,12 +37,28 @@ namespace Services
             int status = (int)(result.StatusCode);
 
             var resultString = await (result.Content?.ReadAsStringAsync() ?? Task.FromResult(default(string)));
-            if(result.IsSuccessStatusCode)
+            if (result.IsSuccessStatusCode)
             {
                 return JsonConvert.DeserializeObject<TOut>(resultString);
             }
-            HandleError(status)
-                return null
+            HandleError(status);
+            return default(TOut);
+        }
+
+        public async Task<TOut> PostAsync<TIn, TOut>(string path, TIn content)
+        {
+            var json = JsonConvert.SerializeObject(content);
+            var sContent = new StringContent(json, Encoding.UTF8, "application/json");
+            var result = await client.PostAsync(path, sContent);
+            int status = (int)(result.StatusCode);
+
+            var resultString = await (result.Content?.ReadAsStringAsync() ?? Task.FromResult(default(string)));
+            if (result.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<TOut>(resultString);
+            }
+            HandleError(status);
+            return default(TOut);
         }
 
         public static void HandleError(int statusCode)

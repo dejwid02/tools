@@ -6,8 +6,8 @@ namespace Services
     public interface IApiClient
     {
         Task<TOut> Get<TOut>(string url) where TOut : class;
-
-        Task<TOut> PostAsync<TOut> (string path, HttpContent content)
+        Task<TOut> PostAsync<TOut>(string path, HttpContent content);
+        Task<TOut> PostAsync<TIn, TOut>(string path, TIn content);
 
     }
 }
