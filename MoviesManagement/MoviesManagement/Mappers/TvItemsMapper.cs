@@ -47,11 +47,22 @@ namespace MoviesManagement.Mappers
             {
                 Id=movie.Id,
                 Category = movie.Category,
+                Country = movie.Country,
+                Year = movie.Year,
                 Description = movie.Description,
                 Title = movie.Title,
                 ImageUrl = movie.ImageUrl,
                 Rating = movie.Rating
             };
+        }
+
+        public IList<RecordingItemViewModel> MapRecordingList(IEnumerable<Recording> recordings)
+        {
+           return recordings.Select(r => new RecordingItemViewModel
+            {
+                Movie = MapMovie(r.Movie),
+                RecordingTime = r.RecordedAtTime,
+            }).ToList();
         }
     }
 }

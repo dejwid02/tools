@@ -8,5 +8,7 @@
         public string Description { get; internal set; }
         public double? Rating { get; internal set; }
         public long Id { get; internal set; }
+        public string Country { get; internal set; }
+        public int? Year { get; internal set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿@model RecordingItemViewModel
-<form>
+<form method="post">
     <div class="form-group row">
         <label for="title" class="col-sm-2 col-form-label">Title</label>
         <div class="col-sm-10">
@@ -51,7 +51,7 @@
     <div class="form-group row">
         <div class="col-sm-10">
             <button type="reset" class="btn btn-secondary">Cancel</button>
-            <button type="submit" class="btn btn-primary">Record</button>
+            <button type="submit" class="btn btn-primary" asp-action="Record" asp-route-id="@Model.TvItemId">Record</button>
         </div>
     </div>
 </form>

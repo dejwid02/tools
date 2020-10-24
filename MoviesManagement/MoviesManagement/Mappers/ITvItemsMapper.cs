@@ -11,6 +11,7 @@ namespace MoviesManagement.Mappers
     {
         IList<TvItemViewModel> Map(IList<TvListingItem> tvItems);
         RecordingItemViewModel MapRecording(TvListingItem tvItem);
+        IList<RecordingItemViewModel> MapRecordingList(IEnumerable<Recording> recordings);
         RecordingDto MapRecordingRequest(TvListingItem tvItem);
     }
 }

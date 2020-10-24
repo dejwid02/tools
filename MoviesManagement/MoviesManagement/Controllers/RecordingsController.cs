@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Movies.Data;
 using MoviesManagement.Dtos;
 using MoviesManagement.Mappers;
+using MoviesManagement.Models;
 using Services;
 
 namespace MoviesManagement.Controllers
@@ -37,7 +38,14 @@ namespace MoviesManagement.Controllers
             var tvItem = await apiClient.Get<TvListingItem>($"api/tvitems/{id}");
             var request = mapper.MapRecordingRequest(tvItem);
             RecordingDto result = await apiClient.PostAsync<RecordingDto, RecordingDto>("api/recordings", request);
-            return RedirectToAction()
+            return RedirectToAction("List");
+        }
+
+        public async Task<IActionResult> List()
+        {
+            var recordings = await apiClient.Get<IEnumerable<Recording>>("api/recordings");
+
+            return View("List", mapper.MapRecordingList(recordings));
         }
     }
 }
