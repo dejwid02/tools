@@ -1,4 +1,5 @@
 ﻿using Movies.Data;
+using MoviesManagement.Dtos;
 using MoviesManagement.Models;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,27 @@ namespace MoviesManagement.Mappers
                 Movie = MapMovie(tvItems.FirstOrDefault(m=>m.Movie.Id==t.Key).Movie),
                 Emissions = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(t.Select(t2 => new { key= $"{t2.Channel.Name} | {t2.StartTime.ToString("MMM-dd hh:mm")}", value=$"{t2.Movie.Id}|{t2.Id}" }).ToDictionary(i=>i.key, i=>i.value), "Value", "Key")
             }).ToList();
+        }
+
+        public RecordingItemViewModel MapRecording(TvListingItem tvItem)
+        {
+
+            return new RecordingItemViewModel
+            {
+                Movie = MapMovie(tvItem.Movie),
+                RecordingTime = tvItem.StartTime,
+                TvItemId = tvItem.Id
+            };
+        }
+
+        public RecordingDto MapRecordingRequest(TvListingItem tvItem)
+        {
+
+            return new RecordingDto
+            {
+                Movie = new MovieDto { Id = tvItem.Movie.Id },
+                RecordedAtTime = tvItem.StartTime
+            };
         }
 
         private static MovieViewModel MapMovie(Movie movie)

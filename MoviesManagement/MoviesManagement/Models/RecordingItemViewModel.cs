@@ -8,8 +8,8 @@ namespace MoviesManagement.Models
     public class RecordingItemViewModel
     {
         public int TvItemId { get; set; }
-        public string Title { get; set; }
-
+        public MovieViewModel Movie { get; set; }
+        public DateTime RecordingTime { get; set; }
 
     }
 }

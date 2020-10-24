@@ -1,14 +1,15 @@
-﻿<form>
+﻿@model RecordingItemViewModel
+<form>
     <div class="form-group row">
         <label for="title" class="col-sm-2 col-form-label">Title</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="title">
+            <input type="text" class="form-control" id="title" value="@Model.Movie.Title">
         </div>
     </div>
     <div class="form-group row">
         <label for="time" class="col-sm-2 col-form-label">Time</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="time">
+            <input type="text" class="form-control" id="time" value="@Model.RecordingTime.ToShortDateString()">
         </div>
     </div>
     <fieldset class="form-group">

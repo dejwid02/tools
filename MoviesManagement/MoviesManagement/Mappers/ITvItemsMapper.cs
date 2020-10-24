@@ -1,4 +1,5 @@
 ﻿using Movies.Data;
+using MoviesManagement.Dtos;
 using MoviesManagement.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,7 @@ namespace MoviesManagement.Mappers
     public interface ITvItemsMapper
     {
         IList<TvItemViewModel> Map(IList<TvListingItem> tvItems);
+        RecordingItemViewModel MapRecording(TvListingItem tvItem);
+        RecordingDto MapRecordingRequest(TvListingItem tvItem);
     }
 }

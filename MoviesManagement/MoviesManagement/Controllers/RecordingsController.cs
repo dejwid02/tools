@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Movies.Data;
+using MoviesManagement.Dtos;
+using MoviesManagement.Mappers;
 using Services;
 
 namespace MoviesManagement.Controllers
@@ -11,10 +13,12 @@ namespace MoviesManagement.Controllers
     public class RecordingsController : Controller
     {
         private readonly IApiClient apiClient;
+        private readonly ITvItemsMapper mapper;
 
-        public RecordingsController(IApiClient apiClient)
+        public RecordingsController(IApiClient apiClient, ITvItemsMapper mapper)
         {
             this.apiClient = apiClient;
+            this.mapper = mapper;
         }
         [HttpPost]
         public async Task<IActionResult> Index(int id)
@@ -23,7 +27,17 @@ namespace MoviesManagement.Controllers
             var form = HttpContext.Request.Form;
             var itemId = form.Where(f => f.Key == "Item").Select(i => i.Value).SelectMany(i2 => i2.ToArray()).Select(i => i.Split("|")).FirstOrDefault(i => i[0] == id.ToString())[1];
             var tvItem = await apiClient.Get<TvListingItem>($"api/tvitems/{itemId}");
-            return View();
+            var vm = mapper.MapRecording(tvItem);
+            return View(vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Record(int id)
+        {  
+            var tvItem = await apiClient.Get<TvListingItem>($"api/tvitems/{id}");
+            var request = mapper.MapRecordingRequest(tvItem);
+            RecordingDto result = await apiClient.PostAsync<RecordingDto, RecordingDto>("api/recordings", request);
+            return RedirectToAction()
         }
     }
 }
