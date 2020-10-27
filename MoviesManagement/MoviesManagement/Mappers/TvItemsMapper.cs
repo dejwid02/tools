@@ -62,6 +62,7 @@ namespace MoviesManagement.Mappers
             {
                 Movie = MapMovie(r.Movie),
                 RecordingTime = r.RecordedAtTime,
+                TvItemId = r.Id
             }).ToList();
         }
     }

@@ -41,6 +41,13 @@ namespace MoviesManagement.Controllers
             return RedirectToAction("List");
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await apiClient.Delete($"api/Recordings/{id}");
+            return RedirectToAction("List");
+        }
+
         public async Task<IActionResult> List()
         {
             var recordings = await apiClient.Get<IEnumerable<Recording>>("api/recordings");

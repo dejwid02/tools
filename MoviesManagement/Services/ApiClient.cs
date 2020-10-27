@@ -65,5 +65,15 @@ namespace Services
         {
             throw new InvalidOperationException($"Connection with api failed with code{statusCode}");
         }
+
+        public async Task Delete(string path)
+        {
+            var result = await client.DeleteAsync(path);
+            if (result.IsSuccessStatusCode)
+            {
+                return;
+            }
+            HandleError((int)result.StatusCode);
+        }
     }
 }
