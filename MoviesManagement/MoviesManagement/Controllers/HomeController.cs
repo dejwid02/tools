@@ -40,6 +40,12 @@ namespace MoviesManagement.Controllers
             return View();
         }
 
+        public async Task<ActionResult> Movie(int id)
+        {
+            var movie = await apiClient.Get<Movie>($"api/movies/{id}");
+
+            return View(mapper.MapMovie(movie));
+        }
         public IActionResult Privacy()
         {
             return View();

@@ -23,7 +23,7 @@
                 {
                     <tr>
                         <th scope="row">@(id++)</th>
-                        <td>@item.Movie.Title</td>
+                        <td><a asp-action="Movie" asp-controller="Home" asp-route-id="@item.Movie.Id">@item.Movie.Title</a></td>
                         <td>@item.Movie.Category</td>
                         <td>@item.Movie.Country</td>
                         <td>@item.Movie.Year</td>

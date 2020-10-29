@@ -41,7 +41,7 @@ namespace MoviesManagement.Mappers
             };
         }
 
-        private static MovieViewModel MapMovie(Movie movie)
+        public MovieViewModel MapMovie(Movie movie)
         {
             return new MovieViewModel
             {
