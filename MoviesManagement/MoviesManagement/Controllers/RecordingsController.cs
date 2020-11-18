@@ -22,12 +22,9 @@ namespace MoviesManagement.Controllers
             this.mapper = mapper;
         }
         [HttpPost]
-        public async Task<IActionResult> Index(int id)
+        public async Task<IActionResult> Index(int item)
         {
-            
-            var form = HttpContext.Request.Form;
-            var itemId = form.Where(f => f.Key == "Item").Select(i => i.Value).SelectMany(i2 => i2.ToArray()).Select(i => i.Split("|")).FirstOrDefault(i => i[0] == id.ToString())[1];
-            var tvItem = await apiClient.Get<TvListingItem>($"api/tvitems/{itemId}");
+            var tvItem = await apiClient.Get<TvListingItem>($"api/tvitems/{item}");
             var vm = mapper.MapRecording(tvItem);
             return View(vm);
         }
