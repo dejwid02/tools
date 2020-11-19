@@ -60,6 +60,15 @@ namespace MovieParser.Tests
         }
 
         [TestMethod]
+        public void ShouldParseImageUrl()
+        {
+            var newMovie = new Entities.Movie();
+            var content = GetMovieContent();
+            sut.FillMovieDetails(newMovie, content);
+            Assert.AreEqual(@"//media.movieprovider.pl/photos/470x265/Iron-Sky-Inwazja2019.jpeg", newMovie.ImageUrl);
+        }
+
+        [TestMethod]
         public void ShouldParseMovieList()
         {
             var channels = new[] {"CanalPlus.pl", "HBO.pl" }.Select(c=>new Entities.Channel() { Name = c });

@@ -53,23 +53,9 @@ namespace MovieParser
                         ?? repository.GetMovieByYearAndTitle(tvListingItem.Movie.Year, tvListingItem.Movie.Title);
                     if (existingMovie != null)
                     {
-                        if (tvListingItem.Movie.ImageUrl != null)
-                        {
-                            var imageName = GetFileName(tvListingItem.Movie.ImageUrl);
-                            if (existingMovie.ImageUrl == null
-                                || existingMovie.ImageUrl.Contains("teleman")
-                                || !File.Exists(Path.Combine(@"C:\inetpub\wwwroot\Movies\images", imageName)))
-                            {
-
-                                existingMovie.ImageUrl = "/images/" + imageName;
-                                SaveImage(tvListingItem.Movie.ImageUrl, @"C:\inetpub\wwwroot\Movies\images");
-                                System.Threading.Thread.Sleep(1000);
-                            }
-
-                            existingMovie.Rating = tvListingItem.Movie.Rating;
-                            existingMovie.Category = existingMovie.Category?.ToLower();
-                            tvListingItem.Movie = existingMovie;
-                        }                  
+                        existingMovie.Rating = tvListingItem.Movie.Rating;
+                        existingMovie.Category = existingMovie.Category?.ToLower();
+                        tvListingItem.Movie = existingMovie;
                     }
                     else
                     {

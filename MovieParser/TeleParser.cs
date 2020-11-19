@@ -81,12 +81,10 @@ namespace MovieParser
         {
             var doc = new HtmlDocument();
             doc.LoadHtml(content);
-            var descriptionNode = doc.DocumentNode.Descendants().FirstOrDefault(n => n.Name == "meta" && n.Attributes["name"]?.Value == "description");
             var rankNode = doc.DocumentNode.Descendants().FirstOrDefault(n => n.Name == "a" && n.Attributes["class"]?.Value == "movieRank filmwebRank");
             double? rank = ParseRank(rankNode?.FirstChild?.InnerText);
             var rankUrl = rankNode?.Attributes["href"]?.Value;
             movie.Url = rankUrl;
-            movie.Description = descriptionNode?.Attributes["content"].Value;
             if (movie.Rating == null)
                 movie.Rating = rank;
             else
@@ -104,7 +102,9 @@ namespace MovieParser
             var description = Regex.Replace(descriptionTag.InnerText, @"\s?\(?<[a-z<>\s]*>\)?", "");
             if (!string.IsNullOrEmpty(description))
                 movie.Description = description;
-            
+            var imageTag = FindTagWithItemProp(doc, "img", "image").FirstOrDefault();
+            if (imageTag!=null)
+                movie.ImageUrl = imageTag.Attributes["src"]?.Value;
             var tags = doc.DocumentNode.Descendants().Where(n => n.Name == "a" && n.Attributes["itemprop"]?.Value == "actor");
             if (tags.Any() && !movie.Actors.Any())
             {
