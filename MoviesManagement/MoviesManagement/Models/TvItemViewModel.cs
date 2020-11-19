@@ -7,6 +7,6 @@ namespace MoviesManagement.Models
     {
         public MovieViewModel Movie { get; set; }
         public SelectList Emissions { get; set; }
-
+        public string Item { get; set; }
     }
 }
