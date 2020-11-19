@@ -51,6 +51,15 @@ namespace MovieParser.Tests
         }
 
         [TestMethod]
+        public void ShouldParseDescription()
+        {
+            var newMovie = new Entities.Movie();
+            var content = GetMovieContent();
+            sut.FillMovieDetails(newMovie, content);
+            Assert.AreEqual("Wskutek wojny atomowej sprzed dwudziestu lat Ziemia została skażona. Zaledwie dwa tysiące ocalałych osób musiało opuścić planetę. Przenieśli się na Księżyc, gdzie zamieszkali w dawnej bazie nazistów, mającej kształt swastyki. Obi (Lara Rossi), córka Renaty Richter (Julia Dietze) i zmarłego Jamesa Washingtona, razem z kilkoma innymi śmiałkami, Sashą (Vladimir Burlakov), Donaldem (Tom Green) i Malcolmem (Kit Dale), rusza w podróż do wnętrza Ziemi, gdzie podobno znajduje się ratunek dla ludzkości. Okazuje się, że najbardziej zasłużone osoby w historii rasy ludzkiej to Vrilowie, czyli Reptilianie, jaszczuropodobne istoty. Dowodzi nimi sam Adolf Hitler (Udo Kier) dosiadający tyranozaura. Druga część parodystycznej serii filmów science fiction. Za reżyserię ponownie odpowiada Timo Vuorensola. Fundusze na realizację komedii zostały wyłożone przez fanów przez platformę Indiegogo.", newMovie.Description);
+        }
+
+        [TestMethod]
         public void ShouldParseMovieList()
         {
             var channels = new[] {"CanalPlus.pl", "HBO.pl" }.Select(c=>new Entities.Channel() { Name = c });

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
 namespace MovieParser
@@ -99,6 +100,11 @@ namespace MovieParser
                 movie.Director.LastName = names.ElementAtOrDefault(1);
             }
 
+            var descriptionTag = FindTagWithItemProp(doc, "p", "description").FirstOrDefault();
+            var description = Regex.Replace(descriptionTag.InnerText, @"\s?\(?<[a-z<>\s]*>\)?", "");
+            if (!string.IsNullOrEmpty(description))
+                movie.Description = description;
+            
             var tags = doc.DocumentNode.Descendants().Where(n => n.Name == "a" && n.Attributes["itemprop"]?.Value == "actor");
             if (tags.Any() && !movie.Actors.Any())
             {
@@ -119,7 +125,10 @@ namespace MovieParser
         }
 
 
-
+        private IEnumerable<HtmlNode>  FindTagWithItemProp(HtmlDocument doc, string tagName, string itemPropValue)
+        {
+           return doc.DocumentNode.Descendants().Where(n => n.Name == tagName && n.Attributes["itemprop"]?.Value == itemPropValue);
+        }
         private double? ParseRank(string innerText)
         {
             if (innerText == null) return null;
