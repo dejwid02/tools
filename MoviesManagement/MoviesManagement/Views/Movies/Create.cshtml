@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+<form action="/" method="post">
+    <div class="container">
+        <div class="text-center m-5">
+            <h1 class="display-4">Create new movie</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 form-group">
+                <label for="title">Title</label>
+                <input class="form-control" type="text" id="title" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 form-group">
+                <label for="descr">Description</label>
+                <textarea class="form-control" rows="5" id="descr"></textarea>
+            </div>
+        </div>
+        <button class="btn btn-primary float-right">Create</button>
+    </div>
+</form>

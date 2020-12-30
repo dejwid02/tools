@@ -94,6 +94,15 @@ margin-bottom: 60px;
     font-weight: bold;
 }
 
+.btn-circle.btn-sm {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    font-size: 8px;
+    text-align: center;
+} 
+
 @media only screen and (min-width: 1200px) {
     body {
         width: 1200px;
