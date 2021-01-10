@@ -5,13 +5,14 @@
 }
 @model MovieViewModel
 <div class="row">
-    <div class="col">
-        <span>1</span>
-    </div>
-    <div class="col-md-3">
-        <img src="@Model.ImageUrl" alt="Movie image" />
-    </div>
-    <div class="col-md-3">
-        <span>@Model.Title</span>
+    <div class="movie">
+        <div class="card">
+            
+            <img class="card-img-top align-self-center m-3" src="@Model.ImageUrl" alt="Movie image" />
+            <div class="card-body">
+                <h4 class="card-title">@Model.Title</h4>
+                <p class="card-text">@Model.Description</p>
+            </div>
+        </div>
     </div>
 </div>

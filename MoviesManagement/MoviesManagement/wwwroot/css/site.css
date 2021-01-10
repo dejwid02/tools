@@ -95,17 +95,40 @@ margin-bottom: 60px;
 }
 
 .btn-circle.btn-sm {
-    width: 30px;
-    height: 30px;
-    padding: 6px 0px;
-    border-radius: 15px;
-    font-size: 8px;
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    padding-top: 15px;
+    font-size: 16px;
     text-align: center;
-} 
+    position: absolute;
+    opacity: 0.4;
+    top: 70px;
+    right: 50px;
 
+} 
+.movie .card {
+    flex-direction: row;
+}
+
+.movie img {
+    width: 200px; height: 150px;
+}
+
+footer {
+padding-top: 100px;
+}
+
+.page {
+    display: flex;
+    flex-direction: row;
+
+}
 @media only screen and (min-width: 1200px) {
     body {
         width: 1200px;
         margin: 0 auto;
+        margin-bottom: 120px;
+        position: relative;
     }
 }
