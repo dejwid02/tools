@@ -1,4 +1,4 @@
-﻿
+﻿@inject MoviesManagement.Helpers.IOptionListService service
 @{
     ViewData["Title"] = "Create";
 }
@@ -21,14 +21,14 @@
         </div>
         <div class="row">
             <div class="col-sm-12 form-group">
-                <label for="year"></label>
-                <input class="form-control" type="date" id="year" />
+                <label for="year">Year</label>
+                <select class="form-control-sm" id="year" asp-items="@service.GetYears()"></select>
             </div>
         </div>
         <div class="row">
             <div class=" col-sm-12 form-group">
                 <input type="checkbox" class="form-check-input  form-control-sm" id="recorded" />
-                <label for="recorded" class="form-check-label">Is recorded</label>
+                <label for="recorded" class="col-form-label">Is recorded</label>
             </div>
         </div>
         <button class="btn btn-primary float-right">Create</button>

@@ -111,6 +111,12 @@ margin-bottom: 60px;
     flex-direction: row;
 }
 
+.movie .movie-description {
+    height: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .movie img {
     width: 200px; height: 150px;
 }

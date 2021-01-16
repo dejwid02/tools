@@ -6,12 +6,17 @@
 @model MovieViewModel
 <div class="row">
     <div class="movie">
-        <div class="card">
-            
-            <img class="card-img-top align-self-center m-3" src="@Model.ImageUrl" alt="Movie image" />
+        <div class="card position-relative">
+            <div>
+                <img class="card-img-top align-self-center m-3" src="@Model.ImageUrl" alt="Movie image" />
+                <div class="text-center"> <h5>@Model.Category @Model.Year - @Model.Country</h5></div>
+            </div>
             <div class="card-body">
                 <h4 class="card-title">@Model.Title</h4>
-                <p class="card-text">@Model.Description</p>
+                <p class="card-text movie-description">@Model.Description</p>
+            </div>
+            <div class="position-absolute mt-3 ml-3">
+                @await Html.PartialAsync("_star", Model.Rating)
             </div>
         </div>
     </div>

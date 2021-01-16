@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MoviesManagement.Helpers;
 using MoviesManagement.Mappers;
 using Services;
 
@@ -27,6 +28,7 @@ namespace MoviesManagement
             services.AddControllersWithViews();
             services.AddHttpClient<IApiClient, ApiClient>((s, c) => c.BaseAddress = new Uri(Configuration.GetValue<string>("ApiUrl")));
             services.AddTransient<ITvItemsMapper, TvItemsMapper>();
+            services.AddTransient<IOptionListService, OptionListService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
