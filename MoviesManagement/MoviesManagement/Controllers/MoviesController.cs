@@ -39,7 +39,8 @@ namespace MoviesManagement.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateMovieViewModel model)
         {
-
+            var path = $"{@"/images/"}{model.ImageFile}";
+            
             return await Task.FromResult(RedirectToAction("Index"));
         }
     }
