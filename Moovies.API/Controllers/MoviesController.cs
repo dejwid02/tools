@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using MovieParser.DAL;
 
 namespace Movies.API.Controllers
@@ -15,11 +16,13 @@ namespace Movies.API.Controllers
     {
         private readonly IMoviesRepository repository;
         private readonly IMapper mapper;
+        private readonly LinkGenerator linkGenerator;
 
-        public MoviesController(IMoviesRepository repository, IMapper mapper)
+        public MoviesController(IMoviesRepository repository, IMapper mapper, LinkGenerator linkGenerator)
         {
             this.repository = repository;
             this.mapper = mapper;
+            this.linkGenerator = linkGenerator;
         }
         // GET: api/Movies
         [HttpGet]
@@ -80,7 +83,33 @@ namespace Movies.API.Controllers
             }
            
         }
+        [HttpPost]
+        public ActionResult<Data.Movie> Create(Data.Movie movie)
+        {
+            if(repository.GetMovie(movie.Id)!= null)
+            {
+                return BadRequest("Movie with this id already exists");
+            }
+            var movieEntity = mapper.Map<MovieParser.Entities.Movie>(movie);
+            repository.Add(movieEntity);
+            repository.SaveChanges();
+            var url = linkGenerator.GetPathByAction("Get", "Movies", new { id = movieEntity.Id });
+            if(url==null)
+            {
+                return BadRequest("Can not use this id");
+            }
+            return Created(url, mapper.Map<Data.Movie>(movieEntity));
+        }
 
-
+        [HttpDelete("{id:long}")]
+        public ActionResult Delete(long id)
+        {
+            var movieToDelete = repository.GetMovie(id);
+            if (movieToDelete == null)
+                return NotFound();
+            repository.Delete(movieToDelete);
+            repository.SaveChanges();
+            return Ok();
+        }
     }
 }

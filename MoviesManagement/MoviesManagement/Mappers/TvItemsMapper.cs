@@ -56,6 +56,19 @@ namespace MoviesManagement.Mappers
             };
         }
 
+        public MovieDto MapMovieRequest(CreateMovieViewModel movieViewModel)
+        {
+            return new MovieDto()
+            {
+                Category = movieViewModel.Category,
+                Title = movieViewModel.Title,
+                Description = movieViewModel.Description,
+                Country = movieViewModel.Country,
+                ImageUrl = $"{@"/images/"}{movieViewModel.ImageFile}",
+                Rating = movieViewModel.Rating,
+                Year = movieViewModel.Year
+            };
+        }
         public IList<RecordingItemViewModel> MapRecordingList(IEnumerable<Recording> recordings)
         {
            return recordings.Select(r => new RecordingItemViewModel

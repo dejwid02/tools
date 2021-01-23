@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Movies.Data;
+using MoviesManagement.Dtos;
 using MoviesManagement.Mappers;
 using MoviesManagement.Models;
 using Services;
@@ -39,9 +40,22 @@ namespace MoviesManagement.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateMovieViewModel model)
         {
-            var path = $"{@"/images/"}{model.ImageFile}";
+            if(ModelState.IsValid)
+            {
+
+              var createdMovie = await apiClient.PostAsync<MovieDto, MovieDto>("api/movies", mapper.MapMovieRequest(model));
+                if (createdMovie!=null && model.IsRecorded)
+                {
+                    var createdRecording = apiClient.PostAsync<RecordingDto, RecordingDto>("api/recordings", new RecordingDto()
+                    {
+                        Movie = createdMovie,
+                        RecordedAtTime = model.RecordingDate
+                    });
+                }
+                return await Task.FromResult(RedirectToAction("Index"));
+            }
+            return await Task.FromResult(View(model));
             
-            return await Task.FromResult(RedirectToAction("Index"));
         }
     }
 }
