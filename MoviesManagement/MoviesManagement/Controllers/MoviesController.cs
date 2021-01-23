@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Movies.Data;
 using MoviesManagement.Mappers;
+using MoviesManagement.Models;
 using Services;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -33,6 +34,13 @@ namespace MoviesManagement.Controllers
         public async Task<IActionResult> Create()
         {
             return await Task.FromResult(View("Create"));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateMovieViewModel model)
+        {
+
+            return await Task.FromResult(RedirectToAction("Index"));
         }
     }
 }

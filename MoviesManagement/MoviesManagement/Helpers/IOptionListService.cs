@@ -8,5 +8,7 @@ namespace MoviesManagement.Helpers
     public interface IOptionListService
     {
         IList<SelectListItem> GetYears();
+        IList<SelectListItem> GetCategories();
+        IList<SelectListItem> GetCountries();
     }
 }

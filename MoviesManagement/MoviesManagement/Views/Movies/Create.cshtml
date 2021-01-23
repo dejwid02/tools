@@ -2,35 +2,53 @@
 @{
     ViewData["Title"] = "Create";
 }
+@model CreateMovieViewModel
+
 <form action="/" method="post">
     <div class="container">
         <div class="text-center m-5">
             <h1 class="display-4">Create new movie</h1>
         </div>
-        <div class="row">
-            <div class="col-sm-12 form-group">
+
+            <div class="form-group">
                 <label for="title">Title</label>
-                <input class="form-control" type="text" id="title" />
+                <input asp-for="Title" class="form-control" type="text" id="title" />
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12 form-group">
+
+
+            <div class="form-group">
                 <label for="descr">Description</label>
-                <textarea class="form-control" rows="5" id="descr"></textarea>
+                <textarea asp-for="Description" class="form-control" rows="5" id="descr"></textarea>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12 form-group">
+
+            <div class="form-group">
                 <label for="year">Year</label>
-                <select class="form-control-sm" id="year" asp-items="@service.GetYears()"></select>
+                <select asp-for="Year" class="form-control" id="year" asp-items="@service.GetYears()"></select>
             </div>
+
+        <div class="form-group">
+            <label for="countries"></label>
+            <select asp-items="@service.GetCountries()" class="form-control" asp-for="Country"></select>
+
         </div>
-        <div class="row">
-            <div class=" col-sm-12 form-group">
-                <input type="checkbox" class="form-check-input  form-control-sm" id="recorded" />
-                <label for="recorded" class="col-form-label">Is recorded</label>
+            <div class="form-group">
+                <label for="categories">Category</label>
+                <select asp-for="Category" class="form-control" id="categories" asp-items="@service.GetCategories()"></select>
             </div>
+
+        <div class="form-group">
+            <label for="imageFile">Image file</label>
+            <input asp-for="ImageFile" type="file" class="form-control-file" id="imageFile" />
         </div>
-        <button class="btn btn-primary float-right">Create</button>
+            <div class="form-check">
+                <input asp-for="IsRecorded" type="checkbox" class="form-check-input" id="recorded" />
+                <label for="recorded" class="form-label">Is recorded</label>
+            </div>
+        <div class="form-group">
+            <label for="recordingDate">Recording date</label>
+            <input asp-for="RecordingDate" class="form-control" type="date" id="recordingDate"/>
+        </div>
+
+        <button class="btn btn-primary float-right" asp-controller="Movies" asp-action="Create">Create</button>
     </div>
 </form>
