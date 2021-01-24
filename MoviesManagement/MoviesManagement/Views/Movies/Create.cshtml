@@ -10,43 +10,54 @@
             <h1 class="display-4">Create new movie</h1>
         </div>
 
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input asp-for="Title" class="form-control" type="text" id="title" />
-            </div>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input asp-for="Title" class="form-control" type="text" id="title" />
+            <span class="text-danger" asp-validation-for="Title"></span>
+        </div>
 
 
-            <div class="form-group">
-                <label for="descr">Description</label>
-                <textarea asp-for="Description" class="form-control" rows="5" id="descr"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="year">Year</label>
-                <select asp-for="Year" class="form-control" id="year" asp-items="@service.GetYears()"></select>
-            </div>
+        <div class="form-group">
+            <label for="descr">Description</label>
+            <textarea asp-for="Description" class="form-control" rows="5" id="descr"></textarea>
+        <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+        <div class="form-group">
+            <label for="rating">Rating</label>
+            <input type="number" class="form-control" asp-for="Rating" />
+            <span asp-validation-for="Rating" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="year">Year</label>
+            <select asp-for="Year" class="form-control" id="year" asp-items="@service.GetYears()"></select>
+        <span class="text-danger" asp-validation-for="Year"></span>
+        </div>
 
         <div class="form-group">
             <label for="countries"></label>
             <select asp-items="@service.GetCountries()" class="form-control" asp-for="Country"></select>
-
+            <span class="text-danger" asp-validation-for="Country"></span>
         </div>
-            <div class="form-group">
-                <label for="categories">Category</label>
-                <select asp-for="Category" class="form-control" id="categories" asp-items="@service.GetCategories()"></select>
-            </div>
+        <div class="form-group">
+            <label for="categories">Category</label>
+            <select asp-for="Category" class="form-control" id="categories" asp-items="@service.GetCategories()"></select>
+        <span class="text-danger" asp-validation-for="Category"></span>
+        </div>
 
         <div class="form-group">
             <label for="imageFile">Image file</label>
             <input asp-for="ImageFile" type="file" class="form-control-file" id="imageFile" />
+        <span class="text-danger" asp-validation-for="ImageFile"></span>
         </div>
-            <div class="form-check">
-                <input asp-for="IsRecorded" type="checkbox" class="form-check-input" id="recorded" />
-                <label for="recorded" class="form-label">Is recorded</label>
-            </div>
+        <div class="form-check">
+            <input asp-for="IsRecorded" type="checkbox" class="form-check-input" id="recorded" />
+            <label for="recorded" class="form-label">Is recorded</label>
+        <span class="text-danger" asp-validation-for="IsRecorded"></span>
+        </div>
         <div class="form-group">
             <label for="recordingDate">Recording date</label>
-            <input asp-for="RecordingDate" class="form-control" type="date" id="recordingDate"/>
+            <input asp-for="RecordingDate" class="form-control" type="date" id="recordingDate" />
+        <span class="text-danger" asp-validation-for="RecordingDate"></span>
         </div>
 
         <button class="btn btn-primary float-right" asp-controller="Movies" asp-action="Create">Create</button>

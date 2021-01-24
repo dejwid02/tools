@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace MoviesManagement.Models
         [Required]
         public DateTime RecordingDate { get; set; }
         [Required]
+        [Remote("VerifyImageFile", "Movies")]
         public string ImageFile { get; set; }
         public double? Rating { get; internal set; }
     }

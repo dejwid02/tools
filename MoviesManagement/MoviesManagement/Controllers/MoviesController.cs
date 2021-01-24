@@ -57,5 +57,12 @@ namespace MoviesManagement.Controllers
             return await Task.FromResult(View(model));
             
         }
+
+        public IActionResult VerifyImageFile(string imageFile)
+        {
+            if (imageFile.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) || imageFile.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase))
+                return Json(true);
+            return Json("Please select a valid jpeg file");
+        }
     }
 }
