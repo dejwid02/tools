@@ -25,4 +25,8 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Movies\Components\Movie\" />
+  </ItemGroup>
+
 </Project>

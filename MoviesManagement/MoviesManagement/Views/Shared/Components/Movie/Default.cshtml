@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model MovieViewModel
+    <div class="movie">
+        <div class="card position-relative">
+            <div class="row">
+                <div class="col-md-5 d-flex position-relative">
+                    <img class="card-img align-content-center py-3 px-2" src="@Model.ImageUrl" alt="Movie image" />
+                    <div class="position-absolute mt-3 ml-3 pt-3">
+                        @await Html.PartialAsync("_star", Model.Rating)
+                    </div>
+                </div>
+            <div class="col-md-7">
+                <div class="card-body">
+                    <h4 class="card-title text-center">@Model.Title</h4>
+                    <div class="text-center"> <h5>@Model.Category @Model.Year - @Model.Country</h5></div>
+                    <p class="card-text movie-description">@Model.Description</p>
+                    
+                </div>
+            </div>
+            </div>
+           
+        </div>
+    </div>

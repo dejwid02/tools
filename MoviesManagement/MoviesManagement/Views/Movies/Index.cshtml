@@ -5,11 +5,15 @@
     int id = 0;
 }
 @model IList<MovieViewModel>
-    <div class="container">
-        @foreach (var item in @Model)
-        {
-            item.Id = id++;
+<div class="container">
+    @foreach (var item in @Model)
+    {
+        item.Id = id++;
+        <div class="mb-3">
+
+
             @await Component.InvokeAsync("Movie", item)
-        }
-    </div>
-    <a class="btn btn-primary btn-circle btn-sm" asp-action="Create"><i class="fas fa-plus fa-3x"></i></a>
+        </div>
+    }
+</div>
+<a class="btn btn-primary btn-circle btn-sm" asp-action="Create"><i class="fas fa-plus fa-3x"></i></a>
