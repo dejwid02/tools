@@ -8,22 +8,29 @@
 function filter() {
    
 
-    var movies = document.getElementsByClassName("movie");
-    Array.prototype.forEach.call(movies, function (el) {filterItem(el)});
+    const movies = Array.from(document.getElementsByClassName("movie"));
+    const recordings = Array.from(document.getElementsByClassName("recording"));
+    const tvItems = Array.from(document.getElementsByClassName("tv-item"));
+    const all = movies.concat(recordings).concat(tvItems);
+    Array.prototype.forEach.call(all, function (el) {
+        filterItem(el);
+    });
 
 
 }
 
 function filterItem(element) {
-    const input = document.getElementsByClassName("search-input").item(0);
-    const text = input.value;
+    const input = document.getElementsByClassName("search-input")[0];
+    const text = input.value.toLowerCase();
 
-    const title = element.getElementsByClassName("card-title")[0].innerText;
-    if (!title.includes(text) && text.length > 3) {
-        element.classList.add("d-none");
+    const category = element.getElementsByClassName("movie-category")[0].innerText.toLowerCase();
+    const title = element.getElementsByClassName("card-title")[0].innerText.toLowerCase();
+    if (title.includes(text) || category.includes(text) || text.length < 3) {
+        element.style.display = "block";
     }
     else {
-        element.classList.remove("d-none");
+
+        element.style.display = "none";
     }
 
 }

@@ -16,7 +16,7 @@ namespace MoviesManagement.Models
         [Required]
         public string Country { get; set; }
         [Required]
-        public int Year { get; set; }
+        public int? Year { get; set; }
         [Required]
         public string Category { get; set; }
         [Required]
@@ -27,5 +27,6 @@ namespace MoviesManagement.Models
         [Remote("VerifyImageFile", "Movies")]
         public string ImageFile { get; set; }
         public double? Rating { get; internal set; }
+        public long Id { get; set; }
     }
 }

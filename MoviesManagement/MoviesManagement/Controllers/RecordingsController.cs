@@ -24,7 +24,7 @@ namespace MoviesManagement.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(int item)
         {
-            var tvItem = await apiClient.Get<TvListingItem>($"api/tvitems/{item}");
+            var tvItem = await apiClient.GetAsync<TvListingItem>($"api/tvitems/{item}");
             var vm = mapper.MapRecording(tvItem);
             return View(vm);
         }
@@ -32,7 +32,7 @@ namespace MoviesManagement.Controllers
         [HttpPost]
         public async Task<IActionResult> Record(int id)
         {  
-            var tvItem = await apiClient.Get<TvListingItem>($"api/tvitems/{id}");
+            var tvItem = await apiClient.GetAsync<TvListingItem>($"api/tvitems/{id}");
             var request = mapper.MapRecordingRequest(tvItem);
             RecordingDto result = await apiClient.PostAsync<RecordingDto, RecordingDto>("api/recordings", request);
             return RedirectToAction("List");
@@ -47,7 +47,7 @@ namespace MoviesManagement.Controllers
 
         public async Task<IActionResult> List()
         {
-            var recordings = await apiClient.Get<IEnumerable<Recording>>("api/recordings");
+            var recordings = await apiClient.GetAsync<IEnumerable<Recording>>("api/recordings");
 
             return View("List", mapper.MapRecordingList(recordings));
         }

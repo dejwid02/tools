@@ -15,7 +15,7 @@ namespace Services
             this.client = client;
         }
 
-        public async Task<TOut> Get<TOut>(string url)
+        public async Task<TOut> GetAsync<TOut>(string url)
             where TOut : class
         {
             var response = await client.GetAsync(url);
@@ -74,6 +74,19 @@ namespace Services
                 return;
             }
             HandleError((int)result.StatusCode);
+        }
+
+        public async Task<bool> PutAsync<Tin>(string path, Tin content)
+        {
+            var json = JsonConvert.SerializeObject(content);
+            var content2 = new StringContent(json, Encoding.UTF8, "application/json");
+            var result = await client.PutAsync(path, content2);
+            if (result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            HandleError((int)result.StatusCode);
+            return false;
         }
     }
 }

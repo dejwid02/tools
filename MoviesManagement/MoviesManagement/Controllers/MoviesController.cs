@@ -27,7 +27,7 @@ namespace MoviesManagement.Controllers
         // GET: /<controller>/
         public async Task<IActionResult> Index()
         {
-            var movies = await apiClient.Get<IList<Movie>>(@"/api/movies");
+            var movies = await apiClient.GetAsync<IList<Movie>>(@"/api/movies");
             var model = movies.Select(mapper.MapMovie).ToList();
             return View(model);
         }
@@ -37,14 +37,22 @@ namespace MoviesManagement.Controllers
             return await Task.FromResult(View("Create"));
         }
 
+        public async Task<IActionResult> Edit(int id)
+        {
+            var movie = await apiClient.GetAsync<Movie>(@$"/api/movies/{id}");
+            var vm = mapper.MapMovieRequest(movie);
+            vm.Id = movie.Id;
+            return await Task.FromResult(View("Create", vm));
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(CreateMovieViewModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
 
-              var createdMovie = await apiClient.PostAsync<MovieDto, MovieDto>("api/movies", mapper.MapMovieRequest(model));
-                if (createdMovie!=null && model.IsRecorded)
+                var createdMovie = await apiClient.PostAsync<MovieDto, MovieDto>("api/movies", mapper.MapMovieRequest(model));
+                if (createdMovie != null && model.IsRecorded)
                 {
                     var createdRecording = apiClient.PostAsync<RecordingDto, RecordingDto>("api/recordings", new RecordingDto()
                     {
@@ -55,9 +63,22 @@ namespace MoviesManagement.Controllers
                 return await Task.FromResult(RedirectToAction("Index"));
             }
             return await Task.FromResult(View(model));
-            
+
         }
 
+        public async Task<IActionResult> Save(CreateMovieViewModel vm)
+        {
+            var movie = await apiClient.GetAsync<Movie>($"api/Movies/{vm.Id}");
+            movie.Title = vm.Title;
+            movie.Rating = vm.Rating;
+            movie.Category = vm.Category;
+            movie.Description = vm.Description;
+            movie.ImageUrl = vm.ImageFile;
+            movie.Year = vm.Year;
+            movie.Country = vm.Country;
+            await apiClient.PutAsync($"api/Movies/{vm.Id}", movie);
+            return await Task.FromResult(View("Index"));
+        }
         public IActionResult VerifyImageFile(string imageFile)
         {
             if (imageFile.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) || imageFile.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase))

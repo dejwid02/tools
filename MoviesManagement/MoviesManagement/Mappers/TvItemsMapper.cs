@@ -78,5 +78,20 @@ namespace MoviesManagement.Mappers
                 TvItemId = r.Id
             }).ToList();
         }
+
+        public CreateMovieViewModel MapMovieRequest(Movie movie)
+        {
+            return new CreateMovieViewModel
+            {
+                Id=movie.Id,
+                Category = movie.Category,
+                Title = movie.Title,
+                ImageFile = movie.ImageUrl,
+                Description = movie.Description,
+                Country = movie.Country,
+                Rating = movie.Rating,
+                Year = movie.Year
+            };
+        }
     }
 }

@@ -9,7 +9,9 @@
 
     @foreach (var item in @Model)
     {
-        @await Component.InvokeAsync("Movie", item.Movie)
-        <span class="pl-2 text-left" style="position:relative; top:-22px;">Recorded at: @item.RecordingTime.ToString("dd-MMM-yyy HH:mm")</span>
+        <div class="recording">
+            @await Component.InvokeAsync("Movie", item.Movie)
+            <span class="pl-2 text-left" style="position:relative; top:-22px;">Recorded at: @item.RecordingTime.ToString("dd-MMM-yyy HH:mm")</span>
+        </div>
     }
 </div>

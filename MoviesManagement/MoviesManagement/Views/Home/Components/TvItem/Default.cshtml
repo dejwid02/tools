@@ -2,7 +2,7 @@
 @{
 }
 <form asp-action="Index" asp-controller="Recordings">
-    <div class="card h-100">
+    <div class="card h-100 tv-item">
         <img class="card-img-top" src=@Model.Movie.ImageUrl alt="Card image cap" asp-append-version="true" />
         <div class="rating position-absolute mt-2 ml-2">
             <i class="fas fa-star fa-2x"></i>
@@ -12,7 +12,7 @@
         </div>
         <div class="card-body d-flex flex-column">
             <h5 class="card-title mb-0">@Model.Movie.Title</h5>
-            <p class="card-text small mt-0 pt-0">@Model.Movie.Category @Model.Movie.Country - @Model.Movie.Year</p>
+            <p class="card-text small mt-0 pt-0 movie-category">@Model.Movie.Category @Model.Movie.Country - @Model.Movie.Year</p>
             <p class="card-text mb-5" style="min-height: 200px">@Model.Movie.Description?.Substring(0, Math.Min(@Model.Movie.Description.Length, 300))</p>
             <div class="container mt-auto d-flex flex-row justify-content-center">
 

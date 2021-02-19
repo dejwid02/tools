@@ -6,6 +6,11 @@
 @model MovieViewModel
     <div class="movie">
         <div class="card position-relative">
+
+                <div class="flex-row justify-content-end ">
+                   
+                </div>
+
             <div class="row">
                 <div class="col-md-5 d-flex position-relative">
                     <img class="card-img align-content-center py-3 px-2" src="@Model.ImageUrl" alt="Movie image" />
@@ -15,10 +20,11 @@
                 </div>
             <div class="col-md-7">
                 <div class="card-body">
+                    <a asp-controller="Movies" asp-action="Edit" asp-route-id="@Model.Id"><i class="fas fa-edit"></i></a>
                     <h4 class="card-title text-center">@Model.Title</h4>
-                    <div class="text-center"> <h5>@Model.Category @Model.Year - @Model.Country</h5></div>
+                    <div class="text-center movie-category"> <h5>@Model.Category @Model.Year - @Model.Country</h5></div>
                     <p class="card-text movie-description">@Model.Description</p>
-                    
+
                 </div>
             </div>
             </div>

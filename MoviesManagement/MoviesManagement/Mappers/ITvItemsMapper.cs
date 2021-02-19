@@ -15,5 +15,6 @@ namespace MoviesManagement.Mappers
         RecordingDto MapRecordingRequest(TvListingItem tvItem);
         MovieViewModel MapMovie(Movie movie);
         MovieDto MapMovieRequest(CreateMovieViewModel movieViewModel);
+        CreateMovieViewModel MapMovieRequest(Movie movie);
     }
 }

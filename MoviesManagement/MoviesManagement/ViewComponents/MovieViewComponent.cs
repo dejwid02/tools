@@ -13,5 +13,9 @@ namespace MoviesManagement.ViewComponents
         {
             return await Task.FromResult(View(model));
         }
+        public async Task<IViewComponentResult> Kupa(MovieViewModel model)
+        {
+            return await Task.FromResult(View((model)));
+        }
     }
 }

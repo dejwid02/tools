@@ -30,7 +30,7 @@ namespace MoviesManagement.Controllers
         public async Task<IActionResult> Index()
         {
 
-           var items = await apiClient.Get<IList<TvListingItem>>("api/tvitems?hidepast=true");
+           var items = await apiClient.GetAsync<IList<TvListingItem>>("api/tvitems?hidepast=true");
             var vm = mapper.Map(items);
             return View(new TvItemsViewModel { TvItems = vm });
         }
@@ -42,7 +42,7 @@ namespace MoviesManagement.Controllers
 
         public async Task<ActionResult> Movie(int id)
         {
-            var movie = await apiClient.Get<Movie>($"api/movies/{id}");
+            var movie = await apiClient.GetAsync<Movie>($"api/movies/{id}");
 
             return View(mapper.MapMovie(movie));
         }
