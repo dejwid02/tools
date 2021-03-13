@@ -89,7 +89,7 @@ namespace MoviesManagement.Mappers
                 ImageFile = movie.ImageUrl,
                 Description = movie.Description,
                 Country = movie.Country,
-                Rating = movie.Rating,
+                Rating = movie.Rating ?? 0,
                 Year = movie.Year
             };
         }

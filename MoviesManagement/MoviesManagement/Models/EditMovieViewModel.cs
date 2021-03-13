@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MoviesManagement.Models
 {
-    public class CreateMovieViewModel
+    public class EditMovieViewModel
     {
         [Required]
         public string Title { get; set; }
@@ -20,13 +19,8 @@ namespace MoviesManagement.Models
         [Required]
         public string Category { get; set; }
         [Required]
-        public bool IsRecorded { get; set; }
-        [Required]
-        public DateTime RecordingDate { get; set; }
-        [Required]
-        [Remote("VerifyImageFile", "Movies")]
         public string ImageFile { get; set; }
-        public double Rating { get;  set; }
+        public double Rating { get; set; }
         public long Id { get; set; }
     }
 }
