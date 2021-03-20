@@ -16,5 +16,6 @@ namespace MoviesManagement.Mappers
         MovieViewModel MapMovie(Movie movie);
         MovieDto MapMovieRequest(CreateMovieViewModel movieViewModel);
         CreateMovieViewModel MapMovieRequest(Movie movie);
+        EditMovieViewModel MapEditMovieRequest(Movie movie);
     }
 }

@@ -40,11 +40,27 @@ namespace MoviesManagement.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var movie = await apiClient.GetAsync<Movie>(@$"/api/movies/{id}");
-            var vm = mapper.MapMovieRequest(movie);
+            var vm = mapper.MapEditMovieRequest(movie);
             vm.Id = movie.Id;
-            return await Task.FromResult(View("Create", vm));
+            return await Task.FromResult(View("Edit", vm));
         }
 
+        [HttpPost]
+        public async Task<IActionResult> SaveEdited(EditMovieViewModel vm)
+        {
+
+            var movie = await apiClient.GetAsync<Movie>($"api/Movies/{vm.Id}");
+            movie.Title = vm.Title;
+            movie.Rating = vm.Rating;
+            movie.Category = vm.Category;
+            movie.Description = vm.Description;
+            movie.ImageUrl = vm.ImageFile;
+            movie.Year = vm.Year;
+            movie.Country = vm.Country;
+            await apiClient.PutAsync($"api/Movies/{vm.Id}", movie);
+
+            return await Task.FromResult(View("Index"));
+        }
         [HttpPost]
         public async Task<IActionResult> Create(CreateMovieViewModel model)
         {

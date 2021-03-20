@@ -93,5 +93,20 @@ namespace MoviesManagement.Mappers
                 Year = movie.Year
             };
         }
+
+        public EditMovieViewModel MapEditMovieRequest(Movie movie)
+        {
+            return new EditMovieViewModel
+            {
+                Id = movie.Id,
+                Category = movie.Category,
+                Title = movie.Title,
+                ImageFile = movie.ImageUrl,
+                Description = movie.Description,
+                Country = movie.Country,
+                Rating = movie.Rating ?? 0,
+                Year = movie.Year
+            };
+        }
     }
 }
