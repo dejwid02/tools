@@ -73,7 +73,7 @@ namespace Movies.API.Controllers
                     return BadRequest($"Can not find movie with id {id}");
                 }
                 mapper.Map(movie, existing);
-
+                repository.SaveChanges();
                 return Ok(mapper.Map<Data.Movie>(existing));
             }
             catch (Exception)
@@ -104,6 +104,12 @@ namespace Movies.API.Controllers
         [HttpDelete("{id:long}")]
         public ActionResult Delete(long id)
         {
+            var recordings = repository.GetAllRecordings().Where(r => r.Movie.Id == id);
+            foreach (var item in recordings)
+            {
+                repository.Delete(item);
+            }
+
             var movieToDelete = repository.GetMovie(id);
             if (movieToDelete == null)
                 return NotFound();

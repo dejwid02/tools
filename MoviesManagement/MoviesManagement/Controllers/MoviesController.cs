@@ -45,6 +45,12 @@ namespace MoviesManagement.Controllers
             return await Task.FromResult(View("Edit", vm));
         }
 
+        public async Task<IActionResult> Delete(int id)
+        {
+            await apiClient.Delete(@$"/api/movies/{id}");
+            return RedirectToAction("Index");
+        }
+
         [HttpPost]
         public async Task<IActionResult> SaveEdited(EditMovieViewModel vm)
         {
@@ -59,8 +65,10 @@ namespace MoviesManagement.Controllers
             movie.Country = vm.Country;
             await apiClient.PutAsync($"api/Movies/{vm.Id}", movie);
 
-            return await Task.FromResult(View("Index"));
+            return RedirectToAction("Index");
         }
+
+
         [HttpPost]
         public async Task<IActionResult> Create(CreateMovieViewModel model)
         {
@@ -78,7 +86,7 @@ namespace MoviesManagement.Controllers
                 }
                 return await Task.FromResult(RedirectToAction("Index"));
             }
-            return await Task.FromResult(View(model));
+            return await Index();
 
         }
 
