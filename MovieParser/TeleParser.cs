@@ -137,9 +137,25 @@ namespace MovieParser
 
         private string getNameFromString(string v)
         {
+            if (v.Contains("146.png"))
+                return "PolsatFilm";
+            if (v.Contains("174.png"))
+                return "CanalPlusFamily";
             if (v.Contains("16.png"))
                 return "CanalPlus.pl";
-            return "HBO.pl";
+            if (v.Contains("20.png"))
+                return "CanalPlusFilm";
+            if (v.Contains("21.png"))
+                return "HBO2";
+            if (v.Contains("17.png"))
+                return "HBO";
+            if (v.Contains("43.png"))
+                return "HBO3";
+            if (v.Contains("14.png"))
+                return "AleKino";      
+            if (v.Contains("5.png"))
+                return "TVPKultura";
+            return "Unknown";
         }
     }
 }

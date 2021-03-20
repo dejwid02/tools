@@ -163,7 +163,7 @@ namespace MovieParser
                     request.Headers.TryAddWithoutValidation("sec-fetch-user", "?1");
                     request.Headers.TryAddWithoutValidation("referer", url + "moje-stacje");
                     request.Headers.TryAddWithoutValidation("accept-language", "pl-PL,pl;q=0.9,en-US;q=0.8,en;q=0.7");
-                    request.Headers.TryAddWithoutValidation("cookie", "_ga=GA1.2.550524766.1583165680; _gid=GA1.2.514516976.1583165680; __gads=ID=aa00795e9f054f80:T=1583165683:S=ALNI_MbB_FabtWs_bc1YKqUtPpiSgC5sww; SID=ge2nbc6lm4j9mbw4bva7ud01uztfp8ur");
+                    request.Headers.TryAddWithoutValidation("cookie", "_ga=GA1.2.1956076884.1584224461; _gid=GA1.2.1238955367.1616281351; __gads=ID=9c4b6acaa7e52d59:T=1609282725:R:S=ALNI_MbWdYeMo4MTxpA5_ibgaVL3QhD48g; SID=l3xa6s7qaqaf5zq035vvmmd97gp9n44g");
 
                     var response = await httpClient.SendAsync(request);
                     var result = await response.Content.ReadAsStringAsync();
