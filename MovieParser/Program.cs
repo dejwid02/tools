@@ -49,6 +49,8 @@ namespace MovieParser
                 var existingDirectors = new List<Director>();
                 foreach (var tvListingItem in contents)
                 {
+                    if (tvListingItem.Movie.Year == null)
+                        continue;
                     var existingMovie = existingMovies.FirstOrDefault(m => m.Title == tvListingItem.Movie.Title && m.Year == tvListingItem.Movie.Year)
                         ?? repository.GetMovieByYearAndTitle(tvListingItem.Movie.Year, tvListingItem.Movie.Title);
                     if (existingMovie != null)
@@ -163,7 +165,7 @@ namespace MovieParser
                     request.Headers.TryAddWithoutValidation("sec-fetch-user", "?1");
                     request.Headers.TryAddWithoutValidation("referer", url + "moje-stacje");
                     request.Headers.TryAddWithoutValidation("accept-language", "pl-PL,pl;q=0.9,en-US;q=0.8,en;q=0.7");
-                    request.Headers.TryAddWithoutValidation("cookie", "_ga=GA1.2.1956076884.1584224461; _gid=GA1.2.1238955367.1616281351; __gads=ID=9c4b6acaa7e52d59:T=1609282725:R:S=ALNI_MbWdYeMo4MTxpA5_ibgaVL3QhD48g; SID=l3xa6s7qaqaf5zq035vvmmd97gp9n44g");
+                    request.Headers.TryAddWithoutValidation("cookie", "_ga=GA1.2.346247982.1583054799; _gid=GA1.2.1072878463.1616786498; __gads=ID=5a85cbb2fd6cbce4-222871c917b9003d:T=1603996173:S=ALNI_MaFXcw-fzAJ7tG2YlhRi3P0C9saEg; SID=dd2vbkgtifnha98dem4ag7o65rxafmqy");
 
                     var response = await httpClient.SendAsync(request);
                     var result = await response.Content.ReadAsStringAsync();
