@@ -2,14 +2,17 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @model IList<MovieViewModel>
-<div class="container">
-    @foreach (var item in @Model)
-    {
-        <div class="mb-3">
+@if (Context.User.Identity.IsAuthenticated)
+{
+    <div class="container">
+        @foreach (var item in @Model)
+        {
+            <div class="mb-3">
 
 
-            @await Component.InvokeAsync("Movie", item)
-        </div>
-    }
-</div>
-<a class="btn btn-primary btn-circle btn-sm" asp-action="Create"><i class="fas fa-plus fa-3x"></i></a>
+                @await Component.InvokeAsync("Movie", item)
+            </div>
+        }
+    </div>
+    <a class="btn btn-primary btn-circle btn-sm" asp-action="Create"><i class="fas fa-plus fa-3x"></i></a>
+}

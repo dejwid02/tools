@@ -1,11 +1,14 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using System;
+using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 
-namespace Services
+namespace MoviesManagement
 {
     public class ApiClient : IApiClient
     {
@@ -21,7 +24,9 @@ namespace Services
         public async Task<TOut> GetAsync<TOut>(string url)
             where TOut : class
         {
-            _accessor.HttpContext.GetTokenAsync()
+            var token = await _accessor.HttpContext.GetTokenAsync("access_token");
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
             var response = await client.GetAsync(url);
             var status = (int)response.StatusCode;
 
@@ -38,7 +43,7 @@ namespace Services
         public async Task<TOut> PostAsync<TOut>(string path, HttpContent content)
         {
             var result = await client.PostAsync(path, content);
-            int status = (int)(result.StatusCode);
+            int status = (int)result.StatusCode;
 
             var resultString = await (result.Content?.ReadAsStringAsync() ?? Task.FromResult(default(string)));
             if (result.IsSuccessStatusCode)
@@ -46,7 +51,7 @@ namespace Services
                 return JsonConvert.DeserializeObject<TOut>(resultString);
             }
             HandleError(status);
-            return default(TOut);
+            return default;
         }
 
         public async Task<TOut> PostAsync<TIn, TOut>(string path, TIn content)
@@ -54,7 +59,7 @@ namespace Services
             var json = JsonConvert.SerializeObject(content);
             var sContent = new StringContent(json, Encoding.UTF8, "application/json");
             var result = await client.PostAsync(path, sContent);
-            int status = (int)(result.StatusCode);
+            int status = (int)result.StatusCode;
 
             var resultString = await (result.Content?.ReadAsStringAsync() ?? Task.FromResult(default(string)));
             if (result.IsSuccessStatusCode)
@@ -62,7 +67,7 @@ namespace Services
                 return JsonConvert.DeserializeObject<TOut>(resultString);
             }
             HandleError(status);
-            return default(TOut);
+            return default;
         }
 
         public static void HandleError(int statusCode)

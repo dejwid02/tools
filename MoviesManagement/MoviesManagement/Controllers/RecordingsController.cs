@@ -7,7 +7,6 @@ using Movies.Data;
 using MoviesManagement.Dtos;
 using MoviesManagement.Mappers;
 using MoviesManagement.Models;
-using Services;
 
 namespace MoviesManagement.Controllers
 {

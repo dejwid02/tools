@@ -4,11 +4,18 @@ using MoviesManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Extensions.Configuration;
 
 namespace MoviesManagement.Mappers
 {
     public class TvItemsMapper : ITvItemsMapper
     {
+        private readonly IConfiguration _configuration;
+
+        public TvItemsMapper(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
         public IList<TvItemViewModel> Map(IList<TvListingItem> tvItems)
         {
 
@@ -16,7 +23,7 @@ namespace MoviesManagement.Mappers
             return groups.Select(t => new TvItemViewModel
             {
                 Movie = MapMovie(tvItems.FirstOrDefault(m=>m.Movie.Id==t.Key).Movie),
-                Emissions = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(t.Select(t2 => new { key= $"{t2.Channel.Name} | {t2.StartTime.ToString("MMM-dd hh:mm")}", value=$"{t2.Id}" }).ToDictionary(i=>i.key, i=>i.value), "Value", "Key")
+                Emissions = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(t.Select(t2 => new { key= $"{t2.Channel?.Name ?? "Unknown"} | {t2.StartTime.ToString("MMM-dd hh:mm")}", value=$"{t2.Id}" }).ToDictionary(i=>i.key, i=>i.value), "Value", "Key")
             }).ToList();
         }
 
@@ -51,7 +58,7 @@ namespace MoviesManagement.Mappers
                 Year = movie.Year,
                 Description = movie.Description,
                 Title = movie.Title,
-                ImageUrl = movie.ImageUrl,
+                ImageUrl = _configuration["BlobContainer"] + movie.ImageUrl,
                 Rating = movie.Rating
             };
         }

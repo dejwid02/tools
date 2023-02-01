@@ -71,11 +71,11 @@ namespace MovieParser.Tests
         [TestMethod]
         public void ShouldParseMovieList()
         {
-            var channels = new[] {"CanalPlus.pl", "HBO.pl" }.Select(c=>new Entities.Channel() { Name = c });
+            var channels = new[] {"CanalPlus.pl", "HBO" }.Select(c=>new Entities.Channel() { Name = c });
         
             var content = GetMovieListContent();
             var result = sut.ParseTvSchedule(channels, content);
-            Assert.AreEqual(3, result.Count());
+            Assert.AreEqual(60, result.Count());
             //Assert.AreEqual("Lara Rossi", $"{newMovie.Actors[0].FirstName} {newMovie.Actors[0].LastName}");
         }
 

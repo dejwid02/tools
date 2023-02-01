@@ -10,7 +10,6 @@ using MovieParser.DAL;
 using MovieParser.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration.FileExtensions;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -29,7 +28,8 @@ namespace MovieParser
 
             var configurationBuilder = new ConfigurationBuilder()
                                            .SetBasePath(Directory.GetCurrentDirectory())
-                                           .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                                           .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                                           .AddUserSecrets<Program>();
             var configuration = configurationBuilder.Build();
             var optionsBuilder = new DbContextOptionsBuilder<MoviesDbContext>()
                 .UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
@@ -37,13 +37,13 @@ namespace MovieParser
 
             try
             {
-                var providerUrl = Environment.GetEnvironmentVariable("MoviesProviderUrl");
+                var providerUrl = configuration["ProviderUrl"];
 
                 var channels = repository.GetAllChannels();
                 var filterDate = repository.GetLastLog()?.LastSynchronizedDate ?? DateTime.Now;
                 List<TvListingItem> tvItems = GetTeleTvItems(providerUrl, channels);
-
-                contents = tvItems.Where(item => (item.Movie.Rating > 6.0 || item.Movie.Rating == null) && item.StartTime > filterDate).OrderBy(i => i.StartTime);
+                var existingRecordings = repository.GetAllRecordings();
+                contents = tvItems.Where(item => (item.Movie.Rating > 6.0 ) && item.StartTime > filterDate).OrderBy(i => i.StartTime);
                 var existingMovies = new List<Movie>();
                 var existingActors = new List<Actor>();
                 var existingDirectors = new List<Director>();
@@ -51,6 +51,8 @@ namespace MovieParser
                 {
                     var existingMovie = existingMovies.FirstOrDefault(m => m.Title == tvListingItem.Movie.Title && m.Year == tvListingItem.Movie.Year)
                         ?? repository.GetMovieByYearAndTitle(tvListingItem.Movie.Year, tvListingItem.Movie.Title);
+                    if(existingMovie!=null && existingRecordings.Any(r=>r.Movie==existingMovie))
+                        continue;
                     if (existingMovie != null)
                     {
                         existingMovie.Rating = tvListingItem.Movie.Rating;
@@ -67,7 +69,8 @@ namespace MovieParser
 
                         if (tvListingItem.Movie.ImageUrl != null)
                         {
-                            SaveImage(tvListingItem.Movie.ImageUrl, @"C:\inetpub\wwwroot\Movies\images");
+                            SaveImage(tvListingItem.Movie.ImageUrl, @"C:\bckp\Images");
+                           // SaveImage(tvListingItem.Movie.ImageUrl, @"C:\inetpub\wwwroot\Movies\images");
                             tvListingItem.Movie.ImageUrl = "/images/" + GetFileName(tvListingItem.Movie.ImageUrl);
                             System.Threading.Thread.Sleep(1000);
                         }
@@ -163,7 +166,7 @@ namespace MovieParser
                     request.Headers.TryAddWithoutValidation("sec-fetch-user", "?1");
                     request.Headers.TryAddWithoutValidation("referer", url + "moje-stacje");
                     request.Headers.TryAddWithoutValidation("accept-language", "pl-PL,pl;q=0.9,en-US;q=0.8,en;q=0.7");
-                    request.Headers.TryAddWithoutValidation("cookie", "_ga=GA1.2.1956076884.1584224461; _gid=GA1.2.1238955367.1616281351; __gads=ID=9c4b6acaa7e52d59:T=1609282725:R:S=ALNI_MbWdYeMo4MTxpA5_ibgaVL3QhD48g; SID=l3xa6s7qaqaf5zq035vvmmd97gp9n44g");
+                    request.Headers.TryAddWithoutValidation("cookie", "_ga=GA1.2.1990499222.1672409931; _gid=GA1.2.27404253.1672409931; __gads=ID=95f34f49af2bd62b:T=1672409984:S=ALNI_Mar-JVGU3HT_Q08u3bCOyRPq8k-mw; SID=ejqzl9zvo4rnwhmiju03kdi3rypfnco2");
 
                     var response = await httpClient.SendAsync(request);
                     var result = await response.Content.ReadAsStringAsync();

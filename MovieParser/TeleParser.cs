@@ -26,11 +26,11 @@ namespace MovieParser
             var result = allNodes.Select(n =>
                 new TvListingItem
                 {
-                    Channel = channels.First(c => c.Name == getNameFromString(n.Descendants().Single(n2 => n2.Name == "figure").OuterHtml)),
+                    Channel = GetChannelName(channels, n),
                     StartTime = ParseDate(n.ChildNodes.Last().ChildNodes.Last().PreviousSibling.InnerText, n.ChildNodes.Last().ChildNodes.Last().InnerText),
                     Movie = new Movie()
                     {
-                        Title = n.Descendants().Single(n2 => n2.Name == "h3").InnerText,
+                        Title = System.Net.WebUtility.HtmlDecode(n.Descendants().Single(n2 => n2.Name == "h3").InnerText),
                         Rating = ParseRating(n.Descendants().SingleOrDefault(n => n.Name == "div" && n.Attributes["class"]?.Value == "imdb")?.InnerText),
                         Category = n.Descendants().SingleOrDefault(n => n.Name == "div" && n.Attributes["class"]?.Value == "info").FirstChild.InnerText.ToLower(),
                         Year = ParseYear(n.Descendants().SingleOrDefault(n => n.Name == "div" && n.Attributes["class"]?.Value == "info").LastChild.InnerText),
@@ -40,6 +40,12 @@ namespace MovieParser
                     }
                 }).ToList();
             return result;
+        }
+
+        private Channel GetChannelName(IEnumerable<Channel> channels, HtmlNode n)
+        {
+            var parsedName = getNameFromString(n.Descendants().Single(n2 => n2.Name == "figure").OuterHtml);
+            return channels.FirstOrDefault(c => c.Name == parsedName);
         }
 
         private string ParseCountry(string innerText)
@@ -141,6 +147,8 @@ namespace MovieParser
                 return "PolsatFilm";
             if (v.Contains("174.png"))
                 return "CanalPlusFamily";
+            if (v.Contains("170.png"))
+                return "Puls2";
             if (v.Contains("16.png"))
                 return "CanalPlus.pl";
             if (v.Contains("20.png"))
@@ -155,6 +163,24 @@ namespace MovieParser
                 return "AleKino";      
             if (v.Contains("5.png"))
                 return "TVPKultura";
+            if (v.Contains("/74.png"))
+                return "KinoTV";
+            if (v.Contains("/18.png"))
+                return "AXN";
+            if (v.Contains("126.png"))
+                return "EpicDrama";
+            if (v.Contains("13.png"))
+                return "CbsEuropa";
+            if (v.Contains("38.png"))
+                return "WarnerTV";
+            if (v.Contains("8.png"))
+                return "TVPuls";
+            if (v.Contains("3.png"))
+                return "Polsat";
+            if (v.Contains("1.png"))
+                return "TVP1";
+            if (v.Contains("2.png"))
+                return "TVP2";
             return "Unknown";
         }
     }
