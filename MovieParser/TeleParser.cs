@@ -105,7 +105,9 @@ namespace MovieParser
             }
 
             var descriptionTag = FindTagWithItemProp(doc, "p", "description").FirstOrDefault();
-            var description = Regex.Replace(descriptionTag.InnerText, @"\s?\(?<[a-z<>\s]*>\)?", "");
+            if (descriptionTag == null)
+                return;
+            var description = Regex.Replace(descriptionTag?.InnerText, @"\s?\(?<[a-z<>\s]*>\)?", "");
             if (!string.IsNullOrEmpty(description))
                 movie.Description = description;
             var imageTag = FindTagWithItemProp(doc, "img", "image").FirstOrDefault();
@@ -150,7 +152,7 @@ namespace MovieParser
             if (v.Contains("170.png"))
                 return "Puls2";
             if (v.Contains("16.png"))
-                return "CanalPlus.pl";
+                return "CanalPlus";
             if (v.Contains("20.png"))
                 return "CanalPlusFilm";
             if (v.Contains("21.png"))

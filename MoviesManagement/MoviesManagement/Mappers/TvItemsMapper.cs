@@ -48,6 +48,16 @@ namespace MoviesManagement.Mappers
             };
         }
 
+        public RecordingDto MapRecordingRequest(long movieId, DateTime recordingDate)
+        {
+
+            return new RecordingDto
+            {
+                Movie = new MovieDto { Id = movieId},
+                RecordedAtTime = recordingDate
+            };
+        }
+
         public MovieViewModel MapMovie(Movie movie)
         {
             return new MovieViewModel
@@ -113,6 +123,15 @@ namespace MoviesManagement.Mappers
                 Country = movie.Country,
                 Rating = movie.Rating ?? 0,
                 Year = movie.Year
+            };
+        }
+
+        public RecordMovieViewModel MapRecordMovieRequest(Movie movie)
+        {
+            return new RecordMovieViewModel
+            {
+                MovieTitle = movie.Title,
+                RecordedAt = DateTime.Now
             };
         }
     }

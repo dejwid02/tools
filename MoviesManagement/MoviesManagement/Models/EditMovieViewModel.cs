@@ -23,4 +23,6 @@ namespace MoviesManagement.Models
         public double Rating { get; set; }
         public long Id { get; set; }
     }
+
+    
 }

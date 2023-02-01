@@ -45,6 +45,15 @@ namespace MoviesManagement.Controllers
             return await Task.FromResult(View("Edit", vm));
         }
 
+        public async Task<IActionResult> Record(int id)
+        {
+            var movie = await apiClient.GetAsync<Movie>(@$"/api/movies/{id}");
+            var vm = mapper.MapRecordMovieRequest(movie);
+            vm.Id = movie.Id;
+
+            return await Task.FromResult(View("Record", vm));
+
+        }
         public async Task<IActionResult> Delete(int id)
         {
             await apiClient.Delete(@$"/api/movies/{id}");
@@ -68,6 +77,14 @@ namespace MoviesManagement.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public async Task<IActionResult> SaveRecorded(RecordMovieViewModel vm)
+        {
+            var request = mapper.MapRecordingRequest(vm.Id, vm.RecordedAt);
+            await apiClient.PostAsync<RecordingDto, RecordingDto>("api/recordings", request);
+
+            return RedirectToAction("Index");
+        }
 
         [HttpPost]
         public async Task<IActionResult> Create(CreateMovieViewModel model)
