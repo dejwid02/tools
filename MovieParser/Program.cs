@@ -41,9 +41,10 @@ namespace MovieParser
 
                 var channels = repository.GetAllChannels();
                 var filterDate = repository.GetLastLog()?.LastSynchronizedDate ?? DateTime.Now;
+                var oldestDate = int.Parse(configuration["OldestYear"]);
                 List<TvListingItem> tvItems = GetTeleTvItems(providerUrl, channels);
                 var existingRecordings = repository.GetAllRecordings();
-                contents = tvItems.Where(item => (item.Movie.Rating > 6.0 ) && item.StartTime > filterDate).OrderBy(i => i.StartTime);
+                contents = tvItems.Where(item => (item.Movie.Rating > 6.0 && item.Movie.Year >= oldestDate) && item.StartTime > filterDate).OrderBy(i => i.StartTime);
                 var existingMovies = new List<Movie>();
                 var existingActors = new List<Actor>();
                 var existingDirectors = new List<Director>();
