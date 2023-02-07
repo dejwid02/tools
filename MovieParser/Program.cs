@@ -192,7 +192,7 @@ namespace MovieParser
                 result.Add(pageContent);
                 System.Threading.Thread.Sleep(1000);
             }
-            while (page++ < totalPages);
+            while (page++ < 2);
 
             return result;
 

@@ -42,6 +42,8 @@ namespace MoviesManagement
 
         public async Task<TOut> PostAsync<TOut>(string path, HttpContent content)
         {
+            var token = await _accessor.HttpContext.GetTokenAsync("access_token");
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var result = await client.PostAsync(path, content);
             int status = (int)result.StatusCode;
 
@@ -56,6 +58,8 @@ namespace MoviesManagement
 
         public async Task<TOut> PostAsync<TIn, TOut>(string path, TIn content)
         {
+            var token = await _accessor.HttpContext.GetTokenAsync("access_token");
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var json = JsonConvert.SerializeObject(content);
             var sContent = new StringContent(json, Encoding.UTF8, "application/json");
             var result = await client.PostAsync(path, sContent);
@@ -77,6 +81,8 @@ namespace MoviesManagement
 
         public async Task Delete(string path)
         {
+            var token = await _accessor.HttpContext.GetTokenAsync("access_token");
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var result = await client.DeleteAsync(path);
             if (result.IsSuccessStatusCode)
             {
@@ -87,6 +93,8 @@ namespace MoviesManagement
 
         public async Task<bool> PutAsync<Tin>(string path, Tin content)
         {
+            var token = await _accessor.HttpContext.GetTokenAsync("access_token");
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var json = JsonConvert.SerializeObject(content);
             var content2 = new StringContent(json, Encoding.UTF8, "application/json");
             var result = await client.PutAsync(path, content2);

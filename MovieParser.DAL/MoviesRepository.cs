@@ -53,6 +53,11 @@ namespace MovieParser.DAL
             return _context.Channels.ToArray();
         }
 
+        public Recording GetRecordingForMovie(long movieId)
+        {
+            return _context.Recordings.FirstOrDefault(r => r.Movie.Id == movieId);
+        }
+
         TvListingItem[] IMoviesRepository.GetAllTvListingItems()
         {
             return _context.TvListingItems

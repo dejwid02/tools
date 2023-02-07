@@ -19,12 +19,14 @@ namespace Movies.API.Controllers
         private readonly IMoviesRepository repository;
         private readonly IMapper mapper;
         private readonly LinkGenerator linkGenerator;
+        private readonly IAuthorizationService _authorizationService;
 
-        public MoviesController(IMoviesRepository repository, IMapper mapper, LinkGenerator linkGenerator)
+        public MoviesController(IMoviesRepository repository, IMapper mapper, LinkGenerator linkGenerator, IAuthorizationService authorizationService)
         {
             this.repository = repository;
             this.mapper = mapper;
             this.linkGenerator = linkGenerator;
+            _authorizationService = authorizationService;
         }
         // GET: api/Movies
         [HttpGet]
@@ -67,6 +69,8 @@ namespace Movies.API.Controllers
         [HttpPut("{id}")]
         public ActionResult<Data.Movie> Update(long id, Data.Movie movie)
         {
+            if (!_authorizationService.IsAdmin())
+                return Unauthorized();
             try
             {
                 var existing = repository.GetMovie(id);
@@ -88,7 +92,9 @@ namespace Movies.API.Controllers
         [HttpPost]
         public ActionResult<Data.Movie> Create(Data.Movie movie)
         {
-            if(repository.GetMovie(movie.Id)!= null)
+            if (!_authorizationService.IsAdmin())
+                return Unauthorized();
+            if (repository.GetMovie(movie.Id)!= null)
             {
                 return BadRequest("Movie with this id already exists");
             }
@@ -106,16 +112,15 @@ namespace Movies.API.Controllers
         [HttpDelete("{id:long}")]
         public ActionResult Delete(long id)
         {
+            if (!_authorizationService.IsAdmin())
+                return Unauthorized();
+
             var recordings = repository.GetAllRecordings().Where(r => r.Movie.Id == id);
             foreach (var item in recordings)
             {
                 repository.Delete(item);
             }
 
-            var movieToDelete = repository.GetMovie(id);
-            if (movieToDelete == null)
-                return NotFound();
-            repository.Delete(movieToDelete);
             repository.SaveChanges();
             return Ok();
         }

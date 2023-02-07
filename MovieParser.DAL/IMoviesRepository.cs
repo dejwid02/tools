@@ -21,6 +21,7 @@ namespace MovieParser.DAL
         Channel[] GetAllChannels();
         Recording[] GetAllRecordings();
         Recording GetRecording(int id);
+        Recording GetRecordingForMovie(long movieId);
         TvListingItem[] GetAllTvListingItems();
         TvListingItem GetTvListingItem(int id);
         MovieUserData[] GetAllMovieUserData();

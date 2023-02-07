@@ -32,7 +32,9 @@ namespace Movies.API
                 builder.Services.AddAutoMapper(typeof(Program));
                 builder.Services.AddDbContext<MoviesDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
                 builder.Services.AddScoped<IMoviesRepository, MoviesRepository>();
+                builder.Services.AddScoped<IAuthorizationService, AuthorizationService>();
                 builder.Services.AddCors();
+                builder.Services.AddHttpContextAccessor();
                 builder.Services.AddAuthentication("Bearer")
                     .AddJwtBearer("Bearer", options =>
                     {

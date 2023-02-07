@@ -24,20 +24,22 @@ namespace Movies.API.Controllers
         private readonly IMoviesRepository repository;
         private readonly IMapper mapper;
         private readonly LinkGenerator linkGenerator;
+        private readonly IAuthorizationService _authorizationService;
 
-        public RecordingsController(ILogger<TvItemsController> logger, IMoviesRepository repository, IMapper mapper, LinkGenerator linkGenerator)
+        public RecordingsController(ILogger<TvItemsController> logger, IMoviesRepository repository, IMapper mapper, LinkGenerator linkGenerator, IAuthorizationService authorizationService)
         {
             this.logger = logger;
             this.repository = repository;
             this.mapper = mapper;
             this.linkGenerator = linkGenerator;
+            _authorizationService = authorizationService;
         }
 
         // GET: api/<controller>
         [HttpGet]
         public ActionResult<IEnumerable<Recording>> Get()
         {
-            return Ok(repository.GetAllRecordings().Select(i=>mapper.Map<Data.Recording>(i)));
+            return Ok(repository.GetAllRecordings().Select(i=>mapper.Map<Data.Recording>(i)).OrderByDescending(m=>m.RecordedAtTime));
         }
 
         // GET api/<controller>/5
@@ -60,6 +62,8 @@ namespace Movies.API.Controllers
         [HttpPost]
         public ActionResult<Data.Recording> Post(Data.Recording recording)
         {
+            if (!_authorizationService.IsAdmin())
+                return Unauthorized();
             try
             {
                 var mappedRecording = mapper.Map<MovieParser.Entities.Recording>(recording);
@@ -72,6 +76,8 @@ namespace Movies.API.Controllers
                 {
                     return BadRequest("Movie can not be found");
                 }
+                if (repository.GetRecordingForMovie(recording.Movie.Id) != null)
+                    return BadRequest("Movie already recorded");
 
                 mappedRecording.Movie = movie;
                 repository.Add(mappedRecording);
@@ -93,6 +99,8 @@ namespace Movies.API.Controllers
         [HttpPut("{id:int}")]
         public ActionResult Put(int id, Recording recording)
         {
+            if (!_authorizationService.IsAdmin())
+                return Unauthorized();
             try
             {
                 var oldRecording = repository.GetRecording(id);
@@ -122,6 +130,8 @@ namespace Movies.API.Controllers
         [HttpDelete("{id:int}")]
         public ActionResult Delete(int id)
         {
+            if (!_authorizationService.IsAdmin())
+                return Unauthorized();
             var oldRecording = repository.GetRecording(id);
             if (oldRecording == null) return NotFound($"Could not get recording with id {id}");
 
